@@ -1,2 +1,770 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{"3HR4":function(t,a,e){"use strict";var r=e("o0o1"),o=e.n(r),n=e("L2JU"),i=e("8BOd");e("i8R7");function s(t,a,e,r,o,n,i){try{var s=t[n](i),c=s.value}catch(t){return void e(t)}s.done?a(c):Promise.resolve(c).then(r,o)}function c(t,a){var e=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);a&&(r=r.filter((function(a){return Object.getOwnPropertyDescriptor(t,a).enumerable}))),e.push.apply(e,r)}return e}function l(t){for(var a=1;a<arguments.length;a++){var e=null!=arguments[a]?arguments[a]:{};a%2?c(Object(e),!0).forEach((function(a){f(t,a,e[a])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(e)):c(Object(e)).forEach((function(a){Object.defineProperty(t,a,Object.getOwnPropertyDescriptor(e,a))}))}return t}function f(t,a,e){return a in t?Object.defineProperty(t,a,{value:e,enumerable:!0,configurable:!0,writable:!0}):t[a]=e,t}a.a={components:{},data:function(){return{formData:{},formErrors:{},initialFormData:null,initianLength:0,emptyFormData:null,entity:null,preRequisite:{},isLoading:!0,dataType:null,configType:""}},computed:l({},Object(n.c)("config",["configs","vars"])),methods:l(l(l({},Object(n.b)("config",["GetConfig"])),Object(n.b)("navigation",["Generate"])),{},{findActualValue:function(t,a){var e=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"uuid";return a.find((function(a){return a[e]===t}))||null},submit:function(){var t=this,a=arguments.length>0&&void 0!==arguments[0]&&arguments[0];if(formUtil.isUnchanged(this.initialFormData,this.formData))return this.$toasted.info(this.$t("general.nothing_changed"),this.$toastConfig.info),!1;this.isLoading=!0,this.formData.type=this.formData.type.snakeCase();var e=!0===a?i.e:"module"===this.configType?i.d:i.c;"function"==typeof this.beforeSubmit&&this.beforeSubmit(),e(this.formData).then((function(a){t.GetConfig().then((function(){t.$toasted.success(a.message,t.$toastConfig),t.initialFormData=_.cloneDeep(t.formData),t.isLoading=!1})).catch((function(a){t.isLoading=!1,t.formErrors=formUtil.handleErrors(a)})),"function"==typeof t.afterSubmit&&t.afterSubmit(),"function"==typeof t.afterSubmitSuccess&&t.afterSubmitSuccess()})).catch((function(a){t.isLoading=!1,t.formErrors=formUtil.handleErrors(a),"function"==typeof t.afterSubmit&&t.afterSubmit(),"function"==typeof t.afterSubmitError&&t.afterSubmitError()}))},reset:function(){var t=this;formUtil.confirmAction().then((function(a){a.value&&(t.formData=Object.assign({},t.formData,_.cloneDeep(t.initialFormData)))}))},unsavedCheck:function(t){formUtil.unsavedCheckAlert(this.initialFormData,this.formData,t)},fillPreRequisite:function(t){var a=this;this.preRequisite.objForEach((function(e,r){a.preRequisite[r]=t[r]||e})),this.isLoading=!1},fillFormData:function(){var t=this;this.isLoading=!0,this.formData.type&&this.configs[this.formData.type]&&(this.formData=formUtil.assignValues(this.formData,this.configs[this.formData.type])),this.formData.types&&Array.isArray(this.formData.types)&&this.formData.types.forEach((function(a){t.formData=formUtil.assignValues(t.formData,t.configs[a])})),"function"==typeof this.addNewRow&&"function"==typeof this.addNewRowIfNone&&this.addNewRowIfNone(),this.isLoading=!1},getInitialData:function(t){var a,e=this;return(a=o.a.mark((function a(){var r;return o.a.wrap((function(a){for(;;)switch(a.prev=a.next){case 0:return e.isLoading=!0,a.prev=1,a.next=4,i.b(Object.keys(e.preRequisite).join(","));case 4:return r=a.sent,e.fillPreRequisite(r),t&&e.$nextTick((function(){t()})),a.abrupt("return",r);case 10:throw a.prev=10,a.t0=a.catch(1),e.isLoading=!1,e.formErrors=formUtil.handleErrors(a.t0),a.t0;case 15:case"end":return a.stop()}}),a,null,[[1,10]])})),function(){var t=this,e=arguments;return new Promise((function(r,o){var n=a.apply(t,e);function i(t){s(n,r,o,i,c,"next",t)}function c(t){s(n,r,o,i,c,"throw",t)}i(void 0)}))})()}}),mounted:function(){this.fillFormData(),this.initialFormData=_.cloneDeep(this.formData)},beforeDestroy:function(){delete this.formData,delete this.formErrors,delete this.preRequisite},beforeRouteLeave:function(t,a,e){this.unsavedCheck(e)}}},"lD+M":function(t,a,e){"use strict";e.r(a);var r=e("3HR4"),o=e("fHbr"),n={extends:r.a,components:{CollapseTransition:o.a},data:function(){return{formData:{razorpay:!1,razorpayChargeHandlingFee:!1,razorpayFixedHandlingFee:!1,razorpayHandlingFee:0,razorpayKey:"",razorpayMode:!1,razorpaySecret:"",type:"paymentGateway"}}},mounted:function(){this.getInitialData()}},i=e("KHd+"),s=Object(i.a)(n,(function(){var t=this,a=t.$createElement,e=t._self._c||a;return e("base-container",{attrs:{boxed:"","with-loader":"","is-loading":t.isLoading,"loader-color":t.vars.loaderColor}},[e("form",{on:{submit:function(a){return a.preventDefault(),t.submit(a)}}},[e("fieldset",{staticClass:"fieldset pt-4"},[e("legend",[t._v("\n                RazorPay\n                "),e("div",{staticClass:"d-inline-flex align-items-center"},[e("base-checkbox",{staticClass:"ml-3 mt-1 mb-1",attrs:{inline:""},model:{value:t.formData.razorpay,callback:function(a){t.$set(t.formData,"razorpay",a)},expression:"formData.razorpay"}},[t._v("\n                        "+t._s(t.$t("general.enabled"))+"\n                    ")])],1)]),t._v(" "),e("collapse-transition",[t.formData.razorpay?e("div",{staticClass:"row"},[e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("switch-wrapper",{attrs:{label:t.$t("config.payment_gateway.live_mode",{attribute:"RazorPay"})}},[e("base-switch",{model:{value:t.formData.razorpayMode,callback:function(a){t.$set(t.formData,"razorpayMode",a)},expression:"formData.razorpayMode"}})],1)],1),t._v(" "),e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("switch-wrapper",{attrs:{label:t.$t("config.payment_gateway.charge_handling_fee")}},[e("base-switch",{model:{value:t.formData.razorpayChargeHandlingFee,callback:function(a){t.$set(t.formData,"razorpayChargeHandlingFee",a)},expression:"formData.razorpayChargeHandlingFee"}})],1)],1),t._v(" "),t.formData.razorpayChargeHandlingFee?e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("switch-wrapper",{attrs:{label:t.$t("config.payment_gateway.fixed_handling_fee")}},[e("base-switch",{model:{value:t.formData.razorpayFixedHandlingFee,callback:function(a){t.$set(t.formData,"razorpayFixedHandlingFee",a)},expression:"formData.razorpayFixedHandlingFee"}})],1)],1):t._e(),t._v(" "),e("div",{staticClass:"col-12"}),t._v(" "),e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("base-input",{attrs:{label:t.$t("config.payment_gateway.key",{attribute:"RazorPay"}),type:"text",error:t.formErrors.razorpayKey,disabled:t.isLoading},on:{"update:error":function(a){return t.$set(t.formErrors,"razorpayKey",a)}},model:{value:t.formData.razorpayKey,callback:function(a){t.$set(t.formData,"razorpayKey",a)},expression:"formData.razorpayKey"}})],1),t._v(" "),e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("base-input",{attrs:{label:t.$t("config.payment_gateway.secret",{attribute:"RazorPay"}),type:"text",error:t.formErrors.razorpaySecret,disabled:t.isLoading},on:{"update:error":function(a){return t.$set(t.formErrors,"razorpaySecret",a)}},model:{value:t.formData.razorpaySecret,callback:function(a){t.$set(t.formData,"razorpaySecret",a)},expression:"formData.razorpaySecret"}})],1),t._v(" "),t.formData.razorpayChargeHandlingFee?[t.formData.razorpayFixedHandlingFee?e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("base-input",{attrs:{label:t.$t("config.payment_gateway.attr_handling_fee",{attribute:"RazorPay"}),type:"text",error:t.formErrors.razorpayHandlingFee,disabled:t.isLoading,"addon-left-text":t.vars.defaultCurrency.prefix,"addon-right-text":t.vars.defaultCurrency.suffix},on:{"update:error":function(a){return t.$set(t.formErrors,"razorpayHandlingFee",a)}},model:{value:t.formData.razorpayHandlingFee,callback:function(a){t.$set(t.formData,"razorpayHandlingFee",a)},expression:"formData.razorpayHandlingFee"}})],1):e("div",{staticClass:"col-12 col-md-4 mb-4"},[e("base-input",{attrs:{label:t.$t("config.payment_gateway.attr_handling_fee",{attribute:"RazorPay"}),type:"text",error:t.formErrors.razorpayHandlingFee,disabled:t.isLoading,"addon-right-icon":"fas fa-percent"},on:{"update:error":function(a){return t.$set(t.formErrors,"razorpayHandlingFee",a)}},model:{value:t.formData.razorpayHandlingFee,callback:function(a){t.$set(t.formData,"razorpayHandlingFee",a)},expression:"formData.razorpayHandlingFee"}})],1)]:t._e()],2):e("h5",{staticClass:"text-muted"},[t._v(t._s(t.$t("config.payment_gateway.disabled")))])])],1),t._v(" "),e("div",{staticClass:"text-right mt-5"},[e("base-button",{attrs:{type:"button",design:"light"},on:{click:t.reset}},[t._v(t._s(t.$t("general.reset")))]),t._v(" "),e("base-button",{attrs:{type:"submit",design:"primary"}},[t._v(t._s(t.$t("general.save")))])],1)])])}),[],!1,null,null,null);a.default=s.exports}}]);
-//# sourceMappingURL=index.js.map?id=2322e76ab3262f5fcb7c
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/app/config/payment-gateway/index"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/payment-gateway/index.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/app/config/payment-gateway/index.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_config_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mixins/config-form */ "./resources/js/mixins/config-form.js");
+/* harmony import */ var vue2_transitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-transitions */ "./node_modules/vue2-transitions/dist/vue2-transitions.m.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": _mixins_config_form__WEBPACK_IMPORTED_MODULE_0__["default"],
+  components: {
+    CollapseTransition: vue2_transitions__WEBPACK_IMPORTED_MODULE_1__["CollapseTransition"]
+  },
+  data: function data() {
+    return {
+      formData: {
+        razorpay: false,
+        razorpayChargeHandlingFee: false,
+        razorpayFixedHandlingFee: false,
+        razorpayHandlingFee: 0,
+        razorpayKey: "",
+        razorpayMode: false,
+        razorpaySecret: "",
+        type: 'paymentGateway'
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getInitialData();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/payment-gateway/index.vue?vue&type=template&id=2d07c660&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/app/config/payment-gateway/index.vue?vue&type=template&id=2d07c660& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "base-container",
+    {
+      attrs: {
+        boxed: "",
+        "with-loader": "",
+        "is-loading": _vm.isLoading,
+        "loader-color": _vm.vars.loaderColor
+      }
+    },
+    [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c(
+            "fieldset",
+            { staticClass: "fieldset pt-4" },
+            [
+              _c("legend", [
+                _vm._v("\n                RazorPay\n                "),
+                _c(
+                  "div",
+                  { staticClass: "d-inline-flex align-items-center" },
+                  [
+                    _c(
+                      "base-checkbox",
+                      {
+                        staticClass: "ml-3 mt-1 mb-1",
+                        attrs: { inline: "" },
+                        model: {
+                          value: _vm.formData.razorpay,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "razorpay", $$v)
+                          },
+                          expression: "formData.razorpay"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.$t("general.enabled")) +
+                            "\n                    "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("collapse-transition", [
+                _vm.formData.razorpay
+                  ? _c(
+                      "div",
+                      { staticClass: "row" },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "col-12 col-md-4 mb-4" },
+                          [
+                            _c(
+                              "switch-wrapper",
+                              {
+                                attrs: {
+                                  label: _vm.$t(
+                                    "config.payment_gateway.live_mode",
+                                    { attribute: "RazorPay" }
+                                  )
+                                }
+                              },
+                              [
+                                _c("base-switch", {
+                                  model: {
+                                    value: _vm.formData.razorpayMode,
+                                    callback: function($$v) {
+                                      _vm.$set(
+                                        _vm.formData,
+                                        "razorpayMode",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "formData.razorpayMode"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-12 col-md-4 mb-4" },
+                          [
+                            _c(
+                              "switch-wrapper",
+                              {
+                                attrs: {
+                                  label: _vm.$t(
+                                    "config.payment_gateway.charge_handling_fee"
+                                  )
+                                }
+                              },
+                              [
+                                _c("base-switch", {
+                                  model: {
+                                    value:
+                                      _vm.formData.razorpayChargeHandlingFee,
+                                    callback: function($$v) {
+                                      _vm.$set(
+                                        _vm.formData,
+                                        "razorpayChargeHandlingFee",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "formData.razorpayChargeHandlingFee"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm.formData.razorpayChargeHandlingFee
+                          ? _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 mb-4" },
+                              [
+                                _c(
+                                  "switch-wrapper",
+                                  {
+                                    attrs: {
+                                      label: _vm.$t(
+                                        "config.payment_gateway.fixed_handling_fee"
+                                      )
+                                    }
+                                  },
+                                  [
+                                    _c("base-switch", {
+                                      model: {
+                                        value:
+                                          _vm.formData.razorpayFixedHandlingFee,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.formData,
+                                            "razorpayFixedHandlingFee",
+                                            $$v
+                                          )
+                                        },
+                                        expression:
+                                          "formData.razorpayFixedHandlingFee"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-12 col-md-4 mb-4" },
+                          [
+                            _c("base-input", {
+                              attrs: {
+                                label: _vm.$t("config.payment_gateway.key", {
+                                  attribute: "RazorPay"
+                                }),
+                                type: "text",
+                                error: _vm.formErrors.razorpayKey,
+                                disabled: _vm.isLoading
+                              },
+                              on: {
+                                "update:error": function($event) {
+                                  return _vm.$set(
+                                    _vm.formErrors,
+                                    "razorpayKey",
+                                    $event
+                                  )
+                                }
+                              },
+                              model: {
+                                value: _vm.formData.razorpayKey,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.formData, "razorpayKey", $$v)
+                                },
+                                expression: "formData.razorpayKey"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-12 col-md-4 mb-4" },
+                          [
+                            _c("base-input", {
+                              attrs: {
+                                label: _vm.$t("config.payment_gateway.secret", {
+                                  attribute: "RazorPay"
+                                }),
+                                type: "text",
+                                error: _vm.formErrors.razorpaySecret,
+                                disabled: _vm.isLoading
+                              },
+                              on: {
+                                "update:error": function($event) {
+                                  return _vm.$set(
+                                    _vm.formErrors,
+                                    "razorpaySecret",
+                                    $event
+                                  )
+                                }
+                              },
+                              model: {
+                                value: _vm.formData.razorpaySecret,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.formData, "razorpaySecret", $$v)
+                                },
+                                expression: "formData.razorpaySecret"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm.formData.razorpayChargeHandlingFee
+                          ? [
+                              _vm.formData.razorpayFixedHandlingFee
+                                ? _c(
+                                    "div",
+                                    { staticClass: "col-12 col-md-4 mb-4" },
+                                    [
+                                      _c("base-input", {
+                                        attrs: {
+                                          label: _vm.$t(
+                                            "config.payment_gateway.attr_handling_fee",
+                                            { attribute: "RazorPay" }
+                                          ),
+                                          type: "text",
+                                          error:
+                                            _vm.formErrors.razorpayHandlingFee,
+                                          disabled: _vm.isLoading,
+                                          "addon-left-text":
+                                            _vm.vars.defaultCurrency.prefix,
+                                          "addon-right-text":
+                                            _vm.vars.defaultCurrency.suffix
+                                        },
+                                        on: {
+                                          "update:error": function($event) {
+                                            return _vm.$set(
+                                              _vm.formErrors,
+                                              "razorpayHandlingFee",
+                                              $event
+                                            )
+                                          }
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.formData.razorpayHandlingFee,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "razorpayHandlingFee",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "formData.razorpayHandlingFee"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                : _c(
+                                    "div",
+                                    { staticClass: "col-12 col-md-4 mb-4" },
+                                    [
+                                      _c("base-input", {
+                                        attrs: {
+                                          label: _vm.$t(
+                                            "config.payment_gateway.attr_handling_fee",
+                                            { attribute: "RazorPay" }
+                                          ),
+                                          type: "text",
+                                          error:
+                                            _vm.formErrors.razorpayHandlingFee,
+                                          disabled: _vm.isLoading,
+                                          "addon-right-icon": "fas fa-percent"
+                                        },
+                                        on: {
+                                          "update:error": function($event) {
+                                            return _vm.$set(
+                                              _vm.formErrors,
+                                              "razorpayHandlingFee",
+                                              $event
+                                            )
+                                          }
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.formData.razorpayHandlingFee,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "razorpayHandlingFee",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "formData.razorpayHandlingFee"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                            ]
+                          : _vm._e()
+                      ],
+                      2
+                    )
+                  : _c("h5", { staticClass: "text-muted" }, [
+                      _vm._v(_vm._s(_vm.$t("config.payment_gateway.disabled")))
+                    ])
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-right mt-5" },
+            [
+              _c(
+                "base-button",
+                {
+                  attrs: { type: "button", design: "light" },
+                  on: { click: _vm.reset }
+                },
+                [_vm._v(_vm._s(_vm.$t("general.reset")))]
+              ),
+              _vm._v(" "),
+              _c(
+                "base-button",
+                { attrs: { type: "submit", design: "primary" } },
+                [_vm._v(_vm._s(_vm.$t("general.save")))]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/mixins/config-form.js":
+/*!********************************************!*\
+  !*** ./resources/js/mixins/config-form.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _api_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @api/config */ "./resources/js/api/config.js");
+/* harmony import */ var _js_core_utils_formatter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @js/core/utils/formatter */ "./resources/js/core/utils/formatter.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  data: function data() {
+    return {
+      formData: {},
+      formErrors: {},
+      initialFormData: null,
+      initianLength: 0,
+      emptyFormData: null,
+      entity: null,
+      preRequisite: {},
+      isLoading: true,
+      dataType: null,
+      configType: ''
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('config', ['configs', 'vars'])),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('config', ['GetConfig'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('navigation', ['Generate'])), {}, {
+    findActualValue: function findActualValue(value, options) {
+      var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'uuid';
+      return options.find(function (option) {
+        return option[key] === value;
+      }) || null;
+    },
+    submit: function submit() {
+      var _this = this;
+
+      var preference = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (formUtil.isUnchanged(this.initialFormData, this.formData)) {
+        this.$toasted.info(this.$t('general.nothing_changed'), this.$toastConfig.info);
+        return false;
+      }
+
+      this.isLoading = true;
+      this.formData.type = this.formData.type.snakeCase();
+      var storeFn = preference === true ? _api_config__WEBPACK_IMPORTED_MODULE_2__["updateUserPref"] : this.configType === 'module' ? _api_config__WEBPACK_IMPORTED_MODULE_2__["updateModule"] : _api_config__WEBPACK_IMPORTED_MODULE_2__["update"];
+
+      if (typeof this.beforeSubmit === "function") {
+        this.beforeSubmit();
+      }
+
+      storeFn(this.formData).then(function (response) {
+        _this.GetConfig().then(function () {
+          _this.$toasted.success(response.message, _this.$toastConfig);
+
+          _this.initialFormData = _.cloneDeep(_this.formData);
+          _this.isLoading = false;
+        })["catch"](function (error) {
+          _this.isLoading = false;
+          _this.formErrors = formUtil.handleErrors(error);
+        });
+
+        if (typeof _this.afterSubmit === "function") {
+          _this.afterSubmit();
+        }
+
+        if (typeof _this.afterSubmitSuccess === "function") {
+          _this.afterSubmitSuccess();
+        }
+      })["catch"](function (error) {
+        _this.isLoading = false;
+        _this.formErrors = formUtil.handleErrors(error);
+
+        if (typeof _this.afterSubmit === "function") {
+          _this.afterSubmit();
+        }
+
+        if (typeof _this.afterSubmitError === "function") {
+          _this.afterSubmitError();
+        }
+      });
+    },
+    reset: function reset() {
+      var _this2 = this;
+
+      formUtil.confirmAction().then(function (result) {
+        if (result.value) {
+          _this2.formData = Object.assign({}, _this2.formData, _.cloneDeep(_this2.initialFormData));
+        }
+      });
+    },
+    unsavedCheck: function unsavedCheck(next) {
+      formUtil.unsavedCheckAlert(this.initialFormData, this.formData, next);
+    },
+    fillPreRequisite: function fillPreRequisite(response) {
+      var _this3 = this;
+
+      this.preRequisite.objForEach(function (value, key) {
+        _this3.preRequisite[key] = response[key] || value;
+      });
+      this.isLoading = false;
+    },
+    fillFormData: function fillFormData() {
+      var _this4 = this;
+
+      this.isLoading = true;
+
+      if (this.formData.type && this.configs[this.formData.type]) {
+        this.formData = formUtil.assignValues(this.formData, this.configs[this.formData.type]);
+      }
+
+      if (this.formData.types && Array.isArray(this.formData.types)) {
+        this.formData.types.forEach(function (value) {
+          _this4.formData = formUtil.assignValues(_this4.formData, _this4.configs[value]);
+        });
+      }
+
+      if (typeof this.addNewRow === "function" && typeof this.addNewRowIfNone === "function") {
+        this.addNewRowIfNone();
+      }
+
+      this.isLoading = false;
+    },
+    getInitialData: function getInitialData(callbackFn) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this5.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return _api_config__WEBPACK_IMPORTED_MODULE_2__["getPreRequisite"](Object.keys(_this5.preRequisite).join(','));
+
+              case 4:
+                response = _context.sent;
+
+                _this5.fillPreRequisite(response);
+
+                if (callbackFn) {
+                  _this5.$nextTick(function () {
+                    callbackFn();
+                  });
+                }
+
+                return _context.abrupt("return", response);
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](1);
+                _this5.isLoading = false;
+                _this5.formErrors = formUtil.handleErrors(_context.t0);
+                throw _context.t0;
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 10]]);
+      }))();
+    }
+  }),
+  mounted: function mounted() {
+    this.fillFormData();
+    this.initialFormData = _.cloneDeep(this.formData);
+  },
+  beforeDestroy: function beforeDestroy() {
+    delete this.formData;
+    delete this.formErrors;
+    delete this.preRequisite;
+  },
+  beforeRouteLeave: function beforeRouteLeave(to, from, next) {
+    this.unsavedCheck(next);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/views/app/config/payment-gateway/index.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/views/app/config/payment-gateway/index.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_vue_vue_type_template_id_2d07c660___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=2d07c660& */ "./resources/js/views/app/config/payment-gateway/index.vue?vue&type=template&id=2d07c660&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/views/app/config/payment-gateway/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_2d07c660___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_2d07c660___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/app/config/payment-gateway/index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/app/config/payment-gateway/index.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/views/app/config/payment-gateway/index.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/payment-gateway/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/app/config/payment-gateway/index.vue?vue&type=template&id=2d07c660&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/views/app/config/payment-gateway/index.vue?vue&type=template&id=2d07c660& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_2d07c660___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=2d07c660& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/payment-gateway/index.vue?vue&type=template&id=2d07c660&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_2d07c660___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_2d07c660___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=index.js.map?id=c6e1677c3668f32c6e22

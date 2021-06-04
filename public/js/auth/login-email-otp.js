@@ -1,2 +1,457 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[62],{CJTH:function(t,e,o){"use strict";var r={props:["footerCredit","version"]},n=(o("b9rR"),o("KHd+")),s=Object(n.a)(r,(function(){var t=this.$createElement,e=this._self._c||t;return e("footer",{staticClass:"guest-footer mt-2"},[e("p",{staticClass:"text-center text-white mb-0 py-3"},[this._v(this._s(this.footerCredit)+" "+this._s(this.$t("product.version"))+" "+this._s(this.version))])])}),[],!1,null,"739170b9",null);e.a=s.exports},DzPO:function(t,e,o){(e=t.exports=o("I1BE")(!1)).push([t.i,"@import url(https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900);",""]),e.push([t.i,".centered-box[data-v-7eb15e32]{flex-direction:column;width:90vw;margin:0 auto}.centered-box[data-v-7eb15e32],.powered-logo[data-v-7eb15e32]{display:flex;justify-content:center}.powered-logo[data-v-7eb15e32]{align-items:center;font-size:.8rem}.powered-logo span[data-v-7eb15e32]{line-height:10px}.powered-logo img[data-v-7eb15e32]{width:80px;margin-left:8px}@media (min-width:768px){.centered-box[data-v-7eb15e32]{width:400px}.centered-box.width-sm[data-v-7eb15e32]{width:350px}.centered-box.width-md[data-v-7eb15e32]{width:450px}.centered-box.width-xl[data-v-7eb15e32]{width:500px}.centered-box.width-xxl[data-v-7eb15e32]{width:550px}.centered-box.width-xxxl[data-v-7eb15e32]{width:600px}}",""])},WK6j:function(t,e,o){"use strict";var r=o("L2JU"),n=o("kUDz"),s=o("l7An"),i=o("CJTH");function a(t,e){var o=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),o.push.apply(o,r)}return o}function c(t){for(var e=1;e<arguments.length;e++){var o=null!=arguments[e]?arguments[e]:{};e%2?a(Object(o),!0).forEach((function(e){l(t,e,o[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):a(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}function l(t,e,o){return e in t?Object.defineProperty(t,e,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[e]=o,t}e.a={components:{Box:n.a,GuestHeader:s.a,GuestFooter:i.a},data:function(){return{formData:{},formErrors:{},initialFormData:null,initianLength:0,emptyFormData:null,preRequisite:{},isLoading:!0,icons:{facebook:"fab fa-facebook-f",twitter:"fab fa-twitter",github:"fab fa-github",google:"fab fa-google"},btns:{facebook:"btn-facebook",twitter:"btn-twitter",github:"btn-github",google:"btn-google-plus"}}},computed:c(c({},Object(r.c)("config",["configs","vars"])),Object(r.c)("user",["twoFactorSet","hasRole"])),methods:c(c(c({},Object(r.b)("config",["GetConfig"])),Object(r.b)("user",["Register","SetCSRF","Logout","Login","LoginUsingOtp","ResetTwoFactorSet","RequestReset","ValidateResetPassword","ResetPassword","CheckTwoFactorCode"])),{},{withQuery:function(t){var e=this.$route.query;return e&&e.ref&&(t.query={ref:e.ref}),t}}),mounted:function(){this.initialFormData=_.cloneDeep(this.formData),this.isLoading=!1},beforeDestroy:function(){delete this.formData,delete this.formErrors,delete this.preRequisite}}},ZHNF:function(t,e,o){"use strict";o.r(e);function r(t,e){var o=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),o.push.apply(o,r)}return o}function n(t,e,o){return e in t?Object.defineProperty(t,e,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[e]=o,t}var s={extends:o("WK6j").a,data:function(){return{formData:{email:"",otp:""},otpRequested:!1}},methods:{submit:function(){var t=this;this.isLoading=!0;var e=this.$route.query;this.$gaEvent("engagement","login","EmailOTP");var o=this.otpRequested?function(t){for(var e=1;e<arguments.length;e++){var o=null!=arguments[e]?arguments[e]:{};e%2?r(Object(o),!0).forEach((function(e){n(t,e,o[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):r(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}({},this.formData):{email:this.formData.email};this.LoginUsingOtp(o).then((function(o){if(t.$toasted.success(o.message,t.$toastConfig),t.otpRequested){t.$gaEvent("activity","loggedin","EmailOTP");var r=o.reload?{name:"appDashboard",query:{reload:1}}:{name:"appDashboard"};e&&e.ref&&t.$router.resolve(e.ref)&&(r=t.$router.resolve(e.ref).route),t.hasRole("admin")&&t.configs.system&&t.configs.system.setupWizard&&(r=t.withQuery({name:"setup"})),t.ResetTwoFactorSet().then((function(){t.$router.push(r)})).catch((function(e){t.isLoading=!1,t.formErrors=formUtil.handleErrors(e)}))}else t.$gaEvent("activity","loginOtpRequested","EmailOTP"),t.otpRequested=!0,t.isLoading=!1})).catch((function(e){t.isLoading=!1,t.formErrors=formUtil.handleErrors(e)}))}},mounted:function(){this.SetCSRF()}},i=o("KHd+"),a=Object(i.a)(s,(function(){var t=this,e=t.$createElement,o=t._self._c||e;return o("div",{staticClass:"guest-page"},[o("box",[o("animated-loader",{attrs:{"is-loading":t.isLoading,"loader-color":t.vars.loaderColor}}),t._v(" "),o("guest-header",[o("h5",[t._v(t._s(t.$t("auth.login.login_using_email_otp")))])]),t._v(" "),o("section",{attrs:{role:"main"}},[o("form",{on:{submit:function(e){return e.preventDefault(),t.submit(e)}}},[o("base-input",{staticClass:"mb-3",attrs:{"auto-focus":!t.otpRequested,label:t.$t("auth.login.props.email"),type:"text","addon-left-icon":"fas fa-envelope",error:t.formErrors.email,disabled:t.otpRequested},on:{"update:error":function(e){return t.$set(t.formErrors,"email",e)}},model:{value:t.formData.email,callback:function(e){t.$set(t.formData,"email",e)},expression:"formData.email"}}),t._v(" "),t.otpRequested?o("base-input",{staticClass:"mb-3",attrs:{"auto-focus":t.otpRequested,label:t.$t("auth.login.props.otp"),type:"text","addon-left-icon":"fas fa-key",error:t.formErrors.otp},on:{"update:error":function(e){return t.$set(t.formErrors,"otp",e)}},model:{value:t.formData.otp,callback:function(e){t.$set(t.formData,"otp",e)},expression:"formData.otp"}}):t._e(),t._v(" "),o("div",{staticClass:"text-center"},[o("base-button",{staticClass:"my-4 text-lg",attrs:{type:"submit",design:"primary",block:""}},[t.otpRequested?o("span",[t._v(t._s(t.$t("auth.login.login")))]):o("span",[t._v(t._s(t.$t("auth.login.request_otp")))])])],1),t._v(" "),o("div",{staticClass:"form-group m-b-0"},[o("div",{staticClass:"col-sm-12 text-center"},[o("p",[o("router-link",{staticClass:"text-primary m-l-5",attrs:{to:t.withQuery({name:"login"})}},[o("span",{staticClass:"font-weight-bold"},[t._v(t._s(t.$t("auth.login.login_using_password")))])])],1)])])],1)])],1),t._v(" "),t.configs.system?o("guest-footer",{attrs:{"footer-credit":t.configs.system.footerCredit,version:t.configs.system.version}}):t._e()],1)}),[],!1,null,null,null);e.default=a.exports},b9rR:function(t,e,o){"use strict";var r=o("pk0X");o.n(r).a},bdEB:function(t,e,o){"use strict";var r=o("L2JU");function n(t,e){var o=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),o.push.apply(o,r)}return o}function s(t){for(var e=1;e<arguments.length;e++){var o=null!=arguments[e]?arguments[e]:{};e%2?n(Object(o),!0).forEach((function(e){i(t,e,o[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):n(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}function i(t,e,o){return e in t?Object.defineProperty(t,e,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[e]=o,t}var a={props:{place:{type:String,default:"normal"},size:{type:String,default:"normal"},appLogo:{type:Boolean,default:!1},inline:{type:Boolean,default:!1},assets:{type:Object}},data:function(){return{appLogoText:window.kmenv.name}},computed:s(s({},Object(r.c)("config",["configs","uiConfigs"])),{},{orgLogo:function(){if(this.appLogo||!this.configs.assets&&!this.assets)return"navbar"===this.place||"sidebar"===this.place||"dark"===this.place?"/images/logo-light.png":"/images/logo.png";var t=this.assets&&this.assets.logo?this.assets.logo:this.configs.assets.logo?this.configs.assets.logo:"/images/logo.png";return(this.assets&&this.assets.logoLight||this.configs.assets.logoLight)&&("navbar"===this.place&&this.uiConfigs.topNavbarLogoLight||"sidebar"===this.place&&this.uiConfigs.leftSidebarLogoLight||"dark"===this.place)&&(t=this.assets&&this.assets.logoLight?this.assets.logoLight:this.configs.assets.logoLight),t},appTitle:function(){return this.configs.basic?this.configs.basic.orgName:window.kmenv.name}})},c=o("KHd+"),l=Object(c.a)(a,(function(){var t=this,e=t.$createElement,o=t._self._c||e;return o("a",{class:["logo",t.place+"-logo",t.size+"-logo",t.orgLogo?"org-logo":"app-logo",t.inline?"inline-logo":""],attrs:{href:"/"}},[t.orgLogo?o("img",{staticClass:"logo-icon",attrs:{src:t.orgLogo,alt:t.appTitle}}):[o("span",{staticClass:"logo-text",attrs:{title:t.appTitle}},[t._v(t._s(t.appLogoText))])]],2)}),[],!1,null,null,null);e.a=l.exports},fOGa:function(t,e,o){"use strict";var r=o("j/38");o.n(r).a},"j/38":function(t,e,o){var r=o("DzPO");"string"==typeof r&&(r=[[t.i,r,""]]);var n={hmr:!0,transform:void 0,insertInto:void 0};o("aET+")(r,n);r.locals&&(t.exports=r.locals)},kUDz:function(t,e,o){"use strict";var r=o("bdEB"),n=o("L2JU");function s(t,e){var o=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),o.push.apply(o,r)}return o}function i(t){for(var e=1;e<arguments.length;e++){var o=null!=arguments[e]?arguments[e]:{};e%2?s(Object(o),!0).forEach((function(e){a(t,e,o[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):s(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}function a(t,e,o){return e in t?Object.defineProperty(t,e,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[e]=o,t}var c={props:{width:{type:String,default:"normal"}},components:{AppLogo:r.a},data:function(){return{}},computed:i(i({},Object(n.c)("config",["configs"])),{},{orgLogo:function(){return this.configs.image&&this.configs.image.logo?this.configs.image.logo:null}})},l=(o("fOGa"),o("KHd+")),u=Object(l.a)(c,(function(){var t=this,e=t.$createElement,o=t._self._c||e;return o("div",{class:["centered-box justify-content-center mt-4","width-"+t.width]},[o("card",{staticClass:"border-0",attrs:{type:"white",shadow:"","header-classes":"bg-white","body-classes":"px-lg-4 py-lg-4"}},[t._t("default"),t._v(" "),this.orgLogo?o("div",{staticClass:"powered-logo text-center"},[o("span",{staticClass:"text-muted mr-1"},[t._v(t._s(t.$t("general.powered_by"))+" ")]),t._v(" "),o("app-logo",{attrs:{"app-logo":"",inline:""}})],1):t._e()],2)],1)}),[],!1,null,"7eb15e32",null).exports,p={props:{name:{type:String,default:"CenteredBox"},width:{type:String,default:"normal"}},components:{CenteredBox:u}},f=Object(l.a)(p,(function(){var t=this.$createElement;return(this._self._c||t)(this.name,{tag:"component",attrs:{width:this.width}},[this._t("default")],2)}),[],!1,null,"ebb852f4",null);e.a=f.exports},l7An:function(t,e,o){"use strict";var r=o("bdEB"),n=o("L2JU");function s(t,e){var o=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),o.push.apply(o,r)}return o}function i(t,e,o){return e in t?Object.defineProperty(t,e,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[e]=o,t}var a={components:{AppLogo:r.a},data:function(){return{}},computed:function(t){for(var e=1;e<arguments.length;e++){var o=null!=arguments[e]?arguments[e]:{};e%2?s(Object(o),!0).forEach((function(e){i(t,e,o[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):s(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}({},Object(n.c)("config",["configs"]))},c=o("KHd+"),l=Object(c.a)(a,(function(){var t=this.$createElement,e=this._self._c||t;return e("header",{staticClass:"guest-header text-center mb-4"},[e("div",{staticClass:"logo-wrapper text-center mb-4 pb-2"},[e("app-logo")],1),this._v(" "),this._t("default")],2)}),[],!1,null,null,null);e.a=l.exports},pk0X:function(t,e,o){var r=o("x134");"string"==typeof r&&(r=[[t.i,r,""]]);var n={hmr:!0,transform:void 0,insertInto:void 0};o("aET+")(r,n);r.locals&&(t.exports=r.locals)},x134:function(t,e,o){(t.exports=o("I1BE")(!1)).push([t.i,".guest-footer p[data-v-739170b9]{opacity:.3}",""])}}]);
-//# sourceMappingURL=login-email-otp.js.map?id=8742000534b9376b75dc
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/auth/login-email-otp"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/auth/login-email-otp.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/auth/login-email-otp.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_auth_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mixins/auth-form */ "./resources/js/mixins/auth-form.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": _mixins_auth_form__WEBPACK_IMPORTED_MODULE_0__["default"],
+  data: function data() {
+    return {
+      formData: {
+        email: '',
+        otp: ''
+      },
+      otpRequested: false
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.isLoading = true;
+      var routeQuery = this.$route.query;
+      this.$gaEvent('engagement', 'login', 'EmailOTP');
+      var formData = this.otpRequested ? _objectSpread({}, this.formData) : {
+        email: this.formData.email
+      };
+      this.LoginUsingOtp(formData).then(function (response) {
+        _this.$toasted.success(response.message, _this.$toastConfig);
+
+        if (_this.otpRequested) {
+          _this.$gaEvent('activity', 'loggedin', 'EmailOTP');
+
+          var routeTo = response.reload ? {
+            name: 'appDashboard',
+            query: {
+              reload: 1
+            }
+          } : {
+            name: 'appDashboard'
+          };
+
+          if (routeQuery && routeQuery.ref && _this.$router.resolve(routeQuery.ref)) {
+            routeTo = _this.$router.resolve(routeQuery.ref).route;
+          }
+
+          if (_this.hasRole('admin') && _this.configs.system && _this.configs.system.setupWizard) {
+            routeTo = _this.withQuery({
+              name: 'setup'
+            });
+          }
+
+          _this.ResetTwoFactorSet().then(function () {
+            _this.$router.push(routeTo);
+          })["catch"](function (error) {
+            _this.isLoading = false;
+            _this.formErrors = formUtil.handleErrors(error);
+          });
+        } else {
+          _this.$gaEvent('activity', 'loginOtpRequested', 'EmailOTP');
+
+          _this.otpRequested = true;
+          _this.isLoading = false;
+        }
+      })["catch"](function (error) {
+        _this.isLoading = false;
+        _this.formErrors = formUtil.handleErrors(error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.SetCSRF();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/auth/login-email-otp.vue?vue&type=template&id=61e04bae&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/auth/login-email-otp.vue?vue&type=template&id=61e04bae& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "guest-page" },
+    [
+      _c(
+        "box",
+        [
+          _c("animated-loader", {
+            attrs: {
+              "is-loading": _vm.isLoading,
+              "loader-color": _vm.vars.loaderColor
+            }
+          }),
+          _vm._v(" "),
+          _c("guest-header", [
+            _c("h5", [
+              _vm._v(_vm._s(_vm.$t("auth.login.login_using_email_otp")))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("section", { attrs: { role: "main" } }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [
+                _c("base-input", {
+                  staticClass: "mb-3",
+                  attrs: {
+                    "auto-focus": !_vm.otpRequested,
+                    label: _vm.$t("auth.login.props.email"),
+                    type: "text",
+                    "addon-left-icon": "fas fa-envelope",
+                    error: _vm.formErrors.email,
+                    disabled: _vm.otpRequested
+                  },
+                  on: {
+                    "update:error": function($event) {
+                      return _vm.$set(_vm.formErrors, "email", $event)
+                    }
+                  },
+                  model: {
+                    value: _vm.formData.email,
+                    callback: function($$v) {
+                      _vm.$set(_vm.formData, "email", $$v)
+                    },
+                    expression: "formData.email"
+                  }
+                }),
+                _vm._v(" "),
+                _vm.otpRequested
+                  ? _c("base-input", {
+                      staticClass: "mb-3",
+                      attrs: {
+                        "auto-focus": _vm.otpRequested,
+                        label: _vm.$t("auth.login.props.otp"),
+                        type: "text",
+                        "addon-left-icon": "fas fa-key",
+                        error: _vm.formErrors.otp
+                      },
+                      on: {
+                        "update:error": function($event) {
+                          return _vm.$set(_vm.formErrors, "otp", $event)
+                        }
+                      },
+                      model: {
+                        value: _vm.formData.otp,
+                        callback: function($$v) {
+                          _vm.$set(_vm.formData, "otp", $$v)
+                        },
+                        expression: "formData.otp"
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "text-center" },
+                  [
+                    _c(
+                      "base-button",
+                      {
+                        staticClass: "my-4 text-lg",
+                        attrs: { type: "submit", design: "primary", block: "" }
+                      },
+                      [
+                        !_vm.otpRequested
+                          ? _c("span", [
+                              _vm._v(_vm._s(_vm.$t("auth.login.request_otp")))
+                            ])
+                          : _c("span", [
+                              _vm._v(_vm._s(_vm.$t("auth.login.login")))
+                            ])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group m-b-0" }, [
+                  _c("div", { staticClass: "col-sm-12 text-center" }, [
+                    _c(
+                      "p",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "text-primary m-l-5",
+                            attrs: { to: _vm.withQuery({ name: "login" }) }
+                          },
+                          [
+                            _c("span", { staticClass: "font-weight-bold" }, [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$t("auth.login.login_using_password")
+                                )
+                              )
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ],
+              1
+            )
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.configs.system
+        ? _c("guest-footer", {
+            attrs: {
+              "footer-credit": _vm.configs.system.footerCredit,
+              version: _vm.configs.system.version
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/mixins/auth-form.js":
+/*!******************************************!*\
+  !*** ./resources/js/mixins/auth-form.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _js_views_auth_partials_box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @js/views/auth/partials/box */ "./resources/js/views/auth/partials/box/index.vue");
+/* harmony import */ var _views_layouts_partials_guest_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @views/layouts/partials/guest-header */ "./resources/js/views/layouts/partials/guest-header.vue");
+/* harmony import */ var _views_layouts_partials_guest_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @views/layouts/partials/guest-footer */ "./resources/js/views/layouts/partials/guest-footer.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Box: _js_views_auth_partials_box__WEBPACK_IMPORTED_MODULE_1__["default"],
+    GuestHeader: _views_layouts_partials_guest_header__WEBPACK_IMPORTED_MODULE_2__["default"],
+    GuestFooter: _views_layouts_partials_guest_footer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {
+      formData: {},
+      formErrors: {},
+      initialFormData: null,
+      initianLength: 0,
+      emptyFormData: null,
+      preRequisite: {},
+      isLoading: true,
+      icons: {
+        'facebook': 'fab fa-facebook-f',
+        'twitter': 'fab fa-twitter',
+        'github': 'fab fa-github',
+        'google': 'fab fa-google'
+      },
+      btns: {
+        'facebook': 'btn-facebook',
+        'twitter': 'btn-twitter',
+        'github': 'btn-github',
+        'google': 'btn-google-plus'
+      }
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('config', ['configs', 'vars'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('user', ['twoFactorSet', 'hasRole'])),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('config', ['GetConfig'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('user', ['Register', 'SetCSRF', 'Logout', 'Login', 'LoginUsingOtp', 'ResetTwoFactorSet', 'RequestReset', 'ValidateResetPassword', 'ResetPassword', 'CheckTwoFactorCode'])), {}, {
+    withQuery: function withQuery(toRoute) {
+      var routeQuery = this.$route.query;
+
+      if (routeQuery && routeQuery.ref) {
+        toRoute['query'] = {
+          ref: routeQuery.ref
+        };
+      }
+
+      return toRoute;
+    }
+  }),
+  mounted: function mounted() {
+    this.initialFormData = _.cloneDeep(this.formData);
+    this.isLoading = false;
+  },
+  beforeDestroy: function beforeDestroy() {
+    delete this.formData;
+    delete this.formErrors;
+    delete this.preRequisite;
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/views/auth/login-email-otp.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/views/auth/login-email-otp.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _login_email_otp_vue_vue_type_template_id_61e04bae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./login-email-otp.vue?vue&type=template&id=61e04bae& */ "./resources/js/views/auth/login-email-otp.vue?vue&type=template&id=61e04bae&");
+/* harmony import */ var _login_email_otp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login-email-otp.vue?vue&type=script&lang=js& */ "./resources/js/views/auth/login-email-otp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _login_email_otp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _login_email_otp_vue_vue_type_template_id_61e04bae___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _login_email_otp_vue_vue_type_template_id_61e04bae___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/auth/login-email-otp.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/auth/login-email-otp.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/views/auth/login-email-otp.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_login_email_otp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./login-email-otp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/auth/login-email-otp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_login_email_otp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/auth/login-email-otp.vue?vue&type=template&id=61e04bae&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/views/auth/login-email-otp.vue?vue&type=template&id=61e04bae& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_login_email_otp_vue_vue_type_template_id_61e04bae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./login-email-otp.vue?vue&type=template&id=61e04bae& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/auth/login-email-otp.vue?vue&type=template&id=61e04bae&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_login_email_otp_vue_vue_type_template_id_61e04bae___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_login_email_otp_vue_vue_type_template_id_61e04bae___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=login-email-otp.js.map?id=16ac17062fa64e5459e4

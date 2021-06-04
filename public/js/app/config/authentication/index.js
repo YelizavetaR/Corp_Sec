@@ -1,2 +1,1144 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{"3HR4":function(t,e,o){"use strict";var r=o("o0o1"),a=o.n(r),i=o("L2JU"),n=o("8BOd");o("i8R7");function s(t,e,o,r,a,i,n){try{var s=t[i](n),l=s.value}catch(t){return void o(t)}s.done?e(l):Promise.resolve(l).then(r,a)}function l(t,e){var o=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),o.push.apply(o,r)}return o}function c(t){for(var e=1;e<arguments.length;e++){var o=null!=arguments[e]?arguments[e]:{};e%2?l(Object(o),!0).forEach((function(e){f(t,e,o[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):l(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}function f(t,e,o){return e in t?Object.defineProperty(t,e,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[e]=o,t}e.a={components:{},data:function(){return{formData:{},formErrors:{},initialFormData:null,initianLength:0,emptyFormData:null,entity:null,preRequisite:{},isLoading:!0,dataType:null,configType:""}},computed:c({},Object(i.c)("config",["configs","vars"])),methods:c(c(c({},Object(i.b)("config",["GetConfig"])),Object(i.b)("navigation",["Generate"])),{},{findActualValue:function(t,e){var o=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"uuid";return e.find((function(e){return e[o]===t}))||null},submit:function(){var t=this,e=arguments.length>0&&void 0!==arguments[0]&&arguments[0];if(formUtil.isUnchanged(this.initialFormData,this.formData))return this.$toasted.info(this.$t("general.nothing_changed"),this.$toastConfig.info),!1;this.isLoading=!0,this.formData.type=this.formData.type.snakeCase();var o=!0===e?n.e:"module"===this.configType?n.d:n.c;"function"==typeof this.beforeSubmit&&this.beforeSubmit(),o(this.formData).then((function(e){t.GetConfig().then((function(){t.$toasted.success(e.message,t.$toastConfig),t.initialFormData=_.cloneDeep(t.formData),t.isLoading=!1})).catch((function(e){t.isLoading=!1,t.formErrors=formUtil.handleErrors(e)})),"function"==typeof t.afterSubmit&&t.afterSubmit(),"function"==typeof t.afterSubmitSuccess&&t.afterSubmitSuccess()})).catch((function(e){t.isLoading=!1,t.formErrors=formUtil.handleErrors(e),"function"==typeof t.afterSubmit&&t.afterSubmit(),"function"==typeof t.afterSubmitError&&t.afterSubmitError()}))},reset:function(){var t=this;formUtil.confirmAction().then((function(e){e.value&&(t.formData=Object.assign({},t.formData,_.cloneDeep(t.initialFormData)))}))},unsavedCheck:function(t){formUtil.unsavedCheckAlert(this.initialFormData,this.formData,t)},fillPreRequisite:function(t){var e=this;this.preRequisite.objForEach((function(o,r){e.preRequisite[r]=t[r]||o})),this.isLoading=!1},fillFormData:function(){var t=this;this.isLoading=!0,this.formData.type&&this.configs[this.formData.type]&&(this.formData=formUtil.assignValues(this.formData,this.configs[this.formData.type])),this.formData.types&&Array.isArray(this.formData.types)&&this.formData.types.forEach((function(e){t.formData=formUtil.assignValues(t.formData,t.configs[e])})),"function"==typeof this.addNewRow&&"function"==typeof this.addNewRowIfNone&&this.addNewRowIfNone(),this.isLoading=!1},getInitialData:function(t){var e,o=this;return(e=a.a.mark((function e(){var r;return a.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return o.isLoading=!0,e.prev=1,e.next=4,n.b(Object.keys(o.preRequisite).join(","));case 4:return r=e.sent,o.fillPreRequisite(r),t&&o.$nextTick((function(){t()})),e.abrupt("return",r);case 10:throw e.prev=10,e.t0=e.catch(1),o.isLoading=!1,o.formErrors=formUtil.handleErrors(e.t0),e.t0;case 15:case"end":return e.stop()}}),e,null,[[1,10]])})),function(){var t=this,o=arguments;return new Promise((function(r,a){var i=e.apply(t,o);function n(t){s(i,r,a,n,l,"next",t)}function l(t){s(i,r,a,n,l,"throw",t)}n(void 0)}))})()}}),mounted:function(){this.fillFormData(),this.initialFormData=_.cloneDeep(this.formData)},beforeDestroy:function(){delete this.formData,delete this.formErrors,delete this.preRequisite},beforeRouteLeave:function(t,e,o){this.unsavedCheck(o)}}},H0Wo:function(t,e,o){"use strict";o.r(e);var r=o("3HR4"),a=o("fHbr"),i={extends:r.a,components:{CollapseTransition:a.a},data:function(){return{formData:{sessionLifetime:"",resetPasswordTokenLifetime:"",resetPassword:!1,twoFactorSecurity:!1,registration:!1,lockScreen:!1,lockScreenTimeout:"",loginThrottle:!1,loginThrottleAttempt:"",loginThrottleTimeout:"",emailVerification:!1,accountApproval:!1,emailOtpLogin:!1,smsOtpLogin:!1,socialLogin:!1,google:!1,facebook:!1,twitter:!1,github:!1,googleClientId:"",googleClientSecret:"",facebookClientId:"",facebookClientSecret:"",twitterClientId:"",twitterClientSecret:"",githubClientId:"",githubClientSecret:"",type:"auth"},preRequisite:{socialLoginProviders:[]},systemVariables:{}}},mounted:function(){this.getInitialData()}},n=o("KHd+"),s=Object(n.a)(i,(function(){var t=this,e=t.$createElement,o=t._self._c||e;return o("base-container",{attrs:{boxed:"","with-loader":"","is-loading":t.isLoading,"loader-color":t.vars.loaderColor}},[o("form",{on:{submit:function(e){return e.preventDefault(),t.submit(e)}}},[o("div",{staticClass:"row"},[o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.reset_password")}},[o("base-switch",{model:{value:t.formData.resetPassword,callback:function(e){t.$set(t.formData,"resetPassword",e)},expression:"formData.resetPassword"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.two_factor_security")}},[o("base-switch",{model:{value:t.formData.twoFactorSecurity,callback:function(e){t.$set(t.formData,"twoFactorSecurity",e)},expression:"formData.twoFactorSecurity"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.lock_screen")}},[o("base-switch",{model:{value:t.formData.lockScreen,callback:function(e){t.$set(t.formData,"lockScreen",e)},expression:"formData.lockScreen"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.login_throttle")}},[o("base-switch",{model:{value:t.formData.loginThrottle,callback:function(e){t.$set(t.formData,"loginThrottle",e)},expression:"formData.loginThrottle"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.social_login")}},[o("base-switch",{model:{value:t.formData.socialLogin,callback:function(e){t.$set(t.formData,"socialLogin",e)},expression:"formData.socialLogin"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.email_otp_login")}},[o("base-switch",{model:{value:t.formData.emailOtpLogin,callback:function(e){t.$set(t.formData,"emailOtpLogin",e)},expression:"formData.emailOtpLogin"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.registration")}},[o("base-switch",{model:{value:t.formData.registration,callback:function(e){t.$set(t.formData,"registration",e)},expression:"formData.registration"}})],1)],1),t._v(" "),t.formData.registration?[o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.email_verification")}},[o("base-switch",{model:{value:t.formData.emailVerification,callback:function(e){t.$set(t.formData,"emailVerification",e)},expression:"formData.emailVerification"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.account_approval")}},[o("base-switch",{model:{value:t.formData.accountApproval,callback:function(e){t.$set(t.formData,"accountApproval",e)},expression:"formData.accountApproval"}})],1)],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.registration_terms")}},[o("base-switch",{model:{value:t.formData.registrationTerms,callback:function(e){t.$set(t.formData,"registrationTerms",e)},expression:"formData.registrationTerms"}})],1)],1)]:t._e()],2),t._v(" "),o("div",{staticClass:"row mt-4"},[o("div",{staticClass:"col-12 col-md-4 mb-4"},[o("base-input",{attrs:{label:t.$t("config.auth.session_lifetime")+" ("+t.$t("list.general.durations.m")+")",type:"text",error:t.formErrors.sessionLifetime},on:{"update:error":function(e){return t.$set(t.formErrors,"sessionLifetime",e)}},model:{value:t.formData.sessionLifetime,callback:function(e){t.$set(t.formData,"sessionLifetime",e)},expression:"formData.sessionLifetime"}})],1),t._v(" "),o("div",{staticClass:"col-12 col-md-4 mb-4"},[o("base-input",{attrs:{label:t.$t("config.auth.reset_password_token_lifetime")+" ("+t.$t("list.general.durations.m")+")",type:"text",error:t.formErrors.resetPasswordTokenLifetime},on:{"update:error":function(e){return t.$set(t.formErrors,"resetPasswordTokenLifetime",e)}},model:{value:t.formData.resetPasswordTokenLifetime,callback:function(e){t.$set(t.formData,"resetPasswordTokenLifetime",e)},expression:"formData.resetPasswordTokenLifetime"}})],1),t._v(" "),o("collapse-transition",[t.formData.lockScreen?o("div",{staticClass:"col-12 col-md-4 mb-4"},[o("base-input",{attrs:{label:t.$t("config.auth.lock_screen_timeout")+" ("+t.$t("list.general.durations.m")+")",type:"text",error:t.formErrors.lockScreenTimeout},on:{"update:error":function(e){return t.$set(t.formErrors,"lockScreenTimeout",e)}},model:{value:t.formData.lockScreenTimeout,callback:function(e){t.$set(t.formData,"lockScreenTimeout",e)},expression:"formData.lockScreenTimeout"}})],1):t._e()]),t._v(" "),o("collapse-transition",[t.formData.loginThrottle?o("div",{key:"login_throttle_attempt",staticClass:"col-12 col-md-4 mb-4"},[o("base-input",{attrs:{label:t.$t("config.auth.login_throttle_attempt"),type:"text",error:t.formErrors.loginThrottleAttempt},on:{"update:error":function(e){return t.$set(t.formErrors,"loginThrottleAttempt",e)}},model:{value:t.formData.loginThrottleAttempt,callback:function(e){t.$set(t.formData,"loginThrottleAttempt",e)},expression:"formData.loginThrottleAttempt"}})],1):t._e()]),t._v(" "),o("collapse-transition",[t.formData.loginThrottle?o("div",{key:"login_throttle_timeout",staticClass:"col-12 col-md-4 mb-4"},[o("base-input",{attrs:{label:t.$t("config.auth.login_throttle_timeout"),type:"text",error:t.formErrors.loginThrottleTimeout},on:{"update:error":function(e){return t.$set(t.formErrors,"loginThrottleTimeout",e)}},model:{value:t.formData.loginThrottleTimeout,callback:function(e){t.$set(t.formData,"loginThrottleTimeout",e)},expression:"formData.loginThrottleTimeout"}})],1):t._e()]),t._v(" "),o("collapse-transition",[t.formData.socialLogin?o("table",{staticClass:"table table-striped"},t._l(t.preRequisite.socialLoginProviders,(function(e){return o("tr",{key:e.uuid},[o("td",{staticClass:"va-bottom"},[o("switch-wrapper",{attrs:{label:t.$t("config.auth.login_with")+" "+e.name}},[o("base-switch",{model:{value:t.formData[e.uuid],callback:function(o){t.$set(t.formData,e.uuid,o)},expression:"formData[method.uuid]"}})],1)],1),t._v(" "),o("td",[o("base-input",{attrs:{disabled:!t.formData[e.uuid],label:t.$t("config.auth.client_id"),type:"text",error:t.formErrors[e.uuid+"ClientId"]},on:{"update:error":function(o){return t.$set(t.formErrors,e.uuid+"ClientId",o)}},model:{value:t.formData[e.uuid+"ClientId"],callback:function(o){t.$set(t.formData,e.uuid+"ClientId",o)},expression:"formData[`${method.uuid}ClientId`]"}})],1),t._v(" "),o("td",[o("base-input",{attrs:{disabled:!t.formData[e.uuid],label:t.$t("config.auth.client_secret"),type:"text",error:t.formErrors[e.uuid+"ClientSecret"]},on:{"update:error":function(o){return t.$set(t.formErrors,e.uuid+"ClientSecret",o)}},model:{value:t.formData[e.uuid+"ClientSecret"],callback:function(o){t.$set(t.formData,e.uuid+"ClientSecret",o)},expression:"formData[`${method.uuid}ClientSecret`]"}})],1)])})),0):t._e()])],1),t._v(" "),o("div",{staticClass:"text-right mt-5"},[o("base-button",{attrs:{type:"button",design:"light"},on:{click:t.reset}},[t._v(t._s(t.$t("general.reset")))]),t._v(" "),o("base-button",{attrs:{type:"submit",design:"primary"}},[t._v(t._s(t.$t("general.save")))])],1)])])}),[],!1,null,null,null);e.default=s.exports}}]);
-//# sourceMappingURL=index.js.map?id=66975a02ad89baa8625f
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/app/config/authentication/index"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/authentication/index.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/app/config/authentication/index.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_config_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mixins/config-form */ "./resources/js/mixins/config-form.js");
+/* harmony import */ var vue2_transitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-transitions */ "./node_modules/vue2-transitions/dist/vue2-transitions.m.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": _mixins_config_form__WEBPACK_IMPORTED_MODULE_0__["default"],
+  components: {
+    CollapseTransition: vue2_transitions__WEBPACK_IMPORTED_MODULE_1__["CollapseTransition"]
+  },
+  data: function data() {
+    return {
+      formData: {
+        sessionLifetime: '',
+        resetPasswordTokenLifetime: '',
+        resetPassword: false,
+        twoFactorSecurity: false,
+        registration: false,
+        lockScreen: false,
+        lockScreenTimeout: '',
+        loginThrottle: false,
+        loginThrottleAttempt: '',
+        loginThrottleTimeout: '',
+        emailVerification: false,
+        accountApproval: false,
+        emailOtpLogin: false,
+        smsOtpLogin: false,
+        socialLogin: false,
+        google: false,
+        facebook: false,
+        twitter: false,
+        github: false,
+        googleClientId: '',
+        googleClientSecret: '',
+        facebookClientId: '',
+        facebookClientSecret: '',
+        twitterClientId: '',
+        twitterClientSecret: '',
+        githubClientId: '',
+        githubClientSecret: '',
+        type: 'auth'
+      },
+      preRequisite: {
+        socialLoginProviders: []
+      },
+      systemVariables: {}
+    };
+  },
+  mounted: function mounted() {
+    this.getInitialData();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/authentication/index.vue?vue&type=template&id=b9485eea&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/app/config/authentication/index.vue?vue&type=template&id=b9485eea& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "base-container",
+    {
+      attrs: {
+        boxed: "",
+        "with-loader": "",
+        "is-loading": _vm.isLoading,
+        "loader-color": _vm.vars.loaderColor
+      }
+    },
+    [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "row" },
+            [
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    { attrs: { label: _vm.$t("config.auth.reset_password") } },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.resetPassword,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "resetPassword", $$v)
+                          },
+                          expression: "formData.resetPassword"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    {
+                      attrs: {
+                        label: _vm.$t("config.auth.two_factor_security")
+                      }
+                    },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.twoFactorSecurity,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "twoFactorSecurity", $$v)
+                          },
+                          expression: "formData.twoFactorSecurity"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    { attrs: { label: _vm.$t("config.auth.lock_screen") } },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.lockScreen,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "lockScreen", $$v)
+                          },
+                          expression: "formData.lockScreen"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    { attrs: { label: _vm.$t("config.auth.login_throttle") } },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.loginThrottle,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "loginThrottle", $$v)
+                          },
+                          expression: "formData.loginThrottle"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    { attrs: { label: _vm.$t("config.auth.social_login") } },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.socialLogin,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "socialLogin", $$v)
+                          },
+                          expression: "formData.socialLogin"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    { attrs: { label: _vm.$t("config.auth.email_otp_login") } },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.emailOtpLogin,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "emailOtpLogin", $$v)
+                          },
+                          expression: "formData.emailOtpLogin"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4" },
+                [
+                  _c(
+                    "switch-wrapper",
+                    { attrs: { label: _vm.$t("config.auth.registration") } },
+                    [
+                      _c("base-switch", {
+                        model: {
+                          value: _vm.formData.registration,
+                          callback: function($$v) {
+                            _vm.$set(_vm.formData, "registration", $$v)
+                          },
+                          expression: "formData.registration"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.formData.registration
+                ? [
+                    _c(
+                      "div",
+                      { staticClass: "col-12 col-md-4" },
+                      [
+                        _c(
+                          "switch-wrapper",
+                          {
+                            attrs: {
+                              label: _vm.$t("config.auth.email_verification")
+                            }
+                          },
+                          [
+                            _c("base-switch", {
+                              model: {
+                                value: _vm.formData.emailVerification,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.formData,
+                                    "emailVerification",
+                                    $$v
+                                  )
+                                },
+                                expression: "formData.emailVerification"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-12 col-md-4" },
+                      [
+                        _c(
+                          "switch-wrapper",
+                          {
+                            attrs: {
+                              label: _vm.$t("config.auth.account_approval")
+                            }
+                          },
+                          [
+                            _c("base-switch", {
+                              model: {
+                                value: _vm.formData.accountApproval,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.formData, "accountApproval", $$v)
+                                },
+                                expression: "formData.accountApproval"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-12 col-md-4" },
+                      [
+                        _c(
+                          "switch-wrapper",
+                          {
+                            attrs: {
+                              label: _vm.$t("config.auth.registration_terms")
+                            }
+                          },
+                          [
+                            _c("base-switch", {
+                              model: {
+                                value: _vm.formData.registrationTerms,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.formData,
+                                    "registrationTerms",
+                                    $$v
+                                  )
+                                },
+                                expression: "formData.registrationTerms"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                : _vm._e()
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row mt-4" },
+            [
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4 mb-4" },
+                [
+                  _c("base-input", {
+                    attrs: {
+                      label:
+                        _vm.$t("config.auth.session_lifetime") +
+                        " (" +
+                        _vm.$t("list.general.durations.m") +
+                        ")",
+                      type: "text",
+                      error: _vm.formErrors.sessionLifetime
+                    },
+                    on: {
+                      "update:error": function($event) {
+                        return _vm.$set(
+                          _vm.formErrors,
+                          "sessionLifetime",
+                          $event
+                        )
+                      }
+                    },
+                    model: {
+                      value: _vm.formData.sessionLifetime,
+                      callback: function($$v) {
+                        _vm.$set(_vm.formData, "sessionLifetime", $$v)
+                      },
+                      expression: "formData.sessionLifetime"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-4 mb-4" },
+                [
+                  _c("base-input", {
+                    attrs: {
+                      label:
+                        _vm.$t("config.auth.reset_password_token_lifetime") +
+                        " (" +
+                        _vm.$t("list.general.durations.m") +
+                        ")",
+                      type: "text",
+                      error: _vm.formErrors.resetPasswordTokenLifetime
+                    },
+                    on: {
+                      "update:error": function($event) {
+                        return _vm.$set(
+                          _vm.formErrors,
+                          "resetPasswordTokenLifetime",
+                          $event
+                        )
+                      }
+                    },
+                    model: {
+                      value: _vm.formData.resetPasswordTokenLifetime,
+                      callback: function($$v) {
+                        _vm.$set(
+                          _vm.formData,
+                          "resetPasswordTokenLifetime",
+                          $$v
+                        )
+                      },
+                      expression: "formData.resetPasswordTokenLifetime"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("collapse-transition", [
+                _vm.formData.lockScreen
+                  ? _c(
+                      "div",
+                      { staticClass: "col-12 col-md-4 mb-4" },
+                      [
+                        _c("base-input", {
+                          attrs: {
+                            label:
+                              _vm.$t("config.auth.lock_screen_timeout") +
+                              " (" +
+                              _vm.$t("list.general.durations.m") +
+                              ")",
+                            type: "text",
+                            error: _vm.formErrors.lockScreenTimeout
+                          },
+                          on: {
+                            "update:error": function($event) {
+                              return _vm.$set(
+                                _vm.formErrors,
+                                "lockScreenTimeout",
+                                $event
+                              )
+                            }
+                          },
+                          model: {
+                            value: _vm.formData.lockScreenTimeout,
+                            callback: function($$v) {
+                              _vm.$set(_vm.formData, "lockScreenTimeout", $$v)
+                            },
+                            expression: "formData.lockScreenTimeout"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("collapse-transition", [
+                _vm.formData.loginThrottle
+                  ? _c(
+                      "div",
+                      {
+                        key: "login_throttle_attempt",
+                        staticClass: "col-12 col-md-4 mb-4"
+                      },
+                      [
+                        _c("base-input", {
+                          attrs: {
+                            label: _vm.$t("config.auth.login_throttle_attempt"),
+                            type: "text",
+                            error: _vm.formErrors.loginThrottleAttempt
+                          },
+                          on: {
+                            "update:error": function($event) {
+                              return _vm.$set(
+                                _vm.formErrors,
+                                "loginThrottleAttempt",
+                                $event
+                              )
+                            }
+                          },
+                          model: {
+                            value: _vm.formData.loginThrottleAttempt,
+                            callback: function($$v) {
+                              _vm.$set(
+                                _vm.formData,
+                                "loginThrottleAttempt",
+                                $$v
+                              )
+                            },
+                            expression: "formData.loginThrottleAttempt"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("collapse-transition", [
+                _vm.formData.loginThrottle
+                  ? _c(
+                      "div",
+                      {
+                        key: "login_throttle_timeout",
+                        staticClass: "col-12 col-md-4 mb-4"
+                      },
+                      [
+                        _c("base-input", {
+                          attrs: {
+                            label: _vm.$t("config.auth.login_throttle_timeout"),
+                            type: "text",
+                            error: _vm.formErrors.loginThrottleTimeout
+                          },
+                          on: {
+                            "update:error": function($event) {
+                              return _vm.$set(
+                                _vm.formErrors,
+                                "loginThrottleTimeout",
+                                $event
+                              )
+                            }
+                          },
+                          model: {
+                            value: _vm.formData.loginThrottleTimeout,
+                            callback: function($$v) {
+                              _vm.$set(
+                                _vm.formData,
+                                "loginThrottleTimeout",
+                                $$v
+                              )
+                            },
+                            expression: "formData.loginThrottleTimeout"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("collapse-transition", [
+                _vm.formData.socialLogin
+                  ? _c(
+                      "table",
+                      { staticClass: "table table-striped" },
+                      _vm._l(_vm.preRequisite.socialLoginProviders, function(
+                        method
+                      ) {
+                        return _c("tr", { key: method.uuid }, [
+                          _c(
+                            "td",
+                            { staticClass: "va-bottom" },
+                            [
+                              _c(
+                                "switch-wrapper",
+                                {
+                                  attrs: {
+                                    label:
+                                      _vm.$t("config.auth.login_with") +
+                                      " " +
+                                      method.name
+                                  }
+                                },
+                                [
+                                  _c("base-switch", {
+                                    model: {
+                                      value: _vm.formData[method.uuid],
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.formData, method.uuid, $$v)
+                                      },
+                                      expression: "formData[method.uuid]"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c("base-input", {
+                                attrs: {
+                                  disabled: !_vm.formData[method.uuid],
+                                  label: _vm.$t("config.auth.client_id"),
+                                  type: "text",
+                                  error:
+                                    _vm.formErrors[method.uuid + "ClientId"]
+                                },
+                                on: {
+                                  "update:error": function($event) {
+                                    return _vm.$set(
+                                      _vm.formErrors,
+                                      method.uuid + "ClientId",
+                                      $event
+                                    )
+                                  }
+                                },
+                                model: {
+                                  value: _vm.formData[method.uuid + "ClientId"],
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.formData,
+                                      method.uuid + "ClientId",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "formData[`${method.uuid}ClientId`]"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c("base-input", {
+                                attrs: {
+                                  disabled: !_vm.formData[method.uuid],
+                                  label: _vm.$t("config.auth.client_secret"),
+                                  type: "text",
+                                  error:
+                                    _vm.formErrors[method.uuid + "ClientSecret"]
+                                },
+                                on: {
+                                  "update:error": function($event) {
+                                    return _vm.$set(
+                                      _vm.formErrors,
+                                      method.uuid + "ClientSecret",
+                                      $event
+                                    )
+                                  }
+                                },
+                                model: {
+                                  value:
+                                    _vm.formData[method.uuid + "ClientSecret"],
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.formData,
+                                      method.uuid + "ClientSecret",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "formData[`${method.uuid}ClientSecret`]"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-right mt-5" },
+            [
+              _c(
+                "base-button",
+                {
+                  attrs: { type: "button", design: "light" },
+                  on: { click: _vm.reset }
+                },
+                [_vm._v(_vm._s(_vm.$t("general.reset")))]
+              ),
+              _vm._v(" "),
+              _c(
+                "base-button",
+                { attrs: { type: "submit", design: "primary" } },
+                [_vm._v(_vm._s(_vm.$t("general.save")))]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/mixins/config-form.js":
+/*!********************************************!*\
+  !*** ./resources/js/mixins/config-form.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _api_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @api/config */ "./resources/js/api/config.js");
+/* harmony import */ var _js_core_utils_formatter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @js/core/utils/formatter */ "./resources/js/core/utils/formatter.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  data: function data() {
+    return {
+      formData: {},
+      formErrors: {},
+      initialFormData: null,
+      initianLength: 0,
+      emptyFormData: null,
+      entity: null,
+      preRequisite: {},
+      isLoading: true,
+      dataType: null,
+      configType: ''
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('config', ['configs', 'vars'])),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('config', ['GetConfig'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('navigation', ['Generate'])), {}, {
+    findActualValue: function findActualValue(value, options) {
+      var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'uuid';
+      return options.find(function (option) {
+        return option[key] === value;
+      }) || null;
+    },
+    submit: function submit() {
+      var _this = this;
+
+      var preference = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (formUtil.isUnchanged(this.initialFormData, this.formData)) {
+        this.$toasted.info(this.$t('general.nothing_changed'), this.$toastConfig.info);
+        return false;
+      }
+
+      this.isLoading = true;
+      this.formData.type = this.formData.type.snakeCase();
+      var storeFn = preference === true ? _api_config__WEBPACK_IMPORTED_MODULE_2__["updateUserPref"] : this.configType === 'module' ? _api_config__WEBPACK_IMPORTED_MODULE_2__["updateModule"] : _api_config__WEBPACK_IMPORTED_MODULE_2__["update"];
+
+      if (typeof this.beforeSubmit === "function") {
+        this.beforeSubmit();
+      }
+
+      storeFn(this.formData).then(function (response) {
+        _this.GetConfig().then(function () {
+          _this.$toasted.success(response.message, _this.$toastConfig);
+
+          _this.initialFormData = _.cloneDeep(_this.formData);
+          _this.isLoading = false;
+        })["catch"](function (error) {
+          _this.isLoading = false;
+          _this.formErrors = formUtil.handleErrors(error);
+        });
+
+        if (typeof _this.afterSubmit === "function") {
+          _this.afterSubmit();
+        }
+
+        if (typeof _this.afterSubmitSuccess === "function") {
+          _this.afterSubmitSuccess();
+        }
+      })["catch"](function (error) {
+        _this.isLoading = false;
+        _this.formErrors = formUtil.handleErrors(error);
+
+        if (typeof _this.afterSubmit === "function") {
+          _this.afterSubmit();
+        }
+
+        if (typeof _this.afterSubmitError === "function") {
+          _this.afterSubmitError();
+        }
+      });
+    },
+    reset: function reset() {
+      var _this2 = this;
+
+      formUtil.confirmAction().then(function (result) {
+        if (result.value) {
+          _this2.formData = Object.assign({}, _this2.formData, _.cloneDeep(_this2.initialFormData));
+        }
+      });
+    },
+    unsavedCheck: function unsavedCheck(next) {
+      formUtil.unsavedCheckAlert(this.initialFormData, this.formData, next);
+    },
+    fillPreRequisite: function fillPreRequisite(response) {
+      var _this3 = this;
+
+      this.preRequisite.objForEach(function (value, key) {
+        _this3.preRequisite[key] = response[key] || value;
+      });
+      this.isLoading = false;
+    },
+    fillFormData: function fillFormData() {
+      var _this4 = this;
+
+      this.isLoading = true;
+
+      if (this.formData.type && this.configs[this.formData.type]) {
+        this.formData = formUtil.assignValues(this.formData, this.configs[this.formData.type]);
+      }
+
+      if (this.formData.types && Array.isArray(this.formData.types)) {
+        this.formData.types.forEach(function (value) {
+          _this4.formData = formUtil.assignValues(_this4.formData, _this4.configs[value]);
+        });
+      }
+
+      if (typeof this.addNewRow === "function" && typeof this.addNewRowIfNone === "function") {
+        this.addNewRowIfNone();
+      }
+
+      this.isLoading = false;
+    },
+    getInitialData: function getInitialData(callbackFn) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this5.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return _api_config__WEBPACK_IMPORTED_MODULE_2__["getPreRequisite"](Object.keys(_this5.preRequisite).join(','));
+
+              case 4:
+                response = _context.sent;
+
+                _this5.fillPreRequisite(response);
+
+                if (callbackFn) {
+                  _this5.$nextTick(function () {
+                    callbackFn();
+                  });
+                }
+
+                return _context.abrupt("return", response);
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](1);
+                _this5.isLoading = false;
+                _this5.formErrors = formUtil.handleErrors(_context.t0);
+                throw _context.t0;
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 10]]);
+      }))();
+    }
+  }),
+  mounted: function mounted() {
+    this.fillFormData();
+    this.initialFormData = _.cloneDeep(this.formData);
+  },
+  beforeDestroy: function beforeDestroy() {
+    delete this.formData;
+    delete this.formErrors;
+    delete this.preRequisite;
+  },
+  beforeRouteLeave: function beforeRouteLeave(to, from, next) {
+    this.unsavedCheck(next);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/views/app/config/authentication/index.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/views/app/config/authentication/index.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_vue_vue_type_template_id_b9485eea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=b9485eea& */ "./resources/js/views/app/config/authentication/index.vue?vue&type=template&id=b9485eea&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/views/app/config/authentication/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_b9485eea___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_b9485eea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/app/config/authentication/index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/app/config/authentication/index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/views/app/config/authentication/index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/authentication/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/app/config/authentication/index.vue?vue&type=template&id=b9485eea&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/views/app/config/authentication/index.vue?vue&type=template&id=b9485eea& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_b9485eea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=b9485eea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/app/config/authentication/index.vue?vue&type=template&id=b9485eea&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_b9485eea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_b9485eea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=index.js.map?id=2392918b89e38bacffc2

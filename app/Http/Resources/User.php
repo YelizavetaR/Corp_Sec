@@ -20,23 +20,26 @@ class User extends JsonResource
         $gender = ArrHelper::searchByKey(ArrHelper::getTransList('genders'), 'uuid', $this->gender ?? 'male');
 
         return [
-           'uuid'         => $this->uuid,
-           'username'     => $this->username,
-           'email'        => $this->email,
-           'enable_login' => $this->status != 'activated' ? false : true,
-           'status'       => $this->status,
-           'profile'      => array(
-               'name'       => $this->name,
-               'avatar'     => $this->avatar,
-               'gender'     => $gender,
-               'birth_date' => CalHelper::toDate($this->birth_date),
-               'age'        => CalHelper::getAge($this->birth_date)
-           ),
-           'timezone'   => $this->timezone,
-           'role'       => $this->when($this->whenLoaded('roles'), new Role($this->roles()->first())),
-           'is_admin'   => $this->hasRole('admin') ? true : false,
-           'created_at' => CalHelper::toDateTime($this->created_at),
-           'updated_at' => CalHelper::toDateTime($this->updated_at)
+            'uuid'         => $this->uuid,
+            'username'     => $this->username,
+            'contact_number'    => $this->contact_number,
+            'department'        => $this->department,
+            'designation'       => $this->designation,
+            'email'        => $this->email,
+            'enable_login' => $this->status != 'activated' ? false : true,
+            'status'       => $this->status,
+            'profile'      => array(
+                'name'       => $this->name,
+                'avatar'     => $this->avatar,
+                'gender'     => $gender,
+                'birth_date' => CalHelper::toDate($this->birth_date),
+                'age'        => CalHelper::getAge($this->birth_date)
+            ),
+            'timezone'   => $this->timezone,
+            'role'       => $this->when($this->whenLoaded('roles'), new Role($this->roles()->first())),
+            'is_admin'   => $this->hasRole('admin') ? true : false,
+            'created_at' => CalHelper::toDateTime($this->created_at),
+            'updated_at' => CalHelper::toDateTime($this->updated_at)
         ];
     }
 }

@@ -1,2 +1,642 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{BcCH:function(t,e,i){"use strict";var r=i("XuX8"),n=new(i.n(r).a);e.a=n},"TBq+":function(t,e,i){"use strict";i.d(e,"i",(function(){return l})),i.d(e,"a",(function(){return h})),i.d(e,"g",(function(){return d})),i.d(e,"h",(function(){return g})),i.d(e,"j",(function(){return R})),i.d(e,"c",(function(){return E})),i.d(e,"k",(function(){return P})),i.d(e,"e",(function(){return $})),i.d(e,"f",(function(){return w})),i.d(e,"d",(function(){return T})),i.d(e,"b",(function(){return L}));i("nFxi");function r(t){return function(t){if(Array.isArray(t))return n(t)}(t)||function(t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(t))return Array.from(t)}(t)||function(t,e){if(!t)return;if("string"==typeof t)return n(t,e);var i=Object.prototype.toString.call(t).slice(8,-1);"Object"===i&&t.constructor&&(i=t.constructor.name);if("Map"===i||"Set"===i)return Array.from(t);if("Arguments"===i||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i))return n(t,e)}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function n(t,e){(null==e||e>t.length)&&(e=t.length);for(var i=0,r=new Array(e);i<e;i++)r[i]=t[i];return r}function s(t,e){var i=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),i.push.apply(i,r)}return i}function o(t){for(var e=1;e<arguments.length;e++){var i=null!=arguments[e]?arguments[e]:{};e%2?s(Object(i),!0).forEach((function(e){a(t,e,i[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(i)):s(Object(i)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(i,e))}))}return t}function a(t,e,i){return e in t?Object.defineProperty(t,e,{value:i,enumerable:!0,configurable:!0,writable:!0}):t[e]=i,t}var u=function(t){var e=t.label,i=t.icon,r=t.tooltip,n=t.design,s=void 0===n?{color:"white",size:"md"}:n;return{label:e,icon:i,tooltip:r,design:s&&s.color||"white",size:s&&s.size||"md"}},l=function(t,e,i){var r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null,n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null,s=arguments.length>5&&void 0!==arguments[5]?arguments[5]:{},a=arguments.length>6&&void 0!==arguments[6]?arguments[6]:{};return o(o({},u({label:t,icon:e,tooltip:r,design:n})),{},{action:function(t){t.push({name:i,params:s,query:a})}})},c=function(t,e,i){var r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null,n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;return o(o({},u({label:t,icon:e,tooltip:r,design:n})),{},{action:i})},f=function(t,e,i){var r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null,n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;return c(t,e,(function(t,e){e.$emit(i.event,i.options)}),r,n)},h=function(t,e){return function(t,e,i,r){var n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null,s=arguments.length>5&&void 0!==arguments[5]?arguments[5]:null,a=arguments.length>6&&void 0!==arguments[6]?arguments[6]:{},u=arguments.length>7&&void 0!==arguments[7]?arguments[7]:{};return o(o({},l(t,e,i,n,s,a,u)),{},{permissions:[r]})}($t("general.add_new"),"fas fa-plus",t,e)},d=function(){return f($t("general.filter"),"fas fa-filter",{event:"TOGGLE_FILTER"})},p={storeName:"common",design:"white"},g=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:[];return o(o(o({},p),t),{},{options:[{label:$t("general.default"),dispatch:{sortBy:"created_at"}}].concat(r(e))})},m=function(t){return{label:t.label,icon:t.icon}},b=function(t,e,i){var r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:{},n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{};return o(o({},m({label:t,icon:e})),{},{to:{name:i,params:r,query:n}})},y=function(t,e,i,r){var n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{},s=arguments.length>5&&void 0!==arguments[5]?arguments[5]:{};return o(o({},b(t,e,i,n,s)),{},{permissions:[r]})},v=function(t,e,i){return o(o({},m({label:t,icon:e})),{},{action:i})},O=function(t,e,i){return v(t,e,(function(t,e){e.$emit(i.event,i.options)}))},R=function(t,e){return y($t("general.import"),"fas fa-file-import",t,e)},E=function(t,e){return y($t("general.config"),"fas fa-cog",t,e)},P=function(){return O($t("general.print"),"fas fa-print",{event:"EXPORT",options:{type:"print"}})},$=function(){return O($t("general.export_pdf"),"fas fa-file-pdf",{event:"EXPORT",options:{type:"pdf"}})},w=function(){return O($t("general.export_xls"),"fas fa-file-excel",{event:"EXPORT",options:{type:"xls"}})},T=function(){return O($t("general.export_csv"),"fas fa-file-csv",{event:"EXPORT",options:{type:"csv"}})},q={key_p:{type:"event",emit:"EXPORT",payload:{type:"print"}}},F={key_e:{type:"event",emit:"EXPORT",payload:{type:"pdf"}}},L=o(o(o({},{key_f:{type:"event",emit:"TOGGLE_FILTER"}}),q),F)},UPFT:function(t,e,i){"use strict";var r=i("o0o1"),n=i.n(r),s=i("TBq+"),o=i("L2JU"),a=i("kogc"),u=i("BcCH");function l(t){return(l="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function c(t,e,i,r,n,s,o){try{var a=t[s](o),u=a.value}catch(t){return void i(t)}a.done?e(u):Promise.resolve(u).then(r,n)}function f(t){return function(){var e=this,i=arguments;return new Promise((function(r,n){var s=t.apply(e,i);function o(t){c(s,r,n,o,a,"next",t)}function a(t){c(s,r,n,o,a,"throw",t)}o(void 0)}))}}function h(t,e){var i=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),i.push.apply(i,r)}return i}function d(t){for(var e=1;e<arguments.length;e++){var i=null!=arguments[e]?arguments[e]:{};e%2?h(Object(i),!0).forEach((function(e){p(t,e,i[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(i)):h(Object(i)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(i,e))}))}return t}function p(t,e,i){return e in t?Object.defineProperty(t,e,{value:i,enumerable:!0,configurable:!0,writable:!0}):t[e]=i,t}e.a={data:function(){return{uuid:null,entity:null,fields:[],preRequisite:{},showFilters:!1,isInitialized:!1,isLoading:!1,getInitialDataCalled:!1,gotError:!1,selectedRows:[],formErrors:{},customFilters:{},appendToQuery:{},filtersOptions:{name:""},sortOptions:{hasScroll:!1},columnsOptions:{hasScroll:!1},exportOptions:{},initUrl:"",initSubUrl:null,dataType:null,printOptions:null,headerButtons:null,headerFloaters:null,headerLinks:null,hideFilterButton:!1}},computed:d(d(d(d({},Object(o.c)("common",["entities","filters","columns","others"])),Object(o.c)("config",["configs","configs","uiConfigs","vars"])),Object(o.c)("user",["hasPermission","hasAnyPermission"])),{},{isFiltered:function(){var t=this.$route.query;return"true"===t.filtered||"false"!==t.filtered&&t.filtered},selectAllRows:{get:function(){var t=this;return this.entities&&this.entities.data.every((function(e){var i=e.uuid;return-1!==t.selectedRows.indexOf(i)}))},set:function(t){var e=this.selectedRows;t?this.entities.data.forEach((function(t){-1===e.indexOf(t.uuid)&&e.push(t.uuid)})):this.entities.data.forEach((function(t){var i=e.indexOf(t.uuid);-1!==i&&e.splice(i,1)})),this.selectedRows=e}},showTagsForm:function(){return!!this.selectedRows.length}}),watch:{$route:function(t,e){this.initSubUrl&&this.$route.params.uuid&&t.params.uuid!==e.params.uuid?(this.doInit(),this.getEntityData()):(this.updatePageMeta(),this.applyPageHeader())},columns:function(t,e){t.fields&&(this.fields=t.fields,this.refreshTable())}},methods:d(d(d({},Object(o.b)("common",["Init","InitSub","Get","GetList","Destroy","SetMeta","SetFilters","Custom","GetPreRequisite","ResetFilters"])),Object(o.b)("config",["SetUiConfig","SetConfig"])),{},{itemsProvider:function(t){var e=this;this.isLoading=!0;var i=d(d({},this.filters),{},{currentPage:this.entities.meta.currentPage,perPage:this.entities.meta.perPage},this.appendToQuery);return this.gotError=!1,this.GetList(i).then((function(t){return t.data})).catch((function(t){return e.isLoading=!1,formUtil.handleErrors(t),e.gotError=!0,[]}))},updatePageMeta:function(){var t=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],e=this.$route.query,i={currentPage:parseInt(e.currentPage||1),perPage:parseInt(e.perPage||this.configs.system.perPage)},r=this.filters;e.objForEach((function(t,e){r[e]=t})),this.customFilters&&this.customFilters.objForEach((function(t,e){r[e]=t})),this.SetMeta(i),this.SetFilters(r),t&&(this.isInitialized?(this.refreshTable(),this.isInitialized=!0):this.isInitialized=!0)},refreshTable:function(){this.$refs&&this.$refs.hasOwnProperty("btable")&&this.$refs.btable&&this.$refs.btable.refresh()},refreshTableIfRoute:function(t){this.$route.name===t&&this.refreshTable()},toggleFilter:function(){this.showFilters=!this.showFilters},deleteEntity:function(t){var e=this;formUtil.confirmAction().then((function(i){i.value?(e.isLoading=!0,e.Destroy(t).then((function(t){e.isLoading=!1,e.$toasted.success(t.message,e.$toastConfig),e.$nextTick((function(){e.refreshTable(),"function"==typeof e.getInitialData&&e.getInitialDataCalled&&e.getInitialDataCalledAfterDeleting&&e.getInitialData()}))})).catch((function(t){e.isLoading=!1,e.isInitialized=!0,e.formErrors=formUtil.handleErrors(t)}))):(i.dismiss,a.a.DismissReason.cancel)}))},fillPreRequisite:function(t){var e=this;this.preRequisite.objForEach((function(i,r){e.preRequisite[r]=t[r]||i})),this.isLoading=!1},getInitialData:function(){var t=this;return f(n.a.mark((function e(){var i;return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return t.isLoading=!0,t.getInitialDataCalled=!0,e.prev=2,e.next=5,t.GetPreRequisite(t.customFilters);case 5:return i=e.sent,t.fillPreRequisite(i),t.updatePageMeta(),"function"==typeof t.afterGetInitialData&&t.afterGetInitialData(),e.abrupt("return",i);case 12:throw e.prev=12,e.t0=e.catch(2),t.isLoading=!1,t.formErrors=formUtil.handleErrors(e.t0),e.t0;case 17:case"end":return e.stop()}}),e,null,[[2,12]])})))()},getEntityData:function(){var t=this;if(this.isLoading=!0,this.initSubUrl&&this.$route.params.uuid)return this.uuid=this.$route.params.uuid,this.Get({uuid:this.uuid}).then((function(e){t.entity=e,e.name&&(t.pageTitle=e.name,t.subTitle=e.name?t.subTitle:"",t.applyPageHeader()),t.doInitSub(),t.isLoading=!1,t.updatePageMeta(),"function"==typeof t.afterGetEntityData&&t.afterGetEntityData()})).catch((function(e){t.isLoading=!1,formUtil.handleErrors(e),t.$router.back()}));this.isLoading=!1,this.$router.back()},applyTags:function(t){var e=this;this.Custom({url:"/".concat(this.initUrl,"/action"),method:"post",data:d(d({},t),{},{uuids:this.selectedRows})}).then((function(t){e.selectedRows=[],e.$toasted.success(t.message,e.$toastConfig),e.isLoading=!1})).catch((function(t){e.isLoading=!1,e.formErrors=formUtil.handleErrors(t)}))},getSortOptionsArray:function(){return this.fields.filter((function(t){return t.sort})).map((function(t){return{label:t.label,sort:t.sort}}))},getHeaderOptions:function(){var t=[];this.routesRequired&&this.routesRequired.add&&("object"===l(this.permissionsRequired)&&null!==this.permissionsRequired&&this.permissionsRequired.add?t.push(s.a(this.routesRequired.add,this.permissionsRequired.add)):this.permissionsRequired?t.push(s.a(this.routesRequired.add,this.permissionsRequired)):t.push(s.a(this.routesRequired.add))),this.hideFilterButton||t.push(s.g()),this.headerButtons&&(t=t.concat(this.headerButtons));this.headerFloaters&&(headerFloaters=headerFloaters.concat(this.headerFloaters));var e=[];return this.routesRequired&&this.routesRequired.import&&("object"===l(this.permissionsRequired)&&null!==this.permissionsRequired&&this.permissionsRequired.import?e.push(s.j(this.routesRequired.import,this.permissionsRequired.import)):this.permissionsRequired&&e.push(s.j(this.routesRequired.import,this.permissionsRequired))),this.routesRequired&&this.routesRequired.config&&("object"===l(this.permissionsRequired)&&null!==this.permissionsRequired&&this.permissionsRequired.config?e.push(s.c(this.routesRequired.config,this.permissionsRequired.config)):this.permissionsRequired&&e.push(s.c(this.routesRequired.config,this.permissionsRequired))),e.push(s.k()),e.push(s.e()),e.push(s.d()),e.push(s.f()),this.headerLinks&&(e=e.concat(this.headerLinks)),{hideLinks:this.hideHeaderLinks||!1,buttons:t,floaters:[],sort:s.h(this.sortOptions||{},this.getSortOptionsArray()),links:e,columns:this.columnsOptions,title:this.pageTitle||"",subTitle:this.pageTitle&&this.subTitle||""}},getKeyBindingOptions:function(){var t=d({},s.b);return this.routesRequired&&this.routesRequired.add&&(t.key_a=this.routesRequired.add),t},applyPageHeader:function(){var t=Object.assign({},this.getHeaderOptions(),this.header||{}),e=Object.assign({},this.getKeyBindingOptions(),this.keyBindings||{});this.SetUiConfig({pageHeader:t}),this.SetConfig({keyBindings:e})},export:function(t){var e=this;return f(n.a.mark((function r(){var s,o,a,u,l,c,f,h,d;return n.a.wrap((function(r){for(;;)switch(r.prev=r.next){case 0:return e.isLoading=!0,r.next=3,i.e(67).then(i.bind(null,"tkDv"));case 3:if(s=r.sent,o=function(t,e){var i,r=e.split(".");return r&&r.length?r.forEach((function(e,r){i=i?i[e]:0===r?t[e]:null})):i=t[e],i},u=e.exportOptions||{},l=e.exportPdfFields||e.fields.filter((function(t){return t.label&&!t.cantExport})),c=[],!1,f="",h=moment().unix(),e.$route.meta.title&&(f=e.$route.meta.trans?$t(e.$route.meta.trans,{attribute:$t(e.$route.meta.title)}):$t(e.$route.meta.title),h=f.toLowerCase().replace(/\s+/g,"-")+"-"+h),"xls-csv"===t.type&&(t.type="csv",!0),"pdf"!==t.type&&"print"!==t.type){r.next=22;break}return r.next=16,Promise.all([i.e(83),i.e(80)]).then(i.bind(null,"xWJq"));case 16:a=r.sent,d=l.map((function(t){return{header:t.label,dataKey:t.key}})),c=e.entities.data.map((function(t){var e={};return l.forEach((function(i){var r=i.transformer,n=o(t,i.key);r&&(n||!1===n)&&(r=_.isArray(r)?r:[r]).forEach((function(e){var r=_.isFunction(e)?e:s[e];n=i.transformerOpts?r(n,i.transformerOpts):r(n,t)})),e[i.key]=n||""})),e})),"pdf"===t.type?a.downloadPdfFile(h,f,d,c,u):a.printTable(f,d,c,u),r.next=27;break;case 22:return r.next=24,i.e(79).then(i.bind(null,"LBS4"));case 24:a=r.sent,c=e.entities.data.map((function(t){var e={};return l.forEach((function(i){var r=i.transformer,n=o(t,i.key);r&&(n||!1===n)&&(r=_.isArray(r)?r:[r]).forEach((function(e){var r=_.isFunction(e)?e:s[e];n=i.transformerOpts?r(n,i.transformerOpts):r(n,t)})),e[i.label]=n||""})),e})),a.downloadFile(c,t.type,h);case 27:e.isLoading=!1;case 28:case"end":return r.stop()}}),r)})))()},doInitSub:function(){this.uuid=this.$route.params.uuid,this.uuid||(this.isLoading=!1,this.$router.back()),this.InitSub({url:this.uuid+"/"+this.initSubUrl,filters:this.filtersOptions})},doInit:function(){this.Init({url:this.initUrl,filters:this.filtersOptions,columns:this.fields}),this.applyPageHeader()},clearFilters:function(){this.ResetFilters(),this.$route.query&&this.$route.query.filtered&&this.$router.push({path:this.$route.path})},rowClickHandler:function(t,e){t.action&&"function"==typeof t.action?t.action(t,e):t.route&&this.$router.push({name:t.route,params:{uuid:e.uuid}})}}),mounted:function(){u.a.$off("REFRESH_TABLE",this.refreshTableIfRoute),u.a.$on("REFRESH_TABLE",this.refreshTableIfRoute),u.a.$off("TOGGLE_FILTER",this.toggleFilter),u.a.$on("TOGGLE_FILTER",this.toggleFilter),u.a.$off("CLEAR_FILTERS",this.clearFilters),u.a.$on("CLEAR_FILTERS",this.clearFilters),u.a.$off("EXPORT",this.export),u.a.$on("EXPORT",this.export),this.doInit()},destroyed:function(){u.a.$off("REFRESH_TABLE",this.refreshTableIfRoute),u.a.$off("TOGGLE_FILTER",this.toggleFilter),u.a.$off("CLEAR_FILTERS",this.clearFilters),u.a.$off("EXPORT",this.export)}}}}]);
-//# sourceMappingURL=app~3fbc6ad9.js.map?id=e51898995a530c42253a
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/app/activity/index~js/app/config/locale/index~js/app/config/role/index~js/app/option/index~js/app~3fbc6ad9"],{
+
+/***/ "./resources/js/event-bus.js":
+/*!***********************************!*\
+  !*** ./resources/js/event-bus.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
+/* harmony default export */ __webpack_exports__["default"] = (EventBus);
+
+/***/ }),
+
+/***/ "./resources/js/mixins/table.js":
+/*!**************************************!*\
+  !*** ./resources/js/mixins/table.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./resources/js/mixins/header.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _core_configs_sweet_alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @core/configs/sweet-alert */ "./resources/js/core/configs/sweet-alert.js");
+/* harmony import */ var _js_event_bus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @js/event-bus */ "./resources/js/event-bus.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      uuid: null,
+      entity: null,
+      fields: [],
+      preRequisite: {},
+      showFilters: false,
+      isInitialized: false,
+      isLoading: false,
+      getInitialDataCalled: false,
+      gotError: false,
+      selectedRows: [],
+      formErrors: {},
+      customFilters: {},
+      appendToQuery: {},
+      filtersOptions: {
+        name: ''
+      },
+      sortOptions: {
+        hasScroll: false
+      },
+      columnsOptions: {
+        hasScroll: false
+      },
+      exportOptions: {},
+      initUrl: '',
+      initSubUrl: null,
+      dataType: null,
+      printOptions: null,
+      headerButtons: null,
+      headerFloaters: null,
+      headerLinks: null,
+      hideFilterButton: false
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('common', ['entities', 'filters', 'columns', 'others'])), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('config', ['configs', 'configs', 'uiConfigs', 'vars'])), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('user', ['hasPermission', 'hasAnyPermission'])), {}, {
+    isFiltered: function isFiltered() {
+      var query = this.$route.query;
+      return query.filtered === 'true' ? true : query.filtered === 'false' ? false : query.filtered;
+    },
+    selectAllRows: {
+      get: function get() {
+        var _this = this;
+
+        return this.entities && this.entities.data.every(function (_ref) {
+          var uuid = _ref.uuid;
+          return _this.selectedRows.indexOf(uuid) !== -1;
+        });
+      },
+      set: function set(value) {
+        var selected = this.selectedRows;
+
+        if (value) {
+          this.entities.data.forEach(function (ent) {
+            if (selected.indexOf(ent.uuid) === -1) {
+              selected.push(ent.uuid);
+            }
+          });
+        } else {
+          this.entities.data.forEach(function (ent) {
+            var index = selected.indexOf(ent.uuid);
+
+            if (index !== -1) {
+              selected.splice(index, 1);
+            }
+          });
+        }
+
+        this.selectedRows = selected;
+      }
+    },
+    showTagsForm: function showTagsForm() {
+      return !!this.selectedRows.length;
+    }
+  }),
+  watch: {
+    $route: function $route(val, oldVal) {
+      if (this.initSubUrl && this.$route.params.uuid && val.params.uuid !== oldVal.params.uuid) {
+        this.doInit();
+        this.getEntityData();
+      } else {
+        this.updatePageMeta();
+        this.applyPageHeader();
+      }
+    },
+    columns: function columns(val, oldVal) {
+      if (val.fields) {
+        this.fields = val.fields;
+        this.refreshTable();
+      }
+    }
+  },
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('common', ['Init', 'InitSub', 'Get', 'GetList', 'Destroy', 'SetMeta', 'SetFilters', 'Custom', 'GetPreRequisite', 'ResetFilters'])), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('config', ['SetUiConfig', 'SetConfig'])), {}, {
+    itemsProvider: function itemsProvider(context) {
+      var _this2 = this;
+
+      this.isLoading = true;
+
+      var query = _objectSpread(_objectSpread({}, this.filters), {}, {
+        currentPage: this.entities.meta.currentPage,
+        perPage: this.entities.meta.perPage
+      }, this.appendToQuery);
+
+      this.gotError = false;
+      return this.GetList(query).then(function (response) {
+        return response.data;
+      })["catch"](function (error) {
+        _this2.isLoading = false;
+        formUtil.handleErrors(error);
+        _this2.gotError = true;
+        return [];
+      });
+    },
+    updatePageMeta: function updatePageMeta() {
+      var initTable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var query = this.$route.query;
+      var paginationMeta = {
+        currentPage: parseInt(query.currentPage || 1),
+        perPage: parseInt(query.perPage || this.configs.system.perPage)
+      };
+      var filtersMeta = this.filters;
+      query.objForEach(function (value, key) {
+        filtersMeta[key] = value;
+      });
+
+      if (this.customFilters) {
+        this.customFilters.objForEach(function (value, key) {
+          filtersMeta[key] = value;
+        });
+      }
+
+      this.SetMeta(paginationMeta);
+      this.SetFilters(filtersMeta);
+
+      if (initTable) {
+        if (this.isInitialized) {
+          this.refreshTable();
+          this.isInitialized = true;
+        } else {
+          this.isInitialized = true;
+        }
+      }
+    },
+    refreshTable: function refreshTable() {
+      if (this.$refs && this.$refs.hasOwnProperty('btable') && this.$refs.btable) {
+        this.$refs.btable.refresh();
+      }
+    },
+    refreshTableIfRoute: function refreshTableIfRoute(route) {
+      if (this.$route.name === route) {
+        this.refreshTable();
+      }
+    },
+    toggleFilter: function toggleFilter() {
+      this.showFilters = !this.showFilters;
+    },
+    deleteEntity: function deleteEntity(entity) {
+      var _this3 = this;
+
+      formUtil.confirmAction().then(function (result) {
+        if (result.value) {
+          _this3.isLoading = true;
+
+          _this3.Destroy(entity).then(function (response) {
+            _this3.isLoading = false;
+
+            _this3.$toasted.success(response.message, _this3.$toastConfig);
+
+            _this3.$nextTick(function () {
+              _this3.refreshTable();
+
+              if (typeof _this3.getInitialData === "function" && _this3.getInitialDataCalled && _this3.getInitialDataCalledAfterDeleting) {
+                _this3.getInitialData();
+              }
+            });
+          })["catch"](function (error) {
+            _this3.isLoading = false;
+            _this3.isInitialized = true;
+            _this3.formErrors = formUtil.handleErrors(error);
+          });
+        } else {
+          result.dismiss === _core_configs_sweet_alert__WEBPACK_IMPORTED_MODULE_3__["default"].DismissReason.cancel;
+        }
+      });
+    },
+    fillPreRequisite: function fillPreRequisite(response) {
+      var _this4 = this;
+
+      this.preRequisite.objForEach(function (value, key) {
+        _this4.preRequisite[key] = response[key] || value;
+      });
+      this.isLoading = false;
+    },
+    getInitialData: function getInitialData() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this5.isLoading = true;
+                _this5.getInitialDataCalled = true;
+                _context.prev = 2;
+                _context.next = 5;
+                return _this5.GetPreRequisite(_this5.customFilters);
+
+              case 5:
+                response = _context.sent;
+
+                _this5.fillPreRequisite(response);
+
+                _this5.updatePageMeta();
+
+                if (typeof _this5.afterGetInitialData === "function") {
+                  _this5.afterGetInitialData();
+                }
+
+                return _context.abrupt("return", response);
+
+              case 12:
+                _context.prev = 12;
+                _context.t0 = _context["catch"](2);
+                _this5.isLoading = false;
+                _this5.formErrors = formUtil.handleErrors(_context.t0);
+                throw _context.t0;
+
+              case 17:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 12]]);
+      }))();
+    },
+    getEntityData: function getEntityData() {
+      var _this6 = this;
+
+      this.isLoading = true;
+
+      if (this.initSubUrl && this.$route.params.uuid) {
+        this.uuid = this.$route.params.uuid;
+        return this.Get({
+          uuid: this.uuid
+        }).then(function (response) {
+          _this6.entity = response;
+
+          if (response.name) {
+            _this6.pageTitle = response.name;
+            _this6.subTitle = response.name ? _this6.subTitle : '';
+
+            _this6.applyPageHeader();
+          }
+
+          _this6.doInitSub();
+
+          _this6.isLoading = false;
+
+          _this6.updatePageMeta();
+
+          if (typeof _this6.afterGetEntityData === "function") {
+            _this6.afterGetEntityData();
+          }
+        })["catch"](function (error) {
+          _this6.isLoading = false;
+          formUtil.handleErrors(error);
+
+          _this6.$router.back();
+        });
+      } else {
+        this.isLoading = false;
+        this.$router.back();
+      }
+    },
+    applyTags: function applyTags(formData) {
+      var _this7 = this;
+
+      this.Custom({
+        url: "/".concat(this.initUrl, "/action"),
+        method: 'post',
+        data: _objectSpread(_objectSpread({}, formData), {}, {
+          uuids: this.selectedRows
+        })
+      }).then(function (response) {
+        _this7.selectedRows = [];
+
+        _this7.$toasted.success(response.message, _this7.$toastConfig);
+
+        _this7.isLoading = false;
+      })["catch"](function (error) {
+        _this7.isLoading = false;
+        _this7.formErrors = formUtil.handleErrors(error);
+      });
+    },
+    getSortOptionsArray: function getSortOptionsArray() {
+      return this.fields.filter(function (f) {
+        return f.sort;
+      }).map(function (f) {
+        return {
+          label: f.label,
+          sort: f.sort
+        };
+      });
+    },
+    getHeaderOptions: function getHeaderOptions() {
+      var buttons = [];
+
+      if (this.routesRequired && this.routesRequired.add) {
+        if (_typeof(this.permissionsRequired) === 'object' && this.permissionsRequired !== null && this.permissionsRequired.add) {
+          buttons.push(_header__WEBPACK_IMPORTED_MODULE_1__["addButton"](this.routesRequired.add, this.permissionsRequired.add));
+        } else if (this.permissionsRequired) {
+          buttons.push(_header__WEBPACK_IMPORTED_MODULE_1__["addButton"](this.routesRequired.add, this.permissionsRequired));
+        } else {
+          buttons.push(_header__WEBPACK_IMPORTED_MODULE_1__["addButton"](this.routesRequired.add));
+        }
+      }
+
+      if (!this.hideFilterButton) {
+        buttons.push(_header__WEBPACK_IMPORTED_MODULE_1__["filterButton"]());
+      }
+
+      if (this.headerButtons) {
+        buttons = buttons.concat(this.headerButtons);
+      }
+
+      var floaters = [];
+
+      if (this.headerFloaters) {
+        headerFloaters = headerFloaters.concat(this.headerFloaters);
+      }
+
+      var links = [];
+
+      if (this.routesRequired && this.routesRequired["import"]) {
+        if (_typeof(this.permissionsRequired) === 'object' && this.permissionsRequired !== null && this.permissionsRequired["import"]) {
+          links.push(_header__WEBPACK_IMPORTED_MODULE_1__["importOption"](this.routesRequired["import"], this.permissionsRequired["import"]));
+        } else if (this.permissionsRequired) {
+          links.push(_header__WEBPACK_IMPORTED_MODULE_1__["importOption"](this.routesRequired["import"], this.permissionsRequired));
+        }
+      }
+
+      if (this.routesRequired && this.routesRequired.config) {
+        if (_typeof(this.permissionsRequired) === 'object' && this.permissionsRequired !== null && this.permissionsRequired.config) {
+          links.push(_header__WEBPACK_IMPORTED_MODULE_1__["configOption"](this.routesRequired.config, this.permissionsRequired.config));
+        } else if (this.permissionsRequired) {
+          links.push(_header__WEBPACK_IMPORTED_MODULE_1__["configOption"](this.routesRequired.config, this.permissionsRequired));
+        }
+      }
+
+      links.push(_header__WEBPACK_IMPORTED_MODULE_1__["printOption"]());
+      links.push(_header__WEBPACK_IMPORTED_MODULE_1__["exportPdfOption"]());
+      links.push(_header__WEBPACK_IMPORTED_MODULE_1__["exportCsvOption"]()); // links.push(headerMixins.exportExcelCsvOption())
+
+      links.push(_header__WEBPACK_IMPORTED_MODULE_1__["exportXlsOption"]());
+
+      if (this.headerLinks) {
+        links = links.concat(this.headerLinks);
+      }
+
+      return {
+        hideLinks: this.hideHeaderLinks || false,
+        buttons: buttons,
+        floaters: floaters,
+        sort: _header__WEBPACK_IMPORTED_MODULE_1__["getSortOptions"](this.sortOptions || {}, this.getSortOptionsArray()),
+        links: links,
+        columns: this.columnsOptions,
+        title: this.pageTitle || '',
+        subTitle: this.pageTitle ? this.subTitle || '' : ''
+      };
+    },
+    getKeyBindingOptions: function getKeyBindingOptions() {
+      var opts = _objectSpread({}, _header__WEBPACK_IMPORTED_MODULE_1__["commonKeyBindings"]);
+
+      if (this.routesRequired && this.routesRequired.add) {
+        opts['key_a'] = this.routesRequired.add;
+      }
+
+      return opts;
+    },
+    applyPageHeader: function applyPageHeader() {
+      var pageHeaderOptions = Object.assign({}, this.getHeaderOptions(), this.header || {});
+      var keyBindings = Object.assign({}, this.getKeyBindingOptions(), this.keyBindings || {});
+      this.SetUiConfig({
+        pageHeader: pageHeaderOptions
+      });
+      this.SetConfig({
+        keyBindings: keyBindings
+      });
+    },
+    "export": function _export(options) {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var transformers, getFinalValue, exportUtil, exportOptions, fields, content, excelStrings, fileTitle, fileName, columns;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this8.isLoading = true;
+                _context2.next = 3;
+                return __webpack_require__.e(/*! import() | js/helpers/transformers */ "js/helpers/transformers").then(__webpack_require__.bind(null, /*! @js/helpers/transformers */ "./resources/js/helpers/transformers.js"));
+
+              case 3:
+                transformers = _context2.sent;
+
+                getFinalValue = function getFinalValue(item, key) {
+                  var finalVal;
+                  var keys = key.split('.');
+
+                  if (keys && keys.length) {
+                    keys.forEach(function (k, i) {
+                      finalVal = finalVal ? finalVal[k] : i === 0 ? item[k] : null;
+                    });
+                  } else {
+                    finalVal = item[key];
+                  }
+
+                  return finalVal;
+                };
+
+                exportOptions = _this8.exportOptions || {};
+                fields = _this8.exportPdfFields || _this8.fields.filter(function (f) {
+                  return f.label && !f.cantExport;
+                });
+                content = [];
+                excelStrings = false;
+                fileTitle = '';
+                fileName = moment().unix();
+
+                if (_this8.$route.meta.title) {
+                  fileTitle = _this8.$route.meta.trans ? $t(_this8.$route.meta.trans, {
+                    attribute: $t(_this8.$route.meta.title)
+                  }) : $t(_this8.$route.meta.title);
+                  fileName = fileTitle.toLowerCase().replace(/\s+/g, '-') + '-' + fileName;
+                }
+
+                if (options.type === 'xls-csv') {
+                  options.type = 'csv';
+                  excelStrings = true;
+                }
+
+                if (!(options.type === 'pdf' || options.type === 'print')) {
+                  _context2.next = 22;
+                  break;
+                }
+
+                _context2.next = 16;
+                return Promise.all(/*! import() | js/utils/export-pdf */[__webpack_require__.e("vendors~js/utils/export-pdf"), __webpack_require__.e("js/utils/export-pdf")]).then(__webpack_require__.bind(null, /*! @core/utils/export/pdf */ "./resources/js/core/utils/export/pdf.js"));
+
+              case 16:
+                exportUtil = _context2.sent;
+                columns = fields.map(function (f) {
+                  return {
+                    header: f.label,
+                    dataKey: f.key
+                  };
+                });
+                content = _this8.entities.data.map(function (item) {
+                  var row = {};
+                  fields.forEach(function (field) {
+                    var ft = field.transformer;
+                    var value = getFinalValue(item, field.key);
+
+                    if (ft && (value || value === false)) {
+                      ft = _.isArray(ft) ? ft : [ft];
+                      ft.forEach(function (ftrans) {
+                        var func = _.isFunction(ftrans) ? ftrans : transformers[ftrans];
+                        value = field.transformerOpts ? func(value, field.transformerOpts) : func(value, item);
+                      });
+                    }
+
+                    row[field.key] = value || "";
+                  });
+                  return row;
+                });
+
+                if (options.type === 'pdf') {
+                  exportUtil.downloadPdfFile(fileName, fileTitle, columns, content, exportOptions);
+                } else {
+                  exportUtil.printTable(fileTitle, columns, content, exportOptions);
+                }
+
+                _context2.next = 27;
+                break;
+
+              case 22:
+                _context2.next = 24;
+                return Promise.all(/*! import() | js/utils/export-csv */[__webpack_require__.e("vendors~js/utils/export-csv"), __webpack_require__.e("js/utils/export-csv")]).then(__webpack_require__.bind(null, /*! @core/utils/export/csv */ "./resources/js/core/utils/export/csv.js"));
+
+              case 24:
+                exportUtil = _context2.sent;
+                content = _this8.entities.data.map(function (item) {
+                  var row = {};
+                  fields.forEach(function (field) {
+                    var ft = field.transformer;
+                    var value = getFinalValue(item, field.key);
+
+                    if (ft && (value || value === false)) {
+                      ft = _.isArray(ft) ? ft : [ft];
+                      ft.forEach(function (ftrans) {
+                        var func = _.isFunction(ftrans) ? ftrans : transformers[ftrans];
+                        value = field.transformerOpts ? func(value, field.transformerOpts) : func(value, item);
+                      });
+                    }
+
+                    row[field.label] = value || "";
+                  });
+                  return row;
+                });
+                exportUtil.downloadFile(content, options.type, fileName);
+
+              case 27:
+                _this8.isLoading = false;
+
+              case 28:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    doInitSub: function doInitSub() {
+      this.uuid = this.$route.params.uuid;
+
+      if (!this.uuid) {
+        this.isLoading = false;
+        this.$router.back();
+      }
+
+      this.InitSub({
+        url: this.uuid + '/' + this.initSubUrl,
+        filters: this.filtersOptions
+      });
+    },
+    doInit: function doInit() {
+      this.Init({
+        url: this.initUrl,
+        filters: this.filtersOptions,
+        columns: this.fields
+      });
+      this.applyPageHeader();
+    },
+    clearFilters: function clearFilters() {
+      this.ResetFilters();
+
+      if (this.$route.query && this.$route.query.filtered) {
+        this.$router.push({
+          path: this.$route.path
+        });
+      }
+    },
+    rowClickHandler: function rowClickHandler(opts, item) {
+      if (opts.action && typeof opts.action === "function") {
+        opts.action(opts, item);
+      } else if (opts.route) {
+        this.$router.push({
+          name: opts.route,
+          params: {
+            uuid: item.uuid
+          }
+        });
+      }
+    }
+  }),
+  mounted: function mounted() {
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('REFRESH_TABLE', this.refreshTableIfRoute);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$on('REFRESH_TABLE', this.refreshTableIfRoute);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('TOGGLE_FILTER', this.toggleFilter);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$on('TOGGLE_FILTER', this.toggleFilter);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('CLEAR_FILTERS', this.clearFilters);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$on('CLEAR_FILTERS', this.clearFilters);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('EXPORT', this["export"]);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$on('EXPORT', this["export"]);
+    this.doInit();
+  },
+  destroyed: function destroyed() {
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('REFRESH_TABLE', this.refreshTableIfRoute);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('TOGGLE_FILTER', this.toggleFilter);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('CLEAR_FILTERS', this.clearFilters);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('EXPORT', this["export"]);
+  }
+});
+
+/***/ })
+
+}]);
+//# sourceMappingURL=app~3fbc6ad9.js.map?id=6592617e87d99fd549ad

@@ -58,12 +58,12 @@ class User extends Authenticatable
     {
         return $this->getPreference('timezone') ?? config('config.system.timezone');
     }
-    
+
     // Constrains
 
-    public function validateStatus($auth_event = true) : void
+    public function validateStatus($auth_event = true): void
     {
-        if (! $this->can('enable-login')) {
+        if (!$this->can('enable-login')) {
             $this->logout();
             throw ValidationException::withMessages(['message' => __('auth.login.login_permission_disabled')]);
         }
@@ -73,7 +73,7 @@ class User extends Authenticatable
             throw ValidationException::withMessages(['message' => __('auth.login.status.' . $this->status)]);
         }
 
-        if (config('config.system.maintenance_mode') && ! \Auth::user()->hasRole('admin')) {
+        if (config('config.system.maintenance_mode') && !\Auth::user()->hasRole('admin')) {
             $this->logout();
             throw ValidationException::withMessages(['message' => config('config.system.maintenance_mode_message')]);
         }
@@ -83,53 +83,53 @@ class User extends Authenticatable
         }
     }
 
-    public function logout() : void
+    public function logout(): void
     {
         \Auth::guard('web')->logout();
     }
 
     // Filters
 
-    public function scopeFilterByKeyword(Builder $query, $keyword = null) : void
+    public function scopeFilterByKeyword(Builder $query, $keyword = null): void
     {
         $query->when($keyword, function ($q, $keyword) {
             return $q->where(function ($q1) use ($keyword) {
-                $q1->where('name', 'like', '%'.$keyword.'%')->orWhere('email', 'like', '%'.$keyword.'%')->orWhere('username', 'like', '%'.$keyword.'%');
+                $q1->where('name', 'like', '%' . $keyword . '%')->orWhere('email', 'like', '%' . $keyword . '%')->orWhere('username', 'like', '%' . $keyword . '%');
             });
         });
     }
 
     public function scopeFilterByEmail($q, $email = null, $s = 0)
     {
-        if (! $email) {
+        if (!$email) {
             return $q;
         }
 
-        return ($s) ? $q->where('email', '=', $email) : $q->where('email', 'like', '%'.$email.'%');
+        return ($s) ? $q->where('email', '=', $email) : $q->where('email', 'like', '%' . $email . '%');
     }
 
     public function scopeFilterByUsername($q, $username = null, $s = 0)
     {
-        if (! $username) {
+        if (!$username) {
             return $q;
         }
-        
-        return ($s) ? $q->where('username', '=', $username) : $q->where('username', 'like', '%'.$username.'%');
+
+        return ($s) ? $q->where('username', '=', $username) : $q->where('username', 'like', '%' . $username . '%');
     }
 
     public function scopeFilterByName($q, $name = null, $s = 0)
     {
-        if (! $name) {
+        if (!$name) {
             return $q;
         }
-        
-        return ($s) ? $q->where('name', '=', $name) : $q->where('name', 'like', '%'.$name.'%');
+
+        return ($s) ? $q->where('name', '=', $name) : $q->where('name', 'like', '%' . $name . '%');
     }
 
-    public function scopeDateBetween(Builder $query, $dates) : void
+    public function scopeDateBetween(Builder $query, $dates): void
     {
         $start_date = Arr::get($dates, 'start_date');
-        $end_date = Arr::get($dates, 'end_date') ? : $start_date;
+        $end_date = Arr::get($dates, 'end_date') ?: $start_date;
 
         if ($start_date && $end_date && $start_date <= $end_date) {
             $query->where('created_at', '>=', $start_date)->where('created_at', '<=', $end_date);

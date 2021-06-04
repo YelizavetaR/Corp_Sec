@@ -79,6 +79,16 @@ Route::group(['middleware' => ['auth:sanctum', '2fa', 'under_maintenance']], fun
     Route::get('dashboard/stats', 'DashboardController@getStats');
     Route::get('dashboard/chart', 'DashboardController@getChart');
 
+    // Enquiry Routes
+    Route::get('/enquiry', 'EnquiryController@index');
+    Route::get('/enquiry/show/{uuid}', 'EnquiryController@show');
+
+    // BR Form Routes
+    Route::get('/bform', 'BformsController@index');
+    Route::get('/bform/show/{uuid}', 'BformsController@show');
+    Route::post('/bform/update/{uuid}', 'BformsController@update');
+    Route::delete('/bform/delete/{uuid}', 'BformsController@delete');
+
     // Any key search
     Route::get('search', 'Search');
 
@@ -89,10 +99,10 @@ Route::group(['middleware' => ['auth:sanctum', '2fa', 'under_maintenance']], fun
         Route::delete('assets', 'ConfigController@removeAsset');
 
         Route::apiResource('roles', 'RoleController')->except(['update']);
-        
+
         Route::get('permissions/pre-requisite', 'PermissionController@preRequisite');
         Route::post('permissions/assign', 'PermissionController@assign');
-        
+
         Route::get('locales/pre-requisite', 'LocaleController@preRequisite');
         Route::post('locales/{locale}/translate', 'LocaleController@translate');
         Route::apiResource('locales', 'LocaleController');
@@ -102,7 +112,7 @@ Route::group(['middleware' => ['auth:sanctum', '2fa', 'under_maintenance']], fun
     Route::get('options/pre-requisite', 'OptionController@preRequisite');
     Route::apiResource('options', 'OptionController');
 
-    Route::prefix('chat')->group(function() {
+    Route::prefix('chat')->group(function () {
         Route::get('pre-requisite', 'ChatController@preRequisite');
         Route::get('rooms', 'ChatController@getRooms');
         Route::get('rooms/search', 'ChatController@searchRoom');

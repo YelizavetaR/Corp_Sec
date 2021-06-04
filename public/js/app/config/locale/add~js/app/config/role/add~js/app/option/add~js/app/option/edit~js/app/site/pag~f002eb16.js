@@ -1,2 +1,1469 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{"/MoV":function(t,e,s){"use strict";s.d(e,"c",(function(){return o})),s.d(e,"f",(function(){return n})),s.d(e,"d",(function(){return u})),s.d(e,"a",(function(){return d})),s.d(e,"g",(function(){return f})),s.d(e,"e",(function(){return c})),s.d(e,"b",(function(){return p}));var a=s("g6NE"),i=a.a.getters["config/configs"],r=a.a.getters["config/vars"],l=function(){return{timezone:i.system.timezone,defaultDateFormat:r.defaultDateFormat,defaultDateTimeFormat:r.defaultDateTimeFormat,serverDateFormat:r.serverDateFormat,serverDateTimeFormat:r.serverDateTimeFormat,calendarLocale:{sameDay:r.defaultTimeFormat,lastWeek:r.defaultDateFormat,sameElse:r.defaultDateFormat}}},o=function(t,e){var s=l(),a=moment(t,s.serverDateFormat);return t?(Array.isArray(t)&&(a=moment(t[0],t[1])),a.format(e||s.defaultDateFormat)):"INVALID DATE STRING"},n=function(t,e){var s=l(),a=moment(t,s.serverTimeFormat);return t?(Array.isArray(t)&&(a=moment(t[0],t[1])),a.format(e||s.defaultTimeFormat)):"INVALID TIME STRING"},u=function(t,e){var s=l(),a=moment(t,s.serverDateTimeFormat);return t?(Array.isArray(t)&&(a=moment(t[0],t[1])),a.format(e||s.defaultDateTimeFormat)):"INVALID DATE TIME STRING"},d=function(t,e){var s=l(),a=moment(t,s.serverDateTimeFormat);return t?(Array.isArray(t)&&(a=moment(t[0],t[1])),a.calendar(e||s.calendarLocale)):"INVALID DATE TIME STRING"},f=function(t,e,s){var a=l(),i=moment.utc("".concat(moment().format(a.serverDateFormat)," ").concat(t),a.serverTimeFormat);return t?(Array.isArray(t)&&(i=moment.utc(t[0],t[1])),i.tz(s||a.timezone).format(e||a.defaultTimeFormat)):"INVALID TIME STRING"},c=function(t,e,s){var a=l(),i=moment.utc(t,a.serverDateTimeFormat);return t?(Array.isArray(t)&&(i=moment.utc(t[0],t[1])),i.tz(s||a.timezone).format(e||a.defaultDateTimeFormat)):"INVALID DATE TIME STRING"},p=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,s=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,a=l(),i=moment.utc(t,a.serverDateTimeFormat);if(!t)return"INVALID DATE TIME STRING";Array.isArray(t)&&(i=moment.utc(t[0],t[1]));var r=i.tz(s||a.timezone);return r=r.calendar(e||a.calendarLocale)}},"1MQW":function(t,e,s){(e=t.exports=s("I1BE")(!1)).push([t.i,"@import url(https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900);",""]),e.push([t.i,".file-uploader .files-list-wrapper[data-v-020d1760]{margin-top:1rem}.file-uploader .files-list-wrapper .files-list[data-v-020d1760]{list-style:none;padding:0}.file-uploader .files-list-wrapper .files-list>.file-details-row[data-v-020d1760]{display:flex;transition:all .2s ease-in-out;background-color:#f8f9fd;overflow:hidden}.file-uploader .files-list-wrapper .files-list>.file-details-row[data-v-020d1760]:nth-child(2n){background-color:#e9ecf1}.file-uploader .files-list-wrapper .files-list>.file-details-row[data-v-020d1760]:first-child{border-radius:.25rem .25rem 0 0}.file-uploader .files-list-wrapper .files-list>.file-details-row[data-v-020d1760]:last-child{border-radius:0 0 .25rem .25rem}.file-uploader .files-list-wrapper .files-list>.file-details-row>*[data-v-020d1760]{padding:.4rem .6rem}.file-uploader .files-list-wrapper .files-list>.file-details-row .file-icon span[data-v-020d1760]{font-size:2rem;color:rgba(0,0,0,.3);display:flex;justify-content:center;align-items:center;width:3rem;height:3rem}.file-uploader .files-list-wrapper .files-list>.file-details-row .file-details[data-v-020d1760]{flex-grow:1;border-left:.0625rem solid rgba(0,0,0,.05)}.file-uploader .files-list-wrapper .files-list>.file-details-row .file-details h6[data-v-020d1760]{font-weight:600;margin-bottom:.2rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.file-uploader .files-list-wrapper .files-list>.file-details-row .file-details p[data-v-020d1760]{font-size:.75rem;color:rgba(0,0,0,.4);margin:0}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper[data-v-020d1760],.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper>*[data-v-020d1760]{display:flex}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper .status-action[data-v-020d1760],.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper .status-icon[data-v-020d1760],.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper .status-text[data-v-020d1760]{display:flex;justify-content:center;align-items:center;color:rgba(0,0,0,.3);margin:0 1rem}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper .status-icon[data-v-020d1760]{font-size:2rem}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper .status-action[data-v-020d1760]{color:#0059ff;cursor:pointer}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper.actions-wrapper[data-v-020d1760]{padding:0}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper.actions-wrapper .actions-buttons .remove-btn[data-v-020d1760]{background-color:transparent;border:none;border-left:.0625rem solid rgba(0,0,0,.05);padding:0 1rem;color:#f5365c;cursor:pointer;transform:scale(1)}.file-uploader .files-list-wrapper .files-list>.file-details-row .status-wrapper.actions-wrapper .actions-buttons .remove-btn[data-v-020d1760]:hover{transform:scale(1.2)}.file-uploader .files-list-wrapper .files-list>.file-details-row[data-v-020d1760]:hover{background-color:#dee2e9}",""])},BcCH:function(t,e,s){"use strict";var a=s("XuX8"),i=new(s.n(a).a);e.a=i},DeGg:function(t,e,s){var a=s("1MQW");"string"==typeof a&&(a=[[t.i,a,""]]);var i={hmr:!0,transform:void 0,insertInto:void 0};s("aET+")(a,i);a.locals&&(t.exports=a.locals)},HLOy:function(t,e,s){"use strict";var a=s("DeGg");s.n(a).a},ICll:function(t,e,s){"use strict";s.d(e,"d",(function(){return i})),s.d(e,"b",(function(){return r})),s.d(e,"c",(function(){return l})),s.d(e,"a",(function(){return o}));var a=s("5TL6");function i(t,e){return Object(a.a)({url:t.url,method:"post",data:t.data,upload:!0,config:{headers:{"Content-Type":"multipart/form-data"}},headers:{"Content-Type":"multipart/form-data; charset=utf-8; boundary="+Math.random().toString().substr(2)},onUploadProgress:e})}function r(t){return Object(a.a)({url:t.url,method:"delete",data:t.data})}function l(t,e,s){return Object(a.a)({url:t.url,method:"post",data:t.data,upload:!0,config:{headers:{"Content-Type":"multipart/form-data"}},headers:{"Content-Type":"multipart/form-data; charset=utf-8; boundary="+Math.random().toString().substr(2)},onUploadProgress:e,cancelToken:s})}function o(t){return Object(a.a)({url:t.url,method:"delete",data:t.data})}},OjY7:function(t,e,s){"use strict";var a=s("vDqi"),i=s.n(a),r=s("ICll"),l=s("L2JU"),o=s("7Cbv"),n=s("BcCH"),u=s("nFxi");function d(t,e){var s=Object.keys(t);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(t);e&&(a=a.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),s.push.apply(s,a)}return s}function f(t){for(var e=1;e<arguments.length;e++){var s=null!=arguments[e]?arguments[e]:{};e%2?d(Object(s),!0).forEach((function(e){c(t,e,s[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(s)):d(Object(s)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(s,e))}))}return t}function c(t,e,s){return e in t?Object.defineProperty(t,e,{value:s,enumerable:!0,configurable:!0,writable:!0}):t[e]=s,t}var p={name:"file-uploader",components:{},props:{data:{type:Array,default:function(){return[]}},additionalFormData:{type:Object,default:function(){return{}}},requestIdentifier:{type:String,default:Object(o.a)()},url:{type:String,default:"/uploads"},heading:{type:String,default:null},actionLabel:{type:String,default:"global.choose"},nameLabel:{type:String,default:"upload.file"},namesLabel:{type:String,default:"upload.files"},buttonWrapperClasses:{type:String,default:"justify-content-start"},headingClasses:{type:String,default:"mb-0"},buttonClasses:{type:String,default:""},buttonIcon:{type:String,default:"fas fa-upload"},buttonDesign:{type:String,default:"primary"},options:{type:Object,required:!0},autoUpload:{type:Boolean,default:!0},multiple:{type:Boolean,default:!0},hideButtonLabel:{type:Boolean,default:!1},hideFileList:{type:Boolean,default:!1},hideResetButton:{type:Boolean,default:!1},hideAfterUpload:{type:Boolean,default:!1},showSelectedFilesCount:{type:Boolean,default:!1}},data:function(){return{isLoading:!1,fileRemoved:!1,actionLabelUpdated:"",files:[],uploadedFiles:[],existingFiles:[],icons:u.b,mimeTypes:u.c}},computed:f(f({},Object(l.c)("config",["configs","vars"])),{},{computedActionLabel:function(){return this.existingFile?"global.change":this.actionLabel}}),watch:{data:function(t){this.existingFiles=t.map((function(t){return f(f({},t),{},{status:null})}))},"options.uuid":{deep:!0,handler:function(t,e){t&&t!==e&&this.reset()}}},methods:{getFileIcon:function(t){return this.icons[t]||"fa-file-alt"},getFileNameIcon:function(t){return this.icons[t]||"fa-file-alt"},generateFilesList:function(t){this.isLoading=!0;var e=null,s=this.$refs.filesInput.files;if(this.options.allowedExtensions&&(e=new RegExp("(."+this.options.allowedExtensions.join("|.")+")$")),this.options.maxNoOfFiles&&s.length+this.existingFiles.length>this.options.maxNoOfFiles)this.$toasted.error(this.$t("upload.max_file_limit_crossed",{number:this.options.maxNoOfFiles}),this.$toastConfig.error);else{for(var a=0;a<s.length;a++)e&&!e.test(s[a].name)?(this.isLoading=!1,this.$toasted.error(this.$t("global.file_not_supported",{attribute:s[a].name.split(".").pop()}),this.$toastConfig.error)):s[a].size>this.configs.system.postMaxSize?(this.isLoading=!1,this.$toasted.error(this.$t("global.file_too_large",{attribute:s[a].name}),this.$toastConfig.error)):this.files.push({uuid:Object(o.a)(),file:s[a],status:"waiting",progress:0});this.isLoading=!1,this.$emit("selected",this.files.length),this.autoUpload&&this.startUploading()}},startUploading:function(){var t=this;if(this.files.filter((function(t){return"waiting"===t.status})).length){var e=[],s=i.a.CancelToken;this.$emit("uploading",this.files.length);for(var a=function(a){var i=t.files[a];if(e[a]=function(t){i.progress=Math.round(100*t.loaded/t.total)},"waiting"===i.status){var l=new FormData;l.append("file",i.file),l.append("mime",i.file.type),l.append("token",t.options.token),l.append("module",t.options.module),l.append("request_uuid",t.requestIdentifier),l.append("first_attachment",0===a),l.append("last_attachment",a===t.files.length-1),t.additionalFormData.objForEach((function(t,e){t&&(_.isObject(t)?l.append(e.snakeCase(),JSON.stringify(t)):l.append(e.snakeCase(),t))})),i.status="uploading";var o=new s((function(t){i.cancel=t}));r.c({url:t.url,data:l},e[a],o).then((function(e){e.upload?t.uploadedFiles.push(e.upload):e.attachments&&t.uploadedFiles.push(e.attachments),i.uuid=e.upload?e.upload.uuid:e.uuid,i.status="justUploaded",delete i.cancel,setTimeout((function(){i.status="uploaded",t.hideAfterUpload&&t.files.splice(t.files.findIndex((function(t){return t.uuid===i.uuid})),1)}),2e3),t.$emit("updated",e),t.checkUploadStatus(e)})).catch((function(e){if(t.$emit("error",e),e.response&&e.response.data){var s=e.response.data||{},a=s.errors?formUtil.assignErrors(s.errors):{};i.error=a.message,t.$toasted.error(a.message,t.$toastConfig.error),i.status="error",setTimeout((function(){t.files.splice(t.files.findIndex((function(t){return t.uuid===i.uuid})),1)}),3e3),t.$emit("updated",e),t.checkUploadStatus()}else i.status="cancelled",setTimeout((function(){t.files.splice(t.files.findIndex((function(t){return t.uuid===i.uuid})),1)}),3e3)}))}},l=0;l<this.files.length;l++)a(l)}},removeFile:function(t,e){var s=this,a=arguments.length>2&&void 0!==arguments[2]&&arguments[2];formUtil.confirmAction().then((function(e){e.value&&(s.isLoading=!0,r.a({url:s.url+"/"+t.uuid,data:{token:s.options.token,module:s.options.module}}).then((function(e){t.status="removed",setTimeout((function(){a?s.existingFiles.splice(s.existingFiles.findIndex((function(e){return e.uuid===t.uuid})),1):s.files.splice(s.files.findIndex((function(e){return e.uuid===t.uuid})),1)}),3e3),s.isLoading=!1,s.$toasted.success(e.message,s.$toastConfig.success),s.$emit("selected",s.files.length),s.$emit("updated",e),s.checkUploadStatus()})).catch((function(e){var a=e.response.data||{},i=a.errors?formUtil.assignErrors(a.errors):{};s.$toasted.error(i.message,s.$toastConfig.error),t.error=i.message,t.status="removeError"})))}))},checkUploadStatus:function(t){for(var e=!0,s=0;s<this.files.length;s++)"justUploaded"!==this.files[s].status&&"uploaded"!==this.files[s].status&&(e=!1);e?this.$emit("uploaded",this.uploadedFiles):this.$emit("error")},reset:function(){this.isLoading=!1,this.fileRemoved=!1,this.actionLabelUpdated="",this.files=[],this.uploadedFiles=[];var t=this.$refs.filesInput;t.type="text",t.type="file",this.$emit("selected",this.files.length)},startUpload:function(){this.files.length?this.startUploading():this.$emit("noNeed")}},mounted:function(){n.a.$off("START_UPLOAD",this.startUpload),n.a.$on("START_UPLOAD",this.startUpload),n.a.$off("RESET_UPLOAD",this.reset),n.a.$on("RESET_UPLOAD",this.reset),this.existingFiles=this.data.map((function(t){return f(f({},t),{},{status:null})}))},filters:{decimal:function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:2;return Number(t).toFixed(e)}},destroyed:function(){n.a.$off("START_UPLOAD",this.startUpload),n.a.$off("RESET_UPLOAD",this.reset)}},m=(s("HLOy"),s("KHd+")),v=Object(m.a)(p,(function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("div",{staticClass:"sm-uploader file-uploader"},[s("div",{staticClass:"file-uploader-form"},[s("div",{class:["file-selector d-flex",t.buttonWrapperClasses]},[t.heading?s("h5",{class:["title-desc",t.headingClasses]},[t._v("\n                "+t._s(t.heading)+"\n            ")]):t._e(),t._v(" "),s("label",{class:["btn","btn-"+t.buttonDesign,t.buttonClasses]},[s("input",{ref:"filesInput",staticClass:"selector-input",attrs:{name:"filesInput",type:"file",id:"filesInput",multiple:t.multiple},on:{change:t.generateFilesList}}),t._v(" "),s("span",{staticClass:"button-icon"},[s("i",{class:t.buttonIcon})]),t._v(" "),t.hideButtonLabel?t._e():s("span",{staticClass:"button-label"},[t._v(t._s(t.$t(t.computedActionLabel,{attribute:t.$t(t.namesLabel)})))]),t._v(" "),t.showSelectedFilesCount&&t.files.length?s("span",{staticClass:"button-label bracketed"},[t._v(t._s(t.files.length))]):t._e()]),t._v(" "),t.hideFileList&&!t.hideResetButton&&t.files.length?s("button",{class:["btn","btn-"+t.buttonDesign,t.buttonClasses],attrs:{type:"button"},on:{click:t.reset}},[t._m(0)]):t._e()])]),t._v(" "),t.existingFiles.length||t.files.length?s("div",{class:["files-list-wrapper",{"d-none":t.hideFileList}]},[s("ul",{staticClass:"files-list"},[t._l(t.existingFiles,(function(e,a){return s("li",{staticClass:"file-details-row"},[s("div",{staticClass:"file-icon"},[s("span",[s("i",{class:["far",t.getFileIcon(e.mime)]})])]),t._v(" "),s("div",{staticClass:"file-details"},[s("h6",[t._v(t._s(e.filename))]),t._v(" "),e.error?s("p",{staticClass:"text-danger"},[t._v("\n                        "+t._s(e.error)+"\n                    ")]):s("p",[s("span",[s("span",{staticClass:"font-weight-700"},[t._v(t._s(t.$t("upload.type")))]),t._v(": "+t._s(t.mimeTypes[e.mime]||e.mime||"Unknown"))]),t._v(" "),s("span",{staticClass:"ml-1"},[s("span",{staticClass:"font-weight-700"},[t._v(t._s(t.$t("upload.size")))]),t._v(": "+t._s(t._f("decimal")(e.size/1024,0))+" KB")])])]),t._v(" "),s("div",{class:["status-wrapper",{"actions-wrapper":!e.status||"removeError"===e.status}]},[s("transition",{staticClass:"transition-wrapper",attrs:{appear:"",tag:"div",name:"actions",mode:"out-in"}},["removed"===e.status?s("div",{staticClass:"status-removed-wrapper"},[s("label",{staticClass:"status-text text-danger"},[t._v("Removed!")]),t._v(" "),s("span",{staticClass:"status-icon text-danger"},[s("i",{staticClass:"fas fa-trash"})])]):e.status&&"removeError"!==e.status?t._e():s("div",{staticClass:"actions-buttons"},["removeError"===e.status?s("label",{staticClass:"status-text text-danger"},[t._v("Error!")]):t._e(),t._v(" "),"removeError"===e.status?s("span",{staticClass:"status-icon text-danger"},[s("i",{staticClass:"fas fa-exclamation-triangle"})]):t._e(),t._v(" "),s("button",{directives:[{name:"b-tooltip",rawName:"v-b-tooltip.hover.left",modifiers:{hover:!0,left:!0}}],staticClass:"remove-btn",attrs:{type:"button",title:t.$t("global.remove",{attribute:t.$t(t.nameLabel)})},on:{click:function(s){return t.removeFile(e,a,!0)}}},[s("i",{staticClass:"fas fa-trash"})])])])],1)])})),t._v(" "),t._l(t.files,(function(e,a){return s("li",{staticClass:"file-details-row"},[s("div",{staticClass:"file-icon"},[s("span",[s("i",{class:["far",t.getFileIcon(e.file.type)]})])]),t._v(" "),s("div",{staticClass:"file-details"},[s("h6",[t._v(t._s(e.file.name))]),t._v(" "),e.error?s("p",{staticClass:"text-danger"},[t._v("\n                        "+t._s(e.error)+"\n                    ")]):s("p",[s("span",[s("span",{staticClass:"font-weight-700"},[t._v(t._s(t.$t("upload.type")))]),t._v(": "+t._s(t.mimeTypes[e.file.type]||"Unknown"))]),t._v(" "),s("span",{staticClass:"ml-1"},[s("span",{staticClass:"font-weight-700"},[t._v(t._s(t.$t("upload.size")))]),t._v(": "+t._s(t._f("decimal")(e.file.size/1024,0))+" KB")])])]),t._v(" "),s("div",{class:["status-wrapper",{"actions-wrapper":"uploaded"===e.status||"removeError"===e.status}]},[s("transition",{staticClass:"transition-wrapper",attrs:{appear:"",tag:"div",name:"actions",mode:"out-in"}},["uploading"===e.status?s("div",{staticClass:"status-uploading-wrapper"},[s("label",{staticClass:"status-action",on:{click:e.cancel}},[t._v(t._s(t.$t("general.cancel")))]),t._v(" "),s("progress-ring",{attrs:{value:e.progress,"stroke-color":t.vars.loaderColor}})],1):"justUploaded"===e.status?s("div",{staticClass:"status-uploaded-wrapper"},[s("label",{staticClass:"status-text text-success"},[t._v("Uploaded!")]),t._v(" "),s("span",{staticClass:"status-icon text-success"},[s("i",{staticClass:"fas fa-check"})])]):"cancelled"===e.status?s("div",{staticClass:"status-cancelled-wrapper"},[s("label",{staticClass:"status-text text-danger"},[t._v("Cancelled!")]),t._v(" "),s("span",{staticClass:"status-icon text-danger"},[s("i",{staticClass:"fas fa-times"})])]):"removed"===e.status?s("div",{staticClass:"status-removed-wrapper"},[s("label",{staticClass:"status-text text-danger"},[t._v("Removed!")]),t._v(" "),s("span",{staticClass:"status-icon text-danger"},[s("i",{staticClass:"fas fa-trash"})])]):"error"===e.status?s("div",{staticClass:"status-error-wrapper"},[s("label",{staticClass:"status-text text-danger"},[t._v("Error!")]),t._v(" "),s("span",{staticClass:"status-icon text-danger"},[s("i",{staticClass:"fas fa-exclamation-triangle"})])]):"uploaded"===e.status||"removeError"===e.status?s("div",{staticClass:"actions-buttons"},["removeError"===e.status?s("label",{staticClass:"status-text text-danger"},[t._v("Error!")]):t._e(),t._v(" "),"removeError"===e.status?s("span",{staticClass:"status-icon text-danger"},[s("i",{staticClass:"fas fa-exclamation-triangle"})]):"uploaded"===e.status?s("label",{staticClass:"status-text text-success"},[t._v("Uploaded!")]):t._e(),t._v(" "),s("button",{directives:[{name:"b-tooltip",rawName:"v-b-tooltip.hover.left",modifiers:{hover:!0,left:!0}}],staticClass:"remove-btn",attrs:{type:"button",title:t.$t("global.remove",{attribute:t.$t(t.nameLabel)})},on:{click:function(s){return t.removeFile(e,a)}}},[s("i",{staticClass:"fas fa-trash"})])]):t._e()])],1)])}))],2)]):t._e()])}),[function(){var t=this.$createElement,e=this._self._c||t;return e("span",{staticClass:"button-icon"},[e("i",{staticClass:"fas fa-times"})])}],!1,null,"020d1760",null);e.a=v.exports}}]);
-//# sourceMappingURL=pag~f002eb16.js.map?id=715f21e09d8129bfa2ee
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["js/app/config/locale/add~js/app/config/role/add~js/app/option/add~js/app/option/edit~js/app/site/pag~f002eb16"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FileUploader.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_uploader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @api/uploader */ "./resources/js/api/uploader.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+/* harmony import */ var _js_event_bus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @js/event-bus */ "./resources/js/event-bus.js");
+/* harmony import */ var _js_vars__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @js/vars */ "./resources/js/vars.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+ // file.status   v-if="fileObj.status === 'uploading'"
+// 0 = uploaded false
+// 1 = uploaded
+// 2 = uploading
+// 3 = existing
+// 4 = removed
+//
+//
+// handle error in ui
+// remove File
+// handle existing uploaded files
+// check uuid
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "file-uploader",
+  components: {},
+  props: {
+    data: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    },
+    additionalFormData: {
+      type: Object,
+      "default": function _default() {
+        return {};
+      }
+    },
+    requestIdentifier: {
+      type: String,
+      "default": Object(uuid__WEBPACK_IMPORTED_MODULE_3__["v4"])()
+    },
+    url: {
+      type: String,
+      "default": '/uploads'
+    },
+    heading: {
+      type: String,
+      "default": null
+    },
+    actionLabel: {
+      type: String,
+      "default": 'global.choose'
+    },
+    nameLabel: {
+      type: String,
+      "default": 'upload.file'
+    },
+    namesLabel: {
+      type: String,
+      "default": 'upload.files'
+    },
+    buttonWrapperClasses: {
+      type: String,
+      "default": 'justify-content-start'
+    },
+    headingClasses: {
+      type: String,
+      "default": 'mb-0'
+    },
+    buttonClasses: {
+      type: String,
+      "default": ''
+    },
+    buttonIcon: {
+      type: String,
+      "default": 'fas fa-upload'
+    },
+    buttonDesign: {
+      type: String,
+      "default": 'primary'
+    },
+    options: {
+      type: Object,
+      required: true
+    },
+    autoUpload: {
+      type: Boolean,
+      "default": true
+    },
+    multiple: {
+      type: Boolean,
+      "default": true
+    },
+    hideButtonLabel: {
+      type: Boolean,
+      "default": false
+    },
+    hideFileList: {
+      type: Boolean,
+      "default": false
+    },
+    hideResetButton: {
+      type: Boolean,
+      "default": false
+    },
+    hideAfterUpload: {
+      type: Boolean,
+      "default": false
+    },
+    showSelectedFilesCount: {
+      type: Boolean,
+      "default": false
+    }
+  },
+  data: function data() {
+    return {
+      isLoading: false,
+      fileRemoved: false,
+      actionLabelUpdated: '',
+      files: [],
+      uploadedFiles: [],
+      existingFiles: [],
+      icons: _js_vars__WEBPACK_IMPORTED_MODULE_5__["fileIcons"],
+      mimeTypes: _js_vars__WEBPACK_IMPORTED_MODULE_5__["fileMimeTypes"]
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('config', ['configs', 'vars'])), {}, {
+    computedActionLabel: function computedActionLabel() {
+      return this.existingFile ? 'global.change' : this.actionLabel;
+    }
+  }),
+  watch: {
+    data: function data(v) {
+      this.existingFiles = v.map(function (f) {
+        return _objectSpread(_objectSpread({}, f), {}, {
+          status: null
+        });
+      });
+    },
+    'options.uuid': {
+      deep: true,
+      handler: function handler(val, oldVal) {
+        if (val && val !== oldVal) {
+          this.reset();
+        }
+      }
+    }
+  },
+  methods: {
+    getFileIcon: function getFileIcon(type) {
+      return this.icons[type] || 'fa-file-alt';
+    },
+    getFileNameIcon: function getFileNameIcon(type) {
+      return this.icons[type] || 'fa-file-alt';
+    },
+    generateFilesList: function generateFilesList(e) {
+      this.isLoading = true;
+      var allowedExtensions = null;
+      var selectedFiles = this.$refs.filesInput.files;
+
+      if (this.options.allowedExtensions) {
+        allowedExtensions = new RegExp('(\.' + this.options.allowedExtensions.join('|\.') + ')$');
+      }
+
+      if (this.options.maxNoOfFiles && selectedFiles.length + this.existingFiles.length > this.options.maxNoOfFiles) {
+        this.$toasted.error(this.$t('upload.max_file_limit_crossed', {
+          number: this.options.maxNoOfFiles
+        }), this.$toastConfig.error);
+        return;
+      }
+
+      for (var i = 0; i < selectedFiles.length; i++) {
+        if (allowedExtensions && !allowedExtensions.test(selectedFiles[i].name)) {
+          this.isLoading = false;
+          this.$toasted.error(this.$t('global.file_not_supported', {
+            attribute: selectedFiles[i].name.split('.').pop()
+          }), this.$toastConfig.error);
+        } else if (selectedFiles[i].size > this.configs.system.postMaxSize) {
+          this.isLoading = false;
+          this.$toasted.error(this.$t('global.file_too_large', {
+            attribute: selectedFiles[i].name
+          }), this.$toastConfig.error);
+        } else {
+          this.files.push({
+            uuid: Object(uuid__WEBPACK_IMPORTED_MODULE_3__["v4"])(),
+            file: selectedFiles[i],
+            status: 'waiting',
+            progress: 0
+          });
+        }
+      }
+
+      this.isLoading = false;
+      this.$emit('selected', this.files.length);
+
+      if (this.autoUpload) {
+        this.startUploading();
+      }
+    },
+    startUploading: function startUploading() {
+      var _this = this;
+
+      var filesToUpload = this.files.filter(function (fileObj) {
+        return fileObj.status === 'waiting';
+      });
+
+      if (filesToUpload.length) {
+        var onUploadProgressArr = [];
+        var CancelToken = axios__WEBPACK_IMPORTED_MODULE_0___default.a.CancelToken;
+        this.$emit('uploading', this.files.length);
+
+        var _loop = function _loop(i) {
+          var uploadObj = _this.files[i];
+
+          onUploadProgressArr[i] = function (progressEvent) {
+            uploadObj.progress = Math.round(progressEvent.loaded * 100 / progressEvent.total);
+          };
+
+          if (uploadObj.status === 'waiting') {
+            var formData = new FormData();
+            formData.append('file', uploadObj.file);
+            formData.append('mime', uploadObj.file.type);
+            formData.append('token', _this.options.token);
+            formData.append('module', _this.options.module);
+            formData.append('request_uuid', _this.requestIdentifier);
+            formData.append('first_attachment', i === 0);
+            formData.append('last_attachment', i === _this.files.length - 1);
+
+            _this.additionalFormData.objForEach(function (value, key) {
+              if (value) {
+                if (_.isObject(value)) {
+                  formData.append(key.snakeCase(), JSON.stringify(value));
+                } else {
+                  formData.append(key.snakeCase(), value);
+                }
+              }
+            });
+
+            uploadObj.status = 'uploading';
+            var cancelToken = new CancelToken(function (c) {
+              uploadObj.cancel = c;
+            });
+            _api_uploader__WEBPACK_IMPORTED_MODULE_1__["uploadFile"]({
+              url: _this.url,
+              data: formData
+            }, onUploadProgressArr[i], cancelToken).then(function (response) {
+              if (response.upload) {
+                _this.uploadedFiles.push(response.upload);
+              } else if (response.attachments) {
+                _this.uploadedFiles.push(response.attachments);
+              }
+
+              uploadObj.uuid = response.upload ? response.upload.uuid : response.uuid;
+              uploadObj.status = 'justUploaded';
+              delete uploadObj.cancel;
+              setTimeout(function () {
+                uploadObj.status = 'uploaded';
+
+                if (_this.hideAfterUpload) {
+                  delete _this.files.splice(_this.files.findIndex(function (f) {
+                    return f.uuid === uploadObj.uuid;
+                  }), 1);
+                }
+              }, 2000);
+
+              _this.$emit('updated', response);
+
+              _this.checkUploadStatus(response);
+            })["catch"](function (thrown) {
+              _this.$emit('error', thrown);
+
+              if (thrown.response && thrown.response.data) {
+                var data = thrown.response.data || {};
+                var errors = data.errors ? formUtil.assignErrors(data.errors) : {};
+                uploadObj.error = errors.message;
+
+                _this.$toasted.error(errors.message, _this.$toastConfig.error);
+
+                uploadObj.status = 'error';
+                setTimeout(function () {
+                  delete _this.files.splice(_this.files.findIndex(function (f) {
+                    return f.uuid === uploadObj.uuid;
+                  }), 1);
+                }, 3000);
+
+                _this.$emit('updated', thrown);
+
+                _this.checkUploadStatus();
+              } else {
+                uploadObj.status = 'cancelled';
+                setTimeout(function () {
+                  delete _this.files.splice(_this.files.findIndex(function (f) {
+                    return f.uuid === uploadObj.uuid;
+                  }), 1);
+                }, 3000);
+              }
+            });
+          }
+        };
+
+        for (var i = 0; i < this.files.length; i++) {
+          _loop(i);
+        }
+      }
+    },
+    removeFile: function removeFile(fileObj, index) {
+      var _this2 = this;
+
+      var existing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      formUtil.confirmAction().then(function (result) {
+        if (result.value) {
+          _this2.isLoading = true;
+          _api_uploader__WEBPACK_IMPORTED_MODULE_1__["removeFile"]({
+            url: _this2.url + '/' + fileObj.uuid,
+            data: {
+              token: _this2.options.token,
+              module: _this2.options.module
+            }
+          }).then(function (response) {
+            fileObj.status = 'removed';
+            setTimeout(function () {
+              if (existing) {
+                delete _this2.existingFiles.splice(_this2.existingFiles.findIndex(function (f) {
+                  return f.uuid === fileObj.uuid;
+                }), 1);
+              } else {
+                delete _this2.files.splice(_this2.files.findIndex(function (f) {
+                  return f.uuid === fileObj.uuid;
+                }), 1);
+              }
+            }, 3000);
+            _this2.isLoading = false;
+
+            _this2.$toasted.success(response.message, _this2.$toastConfig.success);
+
+            _this2.$emit('selected', _this2.files.length);
+
+            _this2.$emit('updated', response);
+
+            _this2.checkUploadStatus();
+          })["catch"](function (thrown) {
+            var data = thrown.response.data || {};
+            var errors = data.errors ? formUtil.assignErrors(data.errors) : {};
+
+            _this2.$toasted.error(errors.message, _this2.$toastConfig.error);
+
+            fileObj.error = errors.message;
+            fileObj.status = 'removeError';
+          });
+        }
+      });
+    },
+    checkUploadStatus: function checkUploadStatus(response) {
+      var status = true;
+
+      for (var i = 0; i < this.files.length; i++) {
+        if (this.files[i].status !== 'justUploaded' && this.files[i].status !== 'uploaded') {
+          status = false;
+        }
+      }
+
+      if (status) {
+        this.$emit('uploaded', this.uploadedFiles);
+      } else {
+        this.$emit('error');
+      }
+    },
+    reset: function reset() {
+      this.isLoading = false;
+      this.fileRemoved = false;
+      this.actionLabelUpdated = '';
+      this.files = [];
+      this.uploadedFiles = [];
+      var input = this.$refs.filesInput;
+      input.type = 'text';
+      input.type = 'file';
+      this.$emit('selected', this.files.length);
+    },
+    startUpload: function startUpload() {
+      if (this.files.length) {
+        this.startUploading();
+      } else {
+        this.$emit('noNeed');
+      }
+    }
+  },
+  mounted: function mounted() {
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('START_UPLOAD', this.startUpload);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$on('START_UPLOAD', this.startUpload);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('RESET_UPLOAD', this.reset);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$on('RESET_UPLOAD', this.reset);
+    this.existingFiles = this.data.map(function (f) {
+      return _objectSpread(_objectSpread({}, f), {}, {
+        status: null
+      });
+    });
+  },
+  filters: {
+    decimal: function decimal(value) {
+      var num = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+      return Number(value).toFixed(num);
+    }
+  },
+  destroyed: function destroyed() {
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('START_UPLOAD', this.startUpload);
+    _js_event_bus__WEBPACK_IMPORTED_MODULE_4__["default"].$off('RESET_UPLOAD', this.reset);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--9-2!./node_modules/sass-loader/dist/cjs.js??ref--9-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900);", ""]);
+
+// module
+exports.push([module.i, ".file-uploader .files-list-wrapper[data-v-4ce61af5] {\n  margin-top: 1rem;\n}\n.file-uploader .files-list-wrapper .files-list[data-v-4ce61af5] {\n  list-style: none;\n  padding: 0;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row[data-v-4ce61af5] {\n  display: flex;\n  transition: all 0.2s ease-in-out;\n  background-color: #f8f9fd;\n  overflow: hidden;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row[data-v-4ce61af5]:nth-child(even) {\n  background-color: #e9ecf1;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row[data-v-4ce61af5]:first-child {\n  border-radius: 0.25rem 0.25rem 0 0;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row[data-v-4ce61af5]:last-child {\n  border-radius: 0 0 0.25rem 0.25rem;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row > *[data-v-4ce61af5] {\n  padding: 0.4rem 0.6rem;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .file-icon span[data-v-4ce61af5] {\n  font-size: 2rem;\n  color: rgba(0, 0, 0, 0.3);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 3rem;\n  height: 3rem;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .file-details[data-v-4ce61af5] {\n  flex-grow: 1;\n  border-left: 0.0625rem solid rgba(0, 0, 0, 0.05);\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .file-details h6[data-v-4ce61af5] {\n  font-weight: 600;\n  margin-bottom: 0.2rem;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .file-details p[data-v-4ce61af5] {\n  font-size: 0.75rem;\n  color: rgba(0, 0, 0, 0.4);\n  margin: 0;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper[data-v-4ce61af5], .file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper > *[data-v-4ce61af5] {\n  display: flex;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper .status-text[data-v-4ce61af5],\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper .status-icon[data-v-4ce61af5],\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper .status-action[data-v-4ce61af5] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: rgba(0, 0, 0, 0.3);\n  margin: 0 1rem;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper .status-icon[data-v-4ce61af5] {\n  font-size: 2rem;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper .status-action[data-v-4ce61af5] {\n  color: #0059FF;\n  cursor: pointer;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper.actions-wrapper[data-v-4ce61af5] {\n  padding: 0;\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper.actions-wrapper .actions-buttons .remove-btn[data-v-4ce61af5] {\n  background-color: transparent;\n  border: none;\n  border-left: 0.0625rem solid rgba(0, 0, 0, 0.05);\n  padding: 0 1rem;\n  color: #f5365c;\n  cursor: pointer;\n  transform: scale(1);\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row .status-wrapper.actions-wrapper .actions-buttons .remove-btn[data-v-4ce61af5]:hover {\n  transform: scale(1.2);\n}\n.file-uploader .files-list-wrapper .files-list > .file-details-row[data-v-4ce61af5]:hover {\n  background-color: #dee2e9;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--9-2!./node_modules/sass-loader/dist/cjs.js??ref--9-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--9-2!../../../node_modules/sass-loader/dist/cjs.js??ref--9-3!../../../node_modules/vue-loader/lib??vue-loader-options!./FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "sm-uploader file-uploader" }, [
+    _c("div", { staticClass: "file-uploader-form" }, [
+      _c("div", { class: ["file-selector d-flex", _vm.buttonWrapperClasses] }, [
+        _vm.heading
+          ? _c("h5", { class: ["title-desc", _vm.headingClasses] }, [
+              _vm._v(
+                "\n                " + _vm._s(_vm.heading) + "\n            "
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "label",
+          { class: ["btn", "btn-" + _vm.buttonDesign, _vm.buttonClasses] },
+          [
+            _c("input", {
+              ref: "filesInput",
+              staticClass: "selector-input",
+              attrs: {
+                name: "filesInput",
+                type: "file",
+                id: "filesInput",
+                multiple: _vm.multiple
+              },
+              on: { change: _vm.generateFilesList }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "button-icon" }, [
+              _c("i", { class: _vm.buttonIcon })
+            ]),
+            _vm._v(" "),
+            !_vm.hideButtonLabel
+              ? _c("span", { staticClass: "button-label" }, [
+                  _vm._v(
+                    _vm._s(
+                      _vm.$t(_vm.computedActionLabel, {
+                        attribute: _vm.$t(_vm.namesLabel)
+                      })
+                    )
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.showSelectedFilesCount && _vm.files.length
+              ? _c("span", { staticClass: "button-label bracketed" }, [
+                  _vm._v(_vm._s(_vm.files.length))
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _vm.hideFileList && !_vm.hideResetButton && _vm.files.length
+          ? _c(
+              "button",
+              {
+                class: ["btn", "btn-" + _vm.buttonDesign, _vm.buttonClasses],
+                attrs: { type: "button" },
+                on: { click: _vm.reset }
+              },
+              [_vm._m(0)]
+            )
+          : _vm._e()
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.existingFiles.length || _vm.files.length
+      ? _c(
+          "div",
+          { class: ["files-list-wrapper", { "d-none": _vm.hideFileList }] },
+          [
+            _c(
+              "ul",
+              { staticClass: "files-list" },
+              [
+                _vm._l(_vm.existingFiles, function(fileObj, index) {
+                  return _c("li", { staticClass: "file-details-row" }, [
+                    _c("div", { staticClass: "file-icon" }, [
+                      _c("span", [
+                        _c("i", {
+                          class: ["far", _vm.getFileIcon(fileObj.mime)]
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "file-details" }, [
+                      _c("h6", [_vm._v(_vm._s(fileObj.filename))]),
+                      _vm._v(" "),
+                      fileObj.error
+                        ? _c("p", { staticClass: "text-danger" }, [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(fileObj.error) +
+                                "\n                    "
+                            )
+                          ])
+                        : _c("p", [
+                            _c("span", [
+                              _c("span", { staticClass: "font-weight-700" }, [
+                                _vm._v(_vm._s(_vm.$t("upload.type")))
+                              ]),
+                              _vm._v(
+                                ": " +
+                                  _vm._s(
+                                    _vm.mimeTypes[fileObj.mime] ||
+                                      fileObj.mime ||
+                                      "Unknown"
+                                  )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "ml-1" }, [
+                              _c("span", { staticClass: "font-weight-700" }, [
+                                _vm._v(_vm._s(_vm.$t("upload.size")))
+                              ]),
+                              _vm._v(
+                                ": " +
+                                  _vm._s(
+                                    _vm._f("decimal")(fileObj.size / 1024, 0)
+                                  ) +
+                                  " KB"
+                              )
+                            ])
+                          ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "status-wrapper",
+                          {
+                            "actions-wrapper":
+                              !fileObj.status ||
+                              fileObj.status === "removeError"
+                          }
+                        ]
+                      },
+                      [
+                        _c(
+                          "transition",
+                          {
+                            staticClass: "transition-wrapper",
+                            attrs: {
+                              appear: "",
+                              tag: "div",
+                              name: "actions",
+                              mode: "out-in"
+                            }
+                          },
+                          [
+                            fileObj.status === "removed"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "status-removed-wrapper" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "status-text text-danger"
+                                      },
+                                      [_vm._v("Removed!")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "status-icon text-danger"
+                                      },
+                                      [_c("i", { staticClass: "fas fa-trash" })]
+                                    )
+                                  ]
+                                )
+                              : !fileObj.status ||
+                                fileObj.status === "removeError"
+                              ? _c("div", { staticClass: "actions-buttons" }, [
+                                  fileObj.status === "removeError"
+                                    ? _c(
+                                        "label",
+                                        {
+                                          staticClass: "status-text text-danger"
+                                        },
+                                        [_vm._v("Error!")]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  fileObj.status === "removeError"
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass: "status-icon text-danger"
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fas fa-exclamation-triangle"
+                                          })
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "b-tooltip",
+                                          rawName: "v-b-tooltip.hover.left",
+                                          modifiers: { hover: true, left: true }
+                                        }
+                                      ],
+                                      staticClass: "remove-btn",
+                                      attrs: {
+                                        type: "button",
+                                        title: _vm.$t("global.remove", {
+                                          attribute: _vm.$t(_vm.nameLabel)
+                                        })
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.removeFile(
+                                            fileObj,
+                                            index,
+                                            true
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fas fa-trash" })]
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.files, function(fileObj, index) {
+                  return _c("li", { staticClass: "file-details-row" }, [
+                    _c("div", { staticClass: "file-icon" }, [
+                      _c("span", [
+                        _c("i", {
+                          class: ["far", _vm.getFileIcon(fileObj.file.type)]
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "file-details" }, [
+                      _c("h6", [_vm._v(_vm._s(fileObj.file.name))]),
+                      _vm._v(" "),
+                      fileObj.error
+                        ? _c("p", { staticClass: "text-danger" }, [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(fileObj.error) +
+                                "\n                    "
+                            )
+                          ])
+                        : _c("p", [
+                            _c("span", [
+                              _c("span", { staticClass: "font-weight-700" }, [
+                                _vm._v(_vm._s(_vm.$t("upload.type")))
+                              ]),
+                              _vm._v(
+                                ": " +
+                                  _vm._s(
+                                    _vm.mimeTypes[fileObj.file.type] ||
+                                      "Unknown"
+                                  )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "ml-1" }, [
+                              _c("span", { staticClass: "font-weight-700" }, [
+                                _vm._v(_vm._s(_vm.$t("upload.size")))
+                              ]),
+                              _vm._v(
+                                ": " +
+                                  _vm._s(
+                                    _vm._f("decimal")(
+                                      fileObj.file.size / 1024,
+                                      0
+                                    )
+                                  ) +
+                                  " KB"
+                              )
+                            ])
+                          ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "status-wrapper",
+                          {
+                            "actions-wrapper":
+                              fileObj.status === "uploaded" ||
+                              fileObj.status === "removeError"
+                          }
+                        ]
+                      },
+                      [
+                        _c(
+                          "transition",
+                          {
+                            staticClass: "transition-wrapper",
+                            attrs: {
+                              appear: "",
+                              tag: "div",
+                              name: "actions",
+                              mode: "out-in"
+                            }
+                          },
+                          [
+                            fileObj.status === "uploading"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "status-uploading-wrapper" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "status-action",
+                                        on: { click: fileObj.cancel }
+                                      },
+                                      [_vm._v(_vm._s(_vm.$t("general.cancel")))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("progress-ring", {
+                                      attrs: {
+                                        value: fileObj.progress,
+                                        "stroke-color": _vm.vars.loaderColor
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : fileObj.status === "justUploaded"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "status-uploaded-wrapper" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "status-text text-success"
+                                      },
+                                      [_vm._v("Uploaded!")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "status-icon text-success"
+                                      },
+                                      [_c("i", { staticClass: "fas fa-check" })]
+                                    )
+                                  ]
+                                )
+                              : fileObj.status === "cancelled"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "status-cancelled-wrapper" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "status-text text-danger"
+                                      },
+                                      [_vm._v("Cancelled!")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "status-icon text-danger"
+                                      },
+                                      [_c("i", { staticClass: "fas fa-times" })]
+                                    )
+                                  ]
+                                )
+                              : fileObj.status === "removed"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "status-removed-wrapper" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "status-text text-danger"
+                                      },
+                                      [_vm._v("Removed!")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "status-icon text-danger"
+                                      },
+                                      [_c("i", { staticClass: "fas fa-trash" })]
+                                    )
+                                  ]
+                                )
+                              : fileObj.status === "error"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "status-error-wrapper" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "status-text text-danger"
+                                      },
+                                      [_vm._v("Error!")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "status-icon text-danger"
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-exclamation-triangle"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : fileObj.status === "uploaded" ||
+                                fileObj.status === "removeError"
+                              ? _c("div", { staticClass: "actions-buttons" }, [
+                                  fileObj.status === "removeError"
+                                    ? _c(
+                                        "label",
+                                        {
+                                          staticClass: "status-text text-danger"
+                                        },
+                                        [_vm._v("Error!")]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  fileObj.status === "removeError"
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass: "status-icon text-danger"
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fas fa-exclamation-triangle"
+                                          })
+                                        ]
+                                      )
+                                    : fileObj.status === "uploaded"
+                                    ? _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "status-text text-success"
+                                        },
+                                        [_vm._v("Uploaded!")]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "b-tooltip",
+                                          rawName: "v-b-tooltip.hover.left",
+                                          modifiers: { hover: true, left: true }
+                                        }
+                                      ],
+                                      staticClass: "remove-btn",
+                                      attrs: {
+                                        type: "button",
+                                        title: _vm.$t("global.remove", {
+                                          attribute: _vm.$t(_vm.nameLabel)
+                                        })
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.removeFile(fileObj, index)
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fas fa-trash" })]
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                })
+              ],
+              2
+            )
+          ]
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "button-icon" }, [
+      _c("i", { staticClass: "fas fa-times" })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/api/uploader.js":
+/*!**************************************!*\
+  !*** ./resources/js/api/uploader.js ***!
+  \**************************************/
+/*! exports provided: uploadImage, removeImage, uploadFile, removeFile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadImage", function() { return uploadImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeImage", function() { return removeImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return uploadFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFile", function() { return removeFile; });
+/* harmony import */ var _core_utils_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @core/utils/request */ "./resources/js/core/utils/request.js");
+
+function uploadImage(options, onUploadProgress) {
+  return Object(_core_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: options.url,
+    method: 'post',
+    data: options.data,
+    upload: true,
+    config: {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    },
+    headers: {
+      'Content-Type': 'multipart/form-data; charset=utf-8; boundary=' + Math.random().toString().substr(2)
+    },
+    onUploadProgress: onUploadProgress
+  });
+}
+function removeImage(options) {
+  return Object(_core_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: options.url,
+    method: 'delete',
+    data: options.data
+  });
+}
+function uploadFile(options, onUploadProgress, cancelToken) {
+  return Object(_core_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: options.url,
+    method: 'post',
+    data: options.data,
+    upload: true,
+    config: {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    },
+    headers: {
+      'Content-Type': 'multipart/form-data; charset=utf-8; boundary=' + Math.random().toString().substr(2)
+    },
+    onUploadProgress: onUploadProgress,
+    cancelToken: cancelToken
+  });
+}
+function removeFile(options) {
+  return Object(_core_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: options.url,
+    method: 'delete',
+    data: options.data
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/FileUploader.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/FileUploader.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FileUploader_vue_vue_type_template_id_4ce61af5_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true& */ "./resources/js/components/FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true&");
+/* harmony import */ var _FileUploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FileUploader.vue?vue&type=script&lang=js& */ "./resources/js/components/FileUploader.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _FileUploader_vue_vue_type_style_index_0_id_4ce61af5_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true& */ "./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _FileUploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FileUploader_vue_vue_type_template_id_4ce61af5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FileUploader_vue_vue_type_template_id_4ce61af5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "4ce61af5",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FileUploader.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FileUploader.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/FileUploader.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FileUploader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true& ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_sass_loader_dist_cjs_js_ref_9_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_style_index_0_id_4ce61af5_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--9-2!../../../node_modules/sass-loader/dist/cjs.js??ref--9-3!../../../node_modules/vue-loader/lib??vue-loader-options!./FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=style&index=0&id=4ce61af5&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_sass_loader_dist_cjs_js_ref_9_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_style_index_0_id_4ce61af5_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_sass_loader_dist_cjs_js_ref_9_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_style_index_0_id_4ce61af5_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_sass_loader_dist_cjs_js_ref_9_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_style_index_0_id_4ce61af5_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_sass_loader_dist_cjs_js_ref_9_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_style_index_0_id_4ce61af5_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_template_id_4ce61af5_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FileUploader.vue?vue&type=template&id=4ce61af5&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_template_id_4ce61af5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FileUploader_vue_vue_type_template_id_4ce61af5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/core/filters/momentz.js":
+/*!**********************************************!*\
+  !*** ./resources/js/core/filters/momentz.js ***!
+  \**********************************************/
+/*! exports provided: momentDate, momentTime, momentDateTime, momentCalendar, momentTimeTz, momentDateTimeTz, momentCalendarTz, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentDate", function() { return momentDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentTime", function() { return momentTime; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentDateTime", function() { return momentDateTime; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentCalendar", function() { return momentCalendar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentTimeTz", function() { return momentTimeTz; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentDateTimeTz", function() { return momentDateTimeTz; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "momentCalendarTz", function() { return momentCalendarTz; });
+/* harmony import */ var _js_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @js/store */ "./resources/js/store/index.js");
+
+var configs = _js_store__WEBPACK_IMPORTED_MODULE_0__["default"].getters['config/configs'];
+var vars = _js_store__WEBPACK_IMPORTED_MODULE_0__["default"].getters['config/vars'];
+
+var getActiveConfigs = function getActiveConfigs() {
+  return {
+    timezone: configs.system.timezone,
+    defaultDateFormat: vars.defaultDateFormat,
+    defaultDateTimeFormat: vars.defaultDateTimeFormat,
+    serverDateFormat: vars.serverDateFormat,
+    serverDateTimeFormat: vars.serverDateTimeFormat,
+    calendarLocale: {
+      // lastDay: '[Yesterday]',
+      sameDay: vars.defaultTimeFormat,
+      lastWeek: vars.defaultDateFormat,
+      sameElse: vars.defaultDateFormat
+    }
+  };
+};
+
+var momentDate = function momentDate(value, formatOption) {
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment(value, activeConfigs.serverDateFormat);
+
+  if (!value) {
+    return 'INVALID DATE STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment(value[0], value[1]);
+  }
+
+  return momentObj.format(formatOption || activeConfigs.defaultDateFormat);
+};
+var momentTime = function momentTime(value, formatOption) {
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment(value, activeConfigs.serverTimeFormat);
+
+  if (!value) {
+    return 'INVALID TIME STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment(value[0], value[1]);
+  }
+
+  return momentObj.format(formatOption || activeConfigs.defaultTimeFormat);
+};
+var momentDateTime = function momentDateTime(value, formatOption) {
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment(value, activeConfigs.serverDateTimeFormat);
+
+  if (!value) {
+    return 'INVALID DATE TIME STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment(value[0], value[1]);
+  }
+
+  return momentObj.format(formatOption || activeConfigs.defaultDateTimeFormat);
+};
+var momentCalendar = function momentCalendar(value, calendarOption) {
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment(value, activeConfigs.serverDateTimeFormat);
+
+  if (!value) {
+    return 'INVALID DATE TIME STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment(value[0], value[1]);
+  }
+
+  return momentObj.calendar(calendarOption ? calendarOption : activeConfigs.calendarLocale);
+};
+var momentTimeTz = function momentTimeTz(value, formatOption, timezoneOption) {
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment.utc("".concat(moment().format(activeConfigs.serverDateFormat), " ").concat(value), activeConfigs.serverTimeFormat);
+
+  if (!value) {
+    return 'INVALID TIME STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment.utc(value[0], value[1]);
+  }
+
+  return momentObj.tz(timezoneOption || activeConfigs.timezone).format(formatOption || activeConfigs.defaultTimeFormat);
+};
+var momentDateTimeTz = function momentDateTimeTz(value, formatOption, timezoneOption) {
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment.utc(value, activeConfigs.serverDateTimeFormat);
+
+  if (!value) {
+    return 'INVALID DATE TIME STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment.utc(value[0], value[1]);
+  }
+
+  return momentObj.tz(timezoneOption || activeConfigs.timezone).format(formatOption || activeConfigs.defaultDateTimeFormat);
+};
+var momentCalendarTz = function momentCalendarTz(value) {
+  var calendarOption = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var timezoneOption = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var activeConfigs = getActiveConfigs();
+  var momentObj = moment.utc(value, activeConfigs.serverDateTimeFormat);
+
+  if (!value) {
+    return 'INVALID DATE TIME STRING';
+  }
+
+  if (Array.isArray(value)) {
+    momentObj = moment.utc(value[0], value[1]);
+  }
+
+  var result = momentObj.tz(timezoneOption || activeConfigs.timezone);
+  result = result.calendar(calendarOption ? calendarOption : activeConfigs.calendarLocale);
+  return result;
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  momentDate: momentDate,
+  momentTime: momentTime,
+  momentDateTime: momentDateTime,
+  momentCalendar: momentCalendar,
+  momentTimeTz: momentTimeTz,
+  momentDateTimeTz: momentDateTimeTz,
+  momentCalendarTz: momentCalendarTz
+});
+
+/***/ }),
+
+/***/ "./resources/js/event-bus.js":
+/*!***********************************!*\
+  !*** ./resources/js/event-bus.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
+/* harmony default export */ __webpack_exports__["default"] = (EventBus);
+
+/***/ })
+
+}]);
+//# sourceMappingURL=pag~f002eb16.js.map?id=6eb5257a584855b4e3d2
