@@ -26,7 +26,6 @@
 import table from "@mixins/table";
 
 export default {
-  name: "table-enquiry-widget",
   extends: table,
   data() {
     return {

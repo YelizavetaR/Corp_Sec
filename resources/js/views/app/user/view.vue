@@ -53,6 +53,30 @@
                 "
               />
             </div>
+            <div class="col-12 col-md-6 mb-3">
+              <view-single
+                :label="$t('user.props.username')"
+                :value="entity.username"
+              />
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <view-single
+                :label="$t('user.props.contact_number')"
+                :value="entity.contactNumber"
+              />
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <view-single
+                :label="$t('user.props.department')"
+                :value="entity.department"
+              />
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <view-single
+                :label="$t('user.props.designation')"
+                :value="entity.designation"
+              />
+            </div>
           </div>
         </template>
 

@@ -61,10 +61,10 @@ export default {
             return query.filtered === 'true' ? true : query.filtered === 'false' ? false : query.filtered
         },
         selectAllRows: {
-            get: function() {
+            get: function () {
                 return this.entities && this.entities.data.every(({ uuid }) => this.selectedRows.indexOf(uuid) !== -1)
             },
-            set: function(value) {
+            set: function (value) {
                 let selected = this.selectedRows
                 if (value) {
                     this.entities.data.forEach(ent => {
@@ -89,7 +89,7 @@ export default {
     },
     watch: {
         $route(val, oldVal) {
-            if(this.initSubUrl && this.$route.params.uuid && val.params.uuid !== oldVal.params.uuid) {
+            if (this.initSubUrl && this.$route.params.uuid && val.params.uuid !== oldVal.params.uuid) {
                 this.doInit()
                 this.getEntityData()
             } else {
@@ -134,6 +134,7 @@ export default {
             this.gotError = false
             return this.GetList(query)
                 .then(response => {
+                    console.log(response)
                     return (response.data)
                 })
                 .catch(error => {
@@ -151,7 +152,7 @@ export default {
                 filtersMeta[key] = value
             })
 
-            if(this.customFilters) {
+            if (this.customFilters) {
                 this.customFilters.objForEach((value, key) => {
                     filtersMeta[key] = value
                 })
@@ -175,7 +176,7 @@ export default {
             }
         },
         refreshTableIfRoute(route) {
-            if(this.$route.name === route) {
+            if (this.$route.name === route) {
                 this.refreshTable()
             }
         },
@@ -223,10 +224,10 @@ export default {
                 this.fillPreRequisite(response)
                 this.updatePageMeta()
 
-                if (typeof this.afterGetInitialData === "function") { 
+                if (typeof this.afterGetInitialData === "function") {
                     this.afterGetInitialData()
                 }
-                
+
                 return response
             } catch (error) {
                 this.isLoading = false
@@ -237,13 +238,13 @@ export default {
         getEntityData() {
             this.isLoading = true
 
-            if(this.initSubUrl && this.$route.params.uuid) {
+            if (this.initSubUrl && this.$route.params.uuid) {
                 this.uuid = this.$route.params.uuid
                 return this.Get({ uuid: this.uuid })
                     .then(response => {
                         this.entity = response
 
-                        if(response.name) {
+                        if (response.name) {
                             this.pageTitle = response.name
                             this.subTitle = response.name ? this.subTitle : ''
                             this.applyPageHeader()
@@ -253,7 +254,7 @@ export default {
                         this.isLoading = false
                         this.updatePageMeta()
 
-                        if (typeof this.afterGetEntityData === "function") { 
+                        if (typeof this.afterGetEntityData === "function") {
                             this.afterGetEntityData()
                         }
 
@@ -270,13 +271,13 @@ export default {
         },
         applyTags(formData) {
             this.Custom({
-                    url: `/${this.initUrl}/action`,
-                    method: 'post',
-                    data: {
-                        ...formData,
-                        uuids: this.selectedRows
-                    }
-                })
+                url: `/${this.initUrl}/action`,
+                method: 'post',
+                data: {
+                    ...formData,
+                    uuids: this.selectedRows
+                }
+            })
                 .then(response => {
                     this.selectedRows = []
                     this.$toasted.success(response.message, this.$toastConfig)
@@ -308,7 +309,7 @@ export default {
                 }
             }
 
-            if(!this.hideFilterButton) {
+            if (!this.hideFilterButton) {
                 buttons.push(headerMixins.filterButton())
             }
 
@@ -339,7 +340,7 @@ export default {
                     links.push(headerMixins.configOption(this.routesRequired.config, this.permissionsRequired))
                 }
             }
-            
+
             links.push(headerMixins.printOption())
             links.push(headerMixins.exportPdfOption())
             links.push(headerMixins.exportCsvOption())
@@ -380,13 +381,13 @@ export default {
                 keyBindings: keyBindings,
             })
         },
-        async export (options) {
+        async export(options) {
             this.isLoading = true
-            const transformers = await import('@js/helpers/transformers' /* webpackChunkName: "js/helpers/transformers" */ )
+            const transformers = await import('@js/helpers/transformers' /* webpackChunkName: "js/helpers/transformers" */)
             const getFinalValue = (item, key) => {
                 let finalVal
                 const keys = key.split('.')
-                if(keys && keys.length) {
+                if (keys && keys.length) {
                     keys.forEach((k, i) => {
                         finalVal = finalVal ? finalVal[k] : (i === 0 ? item[k] : null)
                     })
@@ -417,7 +418,7 @@ export default {
             }
 
             if (options.type === 'pdf' || options.type === 'print') {
-                exportUtil = await import('@core/utils/export/pdf' /* webpackChunkName: "js/utils/export-pdf" */ )
+                exportUtil = await import('@core/utils/export/pdf' /* webpackChunkName: "js/utils/export-pdf" */)
                 const columns = fields.map(f => {
                     return {
                         header: f.label,
@@ -430,7 +431,7 @@ export default {
                     fields.forEach(field => {
                         let ft = field.transformer
                         let value = getFinalValue(item, field.key)
-                        if(ft && (value || value === false)) {
+                        if (ft && (value || value === false)) {
                             ft = _.isArray(ft) ? ft : [ft]
                             ft.forEach(ftrans => {
                                 const func = _.isFunction(ftrans) ? ftrans : transformers[ftrans]
@@ -443,20 +444,20 @@ export default {
                     return row
                 })
 
-                if(options.type === 'pdf') {
+                if (options.type === 'pdf') {
                     exportUtil.downloadPdfFile(fileName, fileTitle, columns, content, exportOptions)
                 } else {
                     exportUtil.printTable(fileTitle, columns, content, exportOptions)
                 }
 
             } else {
-                exportUtil = await import('@core/utils/export/csv' /* webpackChunkName: "js/utils/export-csv" */ )
+                exportUtil = await import('@core/utils/export/csv' /* webpackChunkName: "js/utils/export-csv" */)
                 content = this.entities.data.map(item => {
                     let row = {}
                     fields.forEach(field => {
                         let ft = field.transformer
                         let value = getFinalValue(item, field.key)
-                        if(ft && (value || value === false)) {
+                        if (ft && (value || value === false)) {
                             ft = _.isArray(ft) ? ft : [ft]
                             ft.forEach(ftrans => {
                                 const func = _.isFunction(ftrans) ? ftrans : transformers[ftrans]
@@ -476,7 +477,7 @@ export default {
         },
         doInitSub() {
             this.uuid = this.$route.params.uuid
-            if(!this.uuid) {
+            if (!this.uuid) {
                 this.isLoading = false
                 this.$router.back()
             }
@@ -496,14 +497,14 @@ export default {
         },
         clearFilters() {
             this.ResetFilters()
-            if(this.$route.query && this.$route.query.filtered) {
+            if (this.$route.query && this.$route.query.filtered) {
                 this.$router.push({ path: this.$route.path })
             }
         },
         rowClickHandler(opts, item) {
-            if(opts.action && typeof opts.action === "function") {
+            if (opts.action && typeof opts.action === "function") {
                 opts.action(opts, item)
-            } else if(opts.route){
+            } else if (opts.route) {
                 this.$router.push({ name: opts.route, params: { uuid: item.uuid } })
             }
         }

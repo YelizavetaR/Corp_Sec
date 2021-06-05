@@ -139,11 +139,6 @@ export default {
           label: $t("user.props.email"),
         },
         {
-          key: "username",
-          label: $t("user.props.username"),
-          sort: "username",
-        },
-        {
           key: "status",
           label: $t("user.props.status"),
           sort: "status",
@@ -174,7 +169,6 @@ export default {
       ],
       filtersOptions: {
         name: "",
-        username: "",
         email: "",
       },
       sortOptions: {

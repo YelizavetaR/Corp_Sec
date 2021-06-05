@@ -14,15 +14,15 @@ export default {
             preRequisite: {},
             formData: {},
             formErrors: {},
-            editing : false,
-            isLoading : false,
+            editing: false,
+            isLoading: false,
             initialFormData: null,
             getInitialDataCalled: false,
             initUrl: '',
             fallBackRoute: 'appDashboard',
             headerButtons: null,
             headerLinks: null,
-            uploaderConfig: { 
+            uploaderConfig: {
                 module: '',
                 token: '',
                 allowedExtensions: '',
@@ -33,10 +33,10 @@ export default {
     },
     watch: {
         $route(val, oldVal) {
-            if(oldVal.params.uuid !== val.params.uuid) {
+            if (oldVal.params.uuid !== val.params.uuid) {
                 this.isLoading = true
                 this.uuid = val.params.uuid
-                if(this.getInitialDataCalled) {
+                if (this.getInitialDataCalled) {
                     this.getInitialData()
                 }
             }
@@ -75,7 +75,7 @@ export default {
             })
         },
         setEntityData(response) {
-            if(this.entityKey && response.hasOwnProperty(this.entityKey)) {
+            if (this.entityKey && response.hasOwnProperty(this.entityKey)) {
                 this.entity = response[this.entityKey]
             } else {
                 this.entity = response
@@ -92,20 +92,20 @@ export default {
                 let response = await this.GetPreRequisite()
                 this.fillPreRequisite(response)
 
-                if(_.isObject(response) && response.hasOwnProperty('uploadConfig')) {
+                if (_.isObject(response) && response.hasOwnProperty('uploadConfig')) {
                     this.setUploaderConfig(response.uploadConfig)
                 }
 
-                if (typeof this.afterGetPreRequisite === "function") { 
+                if (typeof this.afterGetPreRequisite === "function") {
                     this.afterGetPreRequisite()
                 }
-                
-                if(callbackFn) {
+
+                if (callbackFn) {
                     this.$nextTick(() => {
                         callbackFn()
                     })
                 }
-                
+
                 this.isLoading = false
                 return response
             } catch (error) {
@@ -120,16 +120,16 @@ export default {
                 let response = await this.Get({ uuid: this.uuid })
                 this.setEntityData(response)
 
-                if (this.afterGetInitialData && typeof this.afterGetInitialData === "function") { 
+                if (this.afterGetInitialData && typeof this.afterGetInitialData === "function") {
                     this.afterGetInitialData(response)
                 }
-                
-                if(callbackFn) {
+
+                if (callbackFn) {
                     this.$nextTick(() => {
                         callbackFn(response)
                     })
                 }
-                
+
                 this.isLoading = false
                 return response
             } catch (error) {
@@ -191,7 +191,7 @@ export default {
                 keyBindings: keyBindings,
             })
         },
-        async export (options) {
+        async export(options) {
             this.isLoading = true
             try {
                 this.$printComponent('printable', { title: `Printing ${this.dataTitle || ''}` })
@@ -200,11 +200,11 @@ export default {
         },
         doInit() {
             this.Init({ url: this.initUrl })
-        
-            if(this.initSubUrl) {
+
+            if (this.initSubUrl) {
                 this.InitSub({ url: (this.subUuid ? this.subUuid + '/' : '') + this.initSubUrl })
             }
-            
+
             this.getInitialData()
             this.applyPageHeader()
         },

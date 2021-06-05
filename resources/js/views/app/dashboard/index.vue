@@ -28,8 +28,25 @@
       </div>
 
       <div class="col-12 col-lg-6">
+        <div class="title-margin">
+          <h3>{{ $t("user.props.todo_task") }}</h3>
+        </div>
         <hr class="hr-border" />
-        <table-enquiry-widget class="flex-grow" />
+        <div class="title-margin">
+          <h7>{{ $t("user.props.total_items") }}</h7>
+        </div>
+        <table-todo-task-widget class="flex-grow" />
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="title-margin">
+          <h3>{{ $t("user.props.invoices") }}</h3>
+        </div>
+        <hr class="hr-border" />
+        <div class="title-margin">
+          <h7>{{ $t("user.props.total_items") }}</h7>
+        </div>
+        <table-invoice-widget class="flex-grow" />
       </div>
     </div>
   </div>
@@ -40,12 +57,16 @@ import { mapGetters, mapActions } from "vuex";
 import GreetingWidget from "./widgets/GreetingWidget";
 import ChartWidget from "./widgets/ChartWidget";
 import TableEnquiryWidget from "./widgets/tables/Enquiry";
+import TableTodoTaskWidget from "./widgets/tables/TodoTask";
+import TableInvoiceWidget from "./widgets/tables/Invoices";
 
 export default {
   components: {
     GreetingWidget,
     ChartWidget,
     TableEnquiryWidget,
+    TableTodoTaskWidget,
+    TableInvoiceWidget,
   },
   data() {
     return {
