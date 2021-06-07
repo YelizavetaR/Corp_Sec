@@ -79,9 +79,15 @@ Route::group(['middleware' => ['auth:sanctum', '2fa', 'under_maintenance']], fun
     Route::get('dashboard/stats', 'DashboardController@getStats');
     Route::get('dashboard/chart', 'DashboardController@getChart');
 
+    Route::apiResources(
+        [
+            'uploadfile' => 'PhotoController'
+        ]
+    );
     // Enquiry Routes
     Route::get('/enquiry', 'EnquiryController@index');
     Route::get('/enquiry/show/{uuid}', 'EnquiryController@show');
+    Route::post('/files', 'FileController@store');
 
     // BR Form Routes
     Route::get('/bform', 'BformsController@index');

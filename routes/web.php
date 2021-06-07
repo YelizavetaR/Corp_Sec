@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return 'Laravel is working!';
 });
+Route::post('files', 'FileController@store');
 
-Route::middleware('site_enabled')->group(function() {
+Route::middleware('site_enabled')->group(function () {
     Route::view('/', 'site.index');
     Route::view('/about', 'site.about');
     Route::view('/faq', 'site.faq');
@@ -28,12 +29,12 @@ Route::middleware('site_enabled')->group(function() {
 
 // ENV route
 Route::get('/js/env', function () {
-    $cache_name = 'env'.'.js';
+    $cache_name = 'env' . '.js';
 
     if (App::environment('local')) {
         Cache::forget($cache_name);
     }
-    
+
     $strings = Cache::remember($cache_name, 43200, function () {
         $strings = [];
 
@@ -41,10 +42,10 @@ Route::get('/js/env', function () {
         $strings['url'] = config('app.url');
         $strings['env'] = config('app.env');
 
-        if(env('APP_MODE') === 'test') {
+        if (env('APP_MODE') === 'test') {
             $strings['test_mode'] = true;
         }
-        
+
         $strings['gaid'] = env('GA_TRACKING_ID');
         $strings['version'] = SysHelper::getApp('VERSION');
 
@@ -58,20 +59,19 @@ Route::get('/js/env', function () {
 // language route
 Route::get('/js/lang/clear', function () {
     $lang = config('config.system.locale');
-    $cache_name = 'lang-'. $lang .'.js';
+    $cache_name = 'lang-' . $lang . '.js';
 
     Cache::forget($cache_name);
     exit();
 });
-
 Route::get('/js/lang', function () {
     $lang = config('config.system.locale') ?? 'en';
-    $cache_name = 'lang-'. $lang .'.js';
+    $cache_name = 'lang-' . $lang . '.js';
 
     if (App::environment('local')) {
         Cache::forget($cache_name);
     }
-    
+
     $strings = Cache::remember($cache_name, 86400, function () use ($lang) {
         $files = glob(resource_path('lang/' . $lang . '/*.php'));
         $strings = [];
@@ -118,7 +118,7 @@ Route::get('/site.webmanifest', function () {
         $strings['theme_color'] = config('config.basic.app_theme_color');
         $strings['background_color'] = config('config.basic.app_background_color');
         $strings['start_url'] = '.';
-        $strings['scope'] = config('app.url').'/';
+        $strings['scope'] = config('app.url') . '/';
         $strings['display'] = 'standalone';
         $strings['orientation'] = 'portrait';
 
@@ -141,6 +141,6 @@ Route::get('/app/{vue?}', function () {
     return view('app');
 })->where('vue', '[\/\w\.-]*')->name('app');
 
-Route::prefix('pages')->namespace('Site')->group(function() {
+Route::prefix('pages')->namespace('Site')->group(function () {
     Route::get('{page?}', 'PageController@fetch')->where('page', '[\/\w\.-]*');
 });

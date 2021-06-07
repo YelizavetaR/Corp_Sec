@@ -38,9 +38,11 @@ return array(
     'brfom' => 'Br form',
     'brfoms' => 'Brforms',
     'save' => 'Save',
+    'close' => 'Close',
     'savenext' => 'Save Next',
     'cancel' => 'Cancel',
     'organisation' => 'Organisation',
+    'uploadspan' => 'Drop the files here or browse!',
     'description' => 'Add new user with different roles, update profile, avatar.',
     'coporatepage1' => 'CORPORATE CUSTOMER-PG 1',
     'coporatepage2' => 'CORPORATE CUSTOMER-PG 2',
@@ -54,6 +56,7 @@ return array(
     'detailspans' => '(1)Details of your principle activities',
     'naturespan' => '(2)Nature and purpose of relationship between  you beneficial owner(s)',
     'select' => 'Select',
+    'modelheader' => 'PLEASE SELECT THE TYPE OF SERVICE REQUIRED',
     'anticicated' => '(3)Anticipated level,frquency and nature of transactions to be performed by us throught the business relationship'
 
 );

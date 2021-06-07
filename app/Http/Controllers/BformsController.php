@@ -102,6 +102,15 @@ class BformsController extends Controller
     public function update(Request $request, $uuid)
     {
         $product = $this->bforms->FilterByyuuid($uuid)->first();
+        $request->validate([
+            'person' => 'required',
+            'entity' => 'required',
+            'inndividual' => 'required',
+            'status' => 'required',
+            'brformtype' => 'required',
+            'date' => 'required',
+            'organisation' => 'required',
+        ]);
         $product->update($request->all());
         return $this->success(['message' => __('global.updated', ['attribute' => __('brform.data')])]);
     }
