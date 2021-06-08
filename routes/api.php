@@ -84,6 +84,7 @@ Route::group(['middleware' => ['auth:sanctum', '2fa', 'under_maintenance']], fun
             'uploadfile' => 'PhotoController'
         ]
     );
+
     // Enquiry Routes
     Route::get('/enquiry', 'EnquiryController@index');
     Route::get('/enquiry/show/{uuid}', 'EnquiryController@show');

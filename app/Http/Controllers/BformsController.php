@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Bforms;
-use App\Http\Resources\BformsCollection as BformsCollectionResource;
 use App\Http\Resources\Bforms as BformsResource;
+use App\Http\Resources\BformsCollection as BformsCollectionResource;
+use App\Models\Bforms;
+use Illuminate\Http\Request;
 
 class BformsController extends Controller
 {
@@ -26,21 +26,20 @@ class BformsController extends Controller
      */
     public function index()
     {
-        $sort_by    = request()->query('sort_by', 'created_at');
-        $order      = request()->query('order', 'desc');
-        $person    = request()->query('person');
+        $sort_by = request()->query('sort_by', 'created_at');
+        $order = request()->query('order', 'desc');
+        $person = request()->query('person');
         $organisation = request()->query('organisation');
         $inndividual = request()->query('inndividual');
         $brformtype = request()->query('brformtype');
         $status = request()->query('status');
-        // $date = request()->query('date');
-        $start_date  = request()->query('start_date');
-        $end_date    = request()->query('end_date');
+        $start_date = request()->query('start_date');
+        $end_date = request()->query('end_date');
 
         $query = $this->bforms->filterByUserId(\Auth::user()->id)->FilterByPersons($person)->FilterByOrganisation($organisation)
             ->FilterByInndividual($inndividual)->FilterBrformtype($brformtype)->FilterByStatus($status)->FilterByDate($start_date, $end_date);
 
-        $per_page     = request('per_page', config('config.system.per_page'));
+        $per_page = request('per_page', config('config.system.per_page'));
         $current_page = request('current_page');
 
         return new BformsCollectionResource($query->orderBy($sort_by, $order)->paginate((int) $per_page, ['*'], 'current_page'));
@@ -76,7 +75,7 @@ class BformsController extends Controller
     public function show($uuid)
     {
         //
-        $todo =  $this->bforms->FilterByyuuid($uuid)->first();
+        $todo = $this->bforms->FilterByyuuid($uuid)->first();
 
         return new BformsResource($todo);
     }

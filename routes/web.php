@@ -19,6 +19,8 @@ Route::get('/test', function () {
     return 'Laravel is working!';
 });
 Route::post('files', 'FileController@store');
+Route::get('files/load', 'FileController@index');
+Route::post('files/delete/{uuid}', 'FileController@delete');
 
 Route::middleware('site_enabled')->group(function () {
     Route::view('/', 'site.index');
@@ -102,13 +104,13 @@ Route::get('/site.webmanifest', function () {
         $icons[] = array(
             "src" => config('config.assets.icon_192'),
             "sizes" => "192x192",
-            "type" => "image/png"
+            "type" => "image/png",
         );
 
         $icons[] = array(
             "src" => config('config.assets.icon_512'),
             "sizes" => "512x512",
-            "type" => "image/png"
+            "type" => "image/png",
         );
 
         $strings['name'] = config('config.basic.app_name');
