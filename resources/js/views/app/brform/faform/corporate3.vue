@@ -5,8 +5,19 @@
     :is-loading="isLoading"
     :loader-color="vars.loaderColor"
   >
-    <div>
-      <div class="row">
+    <div class="header_spans">
+      <span class="header_owner">{{ $t("brform.header_owner") }}</span>
+      <span class="content_1">{{ $t("brform.content_1") }}</span>
+      <span class="content_1">{{ $t("brform.content_2") }}</span>
+      <span class="content_1">{{ $t("brform.content_3") }}</span>
+      <span class="content_2">{{ $t("brform.tocomplete") }}</span>
+      <span class="content_2">{{ $t("brform.contentabove1") }}</span>
+      <span class="content_2">{{ $t("brform.contentabove2") }}</span>
+      <span class="content_2">{{ $t("brform.contentabove3") }}</span>
+    </div>
+    <div class="input_field">
+      <span class="beneficial_owner">{{ $t("brform.beneficial_owner") }}</span>
+      <div class="row" id="blow_input">
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
@@ -17,12 +28,21 @@
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.aliasany')"
+            type="text"
+            v-model="formData.aliasany"
+            :error.sync="formErrors.aliasany"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
           <base-select
             :options="preRequisite.currencies"
             track-by="name"
-            show-by="description"
-            v-model="formData.entity_type"
-            :label="$t('brform.entity_type')"
+            show-by="name"
+            v-model="formData.identification"
+            :label="$t('brform.identification')"
             :allow-empty="false"
             :disabled="isLoading"
             required
@@ -31,58 +51,40 @@
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
-            :label="$t('brform.registration')"
+            :label="$t('brform.usualresidential')"
             type="text"
-            v-model="formData.registration"
-            :error.sync="formErrors.registration"
+            v-model="formData.usualresidential"
+            :error.sync="formErrors.usualresidential"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-input
-            auto-focus
-            :label="$t('brform.officeadress')"
-            type="text"
-            v-model="formData.officeadress"
-            :error.sync="formErrors.officeadress"
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-input
-            auto-focus
-            :label="$t('brform.principle')"
-            type="text"
-            v-model="formData.principle"
-            :error.sync="formErrors.principle"
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-select
-            :options="preRequisite.registrationca"
-            track-by="name"
-            show-by="description"
-            v-model="formData.entity_type"
-            :label="$t('brform.incorportatio')"
-            :allow-empty="false"
-            :disabled="isLoading"
-            required
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-input
-            :label="$t('brform.org_foundation_date')"
+            :label="$t('brform.date_birth')"
             addon-right-icon="far fa-calendar-alt"
             type="text"
-            v-model="formData.orgFoundationDate"
-            :error.sync="formErrors.orgFoundationDate"
+            v-model="formData.date_birth"
+            :error.sync="formErrors.date_birth"
             :is-wrapper="true"
           >
             <date-picker
-              v-model="formData.orgFoundationDate"
+              v-model="formData.date_birth"
               :config="vars.datepickerConfig"
               class="form-control datepicker"
             >
             </date-picker>
           </base-input>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-select
+            :options="preRequisite.coutryofresidence"
+            track-by="name"
+            show-by="name"
+            v-model="formData.coutry_of_residence"
+            :label="$t('brform.coutry_of_residence')"
+            :allow-empty="false"
+            :disabled="isLoading"
+            required
+          />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-input
@@ -93,49 +95,40 @@
             :error.sync="formErrors.contactnumber"
           />
         </div>
-      </div>
-      <div class="intented_field">
-        <div class="span_field">
-          <span class="intented_span">
-            {{ $t("brform.intented_span") }}
-          </span>
-          <span class="detail">
-            {{ $t("brform.detailspans") }}
-          </span>
-          <span class="nature">
-            {{ $t("brform.naturespan") }}
-          </span>
-          <span class="relationship">
-            {{ $t("brform.anticicated") }}
-          </span>
-        </div>
-        <div class="textarea_field">
-          <b-form-textarea
-            id="submit_content"
-            rows="5"
-            max-rows="8"
-          ></b-form-textarea>
-        </div>
-      </div>
-      <div class="model_field">
-        <div class="row">
-          <div class="col-md-4">
-            <button class="btn btn-info" id="toggle-btn" @click="toggleModal">
-              {{ $t("brform.select") }}
-            </button>
-          </div>
-          <div class="col-md-8">
-            <b-form-textarea
-              id="textarea-default"
-              rows="3"
-              placeholder="New entity formation | Nominee director | Company Secretary | Nominee partner"
-              disabled
-            ></b-form-textarea>
-          </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-select
+            :options="preRequisite.nationlity"
+            track-by="name"
+            show-by="name"
+            v-model="formData.nationlity"
+            :label="$t('brform.nationlity')"
+            :allow-empty="false"
+            :disabled="isLoading"
+            required
+          />
         </div>
       </div>
     </div>
-    <div class="card-body table-responsive p-0">
+    <div class="intented_field">
+      <div class="span_field">
+        <span class="intented_span">
+          {{ $t("brform.provide") }}
+        </span>
+      </div>
+      <div class="textarea_field">
+        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
+      </div>
+      <div class="span_field">
+        <span class="intented_span">
+          {{ $t("brform.information_owner") }}
+        </span>
+      </div>
+      <div class="textarea_field">
+        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
+      </div>
+    </div>
+
+    <div class="card-body table-responsive p-0" id="table_field">
       <table class="table table-hover" :is-loading="isLoading">
         <tbody>
           <tr>
@@ -148,33 +141,21 @@
             <td>{{ item.name }}</td>
             <td>
               <select
-                v-model="item.id"
+                v-model="item.kyc_type"
                 class="loads"
                 label="select"
                 v-on:change="getLoadStock(item.id)"
               >
-                <option value="" selected disabled>Choose</option>
                 <option
                   v-for="load in preRequisite.select"
-                  :key="load.id"
+                  :key="load.name"
                   :value="load.name"
-                  :id="load.id"
+                  :id="load.name"
                   v-bind:selected="selected4"
                 >
                   {{ load.name }}
                 </option>
               </select>
-              <!-- <base-select
-                :options="preRequisite.select"
-                track-by="name"
-                show-by="name"
-                v-model="item.id"
-                v-on:click="getLoadStock(item.id)"
-                :label="$t('brform.select')"
-                :allow-empty="false"
-                :disabled="isLoading"
-                required
-              /> -->
             </td>
             <td>
               <a href="#" @click="deletePhoto(item.id)">
@@ -190,40 +171,6 @@
       </table>
       <pagination :data="tabledata"></pagination>
     </div>
-    <b-modal
-      ref="my-modal"
-      hide-footer
-      title="PLEASE SELECT THE TYPE OF SERVICE REQUIRED"
-    >
-      <div class="d-block">
-        <b-form-group v-slot="{ ariaDescribedby }">
-          <b-form-checkbox
-            v-for="option in options"
-            v-model="selected"
-            :key="option.value"
-            :value="option.value"
-            :aria-describedby="ariaDescribedby"
-            name="flavour-3a"
-          >
-            {{ option.text }}
-          </b-form-checkbox>
-        </b-form-group>
-      </div>
-      <b-button
-        class="mt-3"
-        variant="outline-danger"
-        block
-        @click="hideModal"
-        >{{ $t("brform.close") }}</b-button
-      >
-      <b-button
-        class="mt-2"
-        variant="outline-warning"
-        block
-        @click="toggleModal"
-        >{{ $t("brform.save") }}</b-button
-      >
-    </b-modal>
     <div id="file-drag-drop">
       <vue-dropzone
         ref="myVueDropzone"
@@ -244,164 +191,21 @@
       </vue-dropzone>
     </div>
     <div class="director_field">
-      <div class="row">
-        <div id="name_field" class="col-md-5">
-          <span class="name_of">{{ $t("brform.name_of") }}</span>
-          <span class="popular">{{ $t("brform.popular") }}</span>
-        </div>
-        <div id="popular_field" class="col-md-7">
-          <span class="director">{{ $t("brform.director") }}</span>
-          <b-form-radio-group
-            v-model="selected1"
-            :options="options1"
-            class="mb-3"
-            id="radio_groupfield"
-            value-field="item"
-            text-field="name"
-            disabled-field="notEnabled"
-          ></b-form-radio-group>
-        </div>
+      <div class="span_field">
+        <span class="intented_span">
+          {{ $t("brform.kycdocment") }}
+        </span>
       </div>
-    </div>
-    <div class="director_field">
-      <div class="row">
-        <table class="table" :is-loading="isLoading">
-          <tbody>
-            <tr class="header_tr">
-              <th>{{ $t("brform.identitype") }}</th>
-              <th>{{ $t("brform.identitype") }}</th>
-              <th>{{ $t("brform.action") }}</th>
-            </tr>
-            <tr>
-              <td>
-                <b-form-select
-                  v-model="selected2"
-                  :options="options2"
-                ></b-form-select>
-              </td>
-              <td>
-                <b-form-select
-                  v-model="selected3"
-                  :options="options3"
-                ></b-form-select>
-              </td>
-              <td>
-                <a href="#">
-                  <b-icon
-                    icon="trash"
-                    class="delete_icon"
-                    aria-hidden="true"
-                  ></b-icon>
-                  <b-icon
-                    icon="plus-square-fill"
-                    class="plus_icon"
-                    aria-hidden="true"
-                  ></b-icon>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="row" id="buttonremove">
-        <b-button variant="light">
-          <b-icon icon="trash" class="delete_icon1" aria-hidden="true"></b-icon>
-          <span class="removespan">{{
-            $t("brform.remove_director")
-          }}</span></b-button
-        >
-        <b-button variant="primary">
-          <b-icon
-            icon="plus-circle-fill"
-            class="plus_icon1"
-            aria-hidden="true"
-          ></b-icon>
-          <span class="addspan">{{ $t("brform.add_director") }}</span></b-button
-        >
-      </div>
-    </div>
-    <div class="director_field">
-      <div class="row">
-        <div id="name_field" class="col-md-5">
-          <span class="name_of">{{ $t("brform.sharename_of") }}</span>
-          <span class="popular">{{ $t("brform.popular") }}</span>
-        </div>
-        <div id="popular_field" class="col-md-7">
-          <span class="director">{{ $t("brform.director") }}</span>
-          <b-form-radio-group
-            v-model="selected1"
-            :options="options1"
-            class="mb-3"
-            id="radio_groupfield"
-            value-field="item"
-            text-field="name"
-            disabled-field="notEnabled"
-          ></b-form-radio-group>
-        </div>
-      </div>
-    </div>
-    <div class="director_field">
-      <div class="row">
-        <table class="table" :is-loading="isLoading">
-          <tbody>
-            <tr class="header_tr">
-              <th>{{ $t("brform.identitype") }}</th>
-              <th>{{ $t("brform.identitype") }}</th>
-              <th>{{ $t("brform.action") }}</th>
-            </tr>
-            <tr>
-              <td>
-                <b-form-select
-                  v-model="selected2"
-                  :options="options2"
-                ></b-form-select>
-              </td>
-              <td>
-                <b-form-select
-                  v-model="selected3"
-                  :options="options3"
-                ></b-form-select>
-              </td>
-              <td>
-                <a href="#">
-                  <b-icon
-                    icon="trash"
-                    class="delete_icon"
-                    aria-hidden="true"
-                  ></b-icon>
-                  <b-icon
-                    icon="plus-square-fill"
-                    class="plus_icon"
-                    aria-hidden="true"
-                  ></b-icon>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="row" id="buttonremove">
-        <b-button variant="light">
-          <b-icon icon="trash" class="delete_icon1" aria-hidden="true"></b-icon>
-          <span class="removespan">{{ $t("brform.removesh") }}</span></b-button
-        >
-        <b-button variant="primary">
-          <b-icon
-            icon="plus-circle-fill"
-            class="plus_icon1"
-            aria-hidden="true"
-          ></b-icon>
-          <span class="addspan">{{ $t("brform.add_share") }}</span></b-button
-        >
+      <div class="textarea_field">
+        <b-form-textarea id="textarea-default" rows="6"></b-form-textarea>
       </div>
     </div>
     <div class="button_grup">
       <button class="btn btn-info">{{ $t("brform.save") }}</button>
       <button
-        @click="myFilter"
         @click.stop="
           $router.push({
-            name: 'appfacorporate_owner',
+            name: '',
           })
         "
         class="btn btn-info"
@@ -448,6 +252,7 @@ export default {
   },
   data() {
     return {
+      coutry_of_residence: "",
       selected4: "select",
       selected1: "",
       selected2: null,
@@ -480,6 +285,8 @@ export default {
         parallelUploads: 3,
       },
       tabledata: [],
+      idarray: [],
+      selectvalue: [],
       fileName: "",
       select: "select",
       messages: [],
@@ -507,11 +314,16 @@ export default {
       ],
       showNewModel: false,
       formData: {
-        fullname: "Popular Pte Ltd",
+        date_birth: "",
+        usualresidential: "",
+        fullname: "William lea",
+        aliasany: "William lea",
+        identification: "",
         entity_type: "",
         registration: "",
         officeadress: "",
         contactnumber: "",
+        nationlity: "",
         principle: "",
         orgRecognitionNumber: "",
         orgRecognitionBody: "",
@@ -535,22 +347,13 @@ export default {
       preRequisite: {
         currencies: [
           {
-            description: "Afghanistan Afghani",
-            name: "AFN",
-            symbol: "؋",
-            position: "prefix",
+            name: "NFIC",
           },
           {
-            description: "af sdf",
             name: "AFN",
-            symbol: "؋",
-            position: "prefix",
           },
           {
-            description: "gfg fgfg",
             name: "AFN",
-            symbol: "؋",
-            position: "prefix",
           },
         ],
         select: [
@@ -571,24 +374,26 @@ export default {
             name: "others",
           },
         ],
-        registrationca: [
+        coutryofresidence: [
           {
-            description: "gfg fgfg",
             name: "AFN",
-            symbol: "؋",
-            position: "prefix",
           },
           {
-            description: "gfg fgfg",
             name: "AFN",
-            symbol: "؋",
-            position: "prefix",
           },
           {
-            description: "gfg fgfg",
             name: "AFN",
-            symbol: "؋",
-            position: "prefix",
+          },
+        ],
+        nationlity: [
+          {
+            name: "AFN",
+          },
+          {
+            name: "AFN",
+          },
+          {
+            name: "AFN",
           },
         ],
       },
@@ -598,13 +403,17 @@ export default {
     this.fetchINitData();
   },
   methods: {
-    myFilter() {
-      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation3").style.backgroundColor = "#32c620";
-    },
     getLoadStock(id) {
-      console.log(id);
+      let valuea = document.querySelector(".loads").value;
+      this.idarray.push(id);
+      this.selectvalue.push(valuea);
+      if ((this.idarray.length = 0)) {
+        this.idarray = this.idarray.filter((item) => item !== id);
+      }
+
+      //   if (this.idarray.filter((item) => item !== id)) {
+      //   }
+      console.log(this.idarray);
     },
     deletePhoto(id) {
       axios({
@@ -616,12 +425,12 @@ export default {
         },
       })
         .then((response) => {
-          console.log(response.data);
           this.$toasted.success(response.data.success);
           setTimeout(() => {
             this.$toasted.clear();
             this.fetchINitData();
           }, 1500);
+          console.log(response);
         })
         .catch((error) => {
           console.error(error.message);
@@ -640,6 +449,7 @@ export default {
           this.isLoading = false;
           if (response.data.data != []) {
             this.tabledata = response.data.data;
+            console.log(this.tabledata);
           } else {
             this.tabledata = [];
           }
@@ -715,7 +525,7 @@ export default {
   margin-left: 20px;
 }
 #textarea-default {
-  font-size: 25px;
+  font-size: 15px;
 }
 .modal-title {
   font-size: 20px;
@@ -901,6 +711,39 @@ progress {
 .btn.btn-primary {
   display: flex;
   padding-left: 35px;
+}
+.header_spans {
+  display: grid;
+}
+.header_owner {
+  font-size: 20px;
+  color: #464242;
+  font-weight: 600;
+}
+.content_1 {
+  color: #211e1e;
+  font-weight: 600;
+}
+.content_2 {
+  color: #211e1e;
+  font-weight: 600;
+}
+#table_field {
+  margin-top: 10px;
+}
+.input_field {
+  margin-top: 20px;
+  border-style: solid;
+  padding: 20px;
+  border-width: 1px;
+  color: currentcolor;
+}
+.beneficial_owner {
+  font-size: 23px;
+  color: #212020;
+}
+#blow_input {
+  margin-top: 10px;
 }
 .button_grup {
   display: flex;

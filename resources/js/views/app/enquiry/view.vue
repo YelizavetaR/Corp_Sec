@@ -9,7 +9,8 @@
     <div class="row" v-if="entity">
       <div class="col-1"></div>
       <div class="col-10 text-area">
-        <div class="bold">{{ $t("enquiry.register_members") }}</div>
+        <div class="bold">{{ entity.subject }}</div>
+        <!-- <div class="bold">{{ loggedInUser.name }}</div> -->
         <br />
         <div>{{ entity.message }}</div>
         <br />
@@ -37,7 +38,12 @@
         <div v-for="(file, index) in attachments" :key="index">
           <div class="row">
             <div
-              class="col-sm-8 col-xs-9 col-md-7 col-lg-6 col-10 mt-3 d-flex justify-content-between"
+              class="
+                col-sm-8 col-xs-9 col-md-7 col-lg-6 col-10
+                mt-3
+                d-flex
+                justify-content-between
+              "
             >
               <span>{{ file }}</span>
               <div>
@@ -67,35 +73,32 @@
           max-rows="8"
         ></b-form-textarea>
         <br />
-        <div class="text-align-right">
-          <b-button variant="success">Submit</b-button>
+        <div class="row">
+          <div class="col-6 left-side">
+            <base-button
+              type="button"
+              design="primary"
+              @click="$router.back()"
+              tabindex="-1"
+              ><i class="fas fa-chevron-left"></i>
+              {{ $t("general.back") }}</base-button
+            >
+          </div>
+          <div class="col-6 text-align-right">
+            <b-button variant="success">Submit</b-button>
+          </div>
         </div>
       </div>
       <div class="col-1"></div>
-    </div>
-
-    <br />
-
-    <div class="form-footer mt-3">
-      <div class="left-side">
-        <base-button
-          type="button"
-          design="primary"
-          @click="$router.back()"
-          tabindex="-1"
-          ><i class="fas fa-chevron-left"></i>
-          {{ $t("general.back") }}</base-button
-        >
-      </div>
     </div>
   </base-container>
 </template>
 
 <script>
 import view from "@mixins/view";
-import { BFormTextarea } from "bootstrap-vue";
+import { mapGetters } from "vuex";
+import { BFormTextarea, BButton } from "bootstrap-vue";
 Vue.component("b-form-textarea", BFormTextarea);
-import { BButton } from "bootstrap-vue";
 Vue.component("b-button", BButton);
 
 export default {
@@ -103,7 +106,7 @@ export default {
   data() {
     return {
       initUrl: "enquiry/show",
-      dataTitle: $t("enquiry.todo"),
+      dataTitle: $t("enquiry.enquiry"),
       fallBackRoute: "appEnquiryList",
     };
   },
@@ -120,6 +123,9 @@ export default {
     attachments() {
       return this.entity.filePath.split("/");
     },
+    ...mapGetters("user", {
+      loggedInUser: "loggedInUser",
+    }),
   },
 };
 </script>

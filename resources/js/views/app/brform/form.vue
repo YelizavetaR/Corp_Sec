@@ -176,7 +176,6 @@ export default {
         data: todo,
       })
         .then((response) => {
-          console.log(response);
           this.$toasted.success(response.message);
           setTimeout(() => {
             this.$toasted.clear();

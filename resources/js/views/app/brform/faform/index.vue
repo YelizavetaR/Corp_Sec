@@ -143,12 +143,14 @@
             <div class="button_grup">
               <button class="btn btn-info">{{ $t("brform.save") }}</button>
               <button
+                @click="myFilter"
                 @click.stop="
                   $router.push({
-                    name: 'appfaConfigBasicInfo',
+                    name: 'appfacorporate_pg2',
                   })
                 "
                 class="btn btn-info"
+                id="save_next"
               >
                 {{ $t("brform.savenext") }}
               </button>
@@ -179,6 +181,11 @@ export default {
     };
   },
   methods: {
+    myFilter() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#32c620";
+    },
     send() {
       console.log(this.checkedNames.toString());
     },

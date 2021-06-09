@@ -100,10 +100,10 @@
 
       <div class="col-12 col-md-6 mb-3">
         <base-input
-          :label="formLabels.contact_number"
+          :label="formLabels.contactNumber"
           type="text"
           v-model="formData.contactNumber"
-          :error.sync="formErrors.contact_number"
+          :error.sync="formErrors.contactNumber"
           required
         />
       </div>
@@ -192,7 +192,7 @@ export default {
         uuid: null,
         username: "",
         email: "",
-        contact_number: "",
+        contactNumber: "",
         department: "",
         designation: "",
         profile: {
@@ -212,7 +212,7 @@ export default {
       formLabels: {
         name: $t("user.props.name"),
         email: $t("user.props.email"),
-        contact_number: $t("user.props.contact_number"),
+        contactNumber: $t("user.props.contact_number"),
         department: $t("user.props.department"),
         designation: $t("user.props.designation"),
         gender: $t("user.props.gender"),

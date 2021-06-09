@@ -43,6 +43,16 @@ export default [
                 },
                 component: () => import('@views/app/customer/view' /* webpackChunkName: "js/app/customer/view" */),
             },
+            {
+                path: ':uuid/edit',
+                name: 'appCustomerEdit',
+                meta: {
+                    trans: 'global.edit',
+                    title: 'customer.entity',
+                    permissions: ['access-admin']
+                },
+                component: () => import('@views/app/customer/edit' /* webpackChunkName: "js/app/customer/edit" */),
+            },
         ]
     },
 ]

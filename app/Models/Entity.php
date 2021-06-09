@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Builder;
 
-class Enquiry extends Model
+class Entity extends Model
 {
     use HasUuid, HasMeta, LogsActivity;
-
-    // protected $table = 'enquiry';
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +18,7 @@ class Enquiry extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'subject',
+        'id', 'entity_name',
     ];
 
     // Filters
@@ -29,18 +27,18 @@ class Enquiry extends Model
     {
         $query->when($keyword, function ($q, $keyword) {
             return $q->where(function ($q1) use ($keyword) {
-                $q1->where('subject', 'like', '%' . $keyword . '%');
+                $q1->where('entity_name', 'like', '%' . $keyword . '%');
             });
         });
     }
 
-    public function scopeFilterBySubject($q, $subject = null, $s = 0)
+    public function scopeFilterByEntityName($q, $entity_name = null, $s = 0)
     {
-        if (!$subject) {
+        if (!$entity_name) {
             return $q;
         }
 
-        return ($s) ? $q->where('subject', '=', $subject) : $q->where('subject', 'like', '%' . $subject . '%');
+        return ($s) ? $q->where('entity_name', '=', $entity_name) : $q->where('entity_name', 'like', '%' . $entity_name . '%');
     }
 
     public function scopeFilterByyuuid($q, $uuid = null)

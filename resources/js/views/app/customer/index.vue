@@ -9,6 +9,7 @@
         :pre-requisite="preRequisite"
         :is-loading="isLoading"
       />
+
       <base-container
         boxed
         with-loader
@@ -25,6 +26,7 @@
               :options="options"
               value-field="item"
               text-field="name"
+              class="p-5"
             />
           </div>
         </div>
@@ -32,11 +34,10 @@
           v-if="isInitialized"
           :meta="entities.meta"
           :filtered="isFiltered"
-          add-button-route="appUserAdd"
-          :add-button-permissions="['create-user']"
-          entity-title="user.user"
-          entities-title="user.users"
-          entity-description="user.module_description"
+          add-button-route="appCustomerAdd"
+          :add-button-permissions="['access-admin']"
+          entity-title="customer.entity"
+          entities-title="customer.entity"
         >
           <b-table
             v-show="entities.meta.total"
@@ -50,35 +51,11 @@
             :per-page.number="entities.meta.perPage"
             :current-page="entities.meta.currentPage"
             :filters="null"
-            @row-dblclicked="rowClickHandler({ route: 'appUserView' }, $event)"
+            @row-clicked="rowClickHandler({ route: 'appCustomerView' }, $event)"
+            class="cursor"
           >
-            <template #cell(createdAt)="row">
-              <view-date
-                :value="row.item.createdAt"
-                with-tz
-                tag="span"
-                class="mb-0"
-              />
-            </template>
-
-            <template #cell(updatedAt)="row">
-              <view-date
-                :value="row.item.updatedAt"
-                with-tz
-                tag="span"
-                class="mb-0"
-              />
-            </template>
-
-            <template #cell(profile)="row">
-              <view-user
-                :value="row.item"
-                :show-sub="false"
-                inline-sub
-                :show-image="false"
-                class="m-0"
-                data-classes="m-0"
-              />
+            <template #cell(no)="row">
+              {{ row.index + 1 }}
             </template>
 
             <template #cell(status)="row">
@@ -94,20 +71,26 @@
               <table-row-actions>
                 <router-link
                   class="dropdown-item"
-                  :to="{ name: 'appUserView', params: { uuid: row.item.uuid } }"
+                  :to="{
+                    name: 'appCustomerView',
+                    params: { uuid: row.item.uuid },
+                  }"
                   ><i class="fas fa-arrow-circle-right"></i>
                   {{
-                    $t("global.view", { attribute: $t("user.user") })
+                    $t("global.view", { attribute: $t("customer.entity") })
                   }}</router-link
                 >
 
                 <router-link
-                  v-if="hasPermission('edit-user')"
+                  v-if="hasPermission('access-admin')"
                   class="dropdown-item"
-                  :to="{ name: 'appUserEdit', params: { uuid: row.item.uuid } }"
+                  :to="{
+                    name: 'appCustomerEdit',
+                    params: { uuid: row.item.uuid },
+                  }"
                   ><i class="fas fa-edit"></i>
                   {{
-                    $t("global.edit", { attribute: $t("user.user") })
+                    $t("global.edit", { attribute: $t("customer.entity") })
                   }}</router-link
                 >
 
@@ -116,7 +99,9 @@
                   class="dropdown-item"
                   @click.stop="deleteEntity(row.item)"
                   ><i class="fas fa-trash"></i>
-                  {{ $t("global.delete", { attribute: $t("user.user") }) }}</a
+                  {{
+                    $t("global.delete", { attribute: $t("customer.entity") })
+                  }}</a
                 >
               </table-row-actions>
             </template>
@@ -147,22 +132,27 @@ export default {
       ],
       fields: [
         {
-          key: "profile",
-          label: $t("user.props.name"),
-          sort: "name",
+          key: "no",
+          label: "#",
+        },
+        {
+          key: "entityName",
+          label: $t("customer.entity_name"),
+          sort: "entity_name",
         },
         {
           key: "email",
           label: $t("user.props.email"),
+          sort: "email",
         },
         {
-          key: "username",
-          label: $t("user.props.username"),
-          sort: "username",
+          key: "uen",
+          label: $t("customer.uen"),
+          sort: "uen",
         },
         {
           key: "status",
-          label: $t("user.props.status"),
+          label: $t("customer.status"),
           sort: "status",
           transformer: "badgeStatusYesNo",
         },
@@ -190,8 +180,7 @@ export default {
         },
       ],
       filtersOptions: {
-        name: "",
-        username: "",
+        entityName: "",
         email: "",
       },
       sortOptions: {
@@ -200,12 +189,12 @@ export default {
       columnsOptions: {
         hasScroll: true,
       },
-      permissionsRequired: "create-user",
+      permissionsRequired: "access-admin",
       routesRequired: {
-        add: "appUserAdd",
+        add: "appCustomerAdd",
       },
-      initUrl: "users",
-      dataType: "user",
+      initUrl: "customers",
+      dataType: "entity",
     };
   },
   methods: {
@@ -218,3 +207,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.cursor {
+  cursor: pointer;
+}
+</style>

@@ -7,7 +7,8 @@
             <router-link :to="{ name: 'appfaConfigBasicInfo' }">
               <div
                 :class="{ active: showMobileMenu1 }"
-                v-on:click="(showMobileMenu1 = true), (showMobileMenu2 = false)"
+                @click="myFilter1"
+                id="navigation1"
               >
                 <div class="menu-item-content">
                   <span class="detailed">
@@ -22,11 +23,28 @@
             <router-link :to="{ name: 'appfacorporate_pg2' }">
               <div
                 :class="{ active: showMobileMenu2 }"
-                @click="(showMobileMenu2 = true), (showMobileMenu1 = false)"
+                @click="myFilter2"
+                id="navigation2"
               >
                 <div class="menu-item-content">
                   <span class="detailed">
                     <span class="title">{{ $t("brform.coporatepage2") }}</span>
+                    <span class="description"></span>
+                  </span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'appfacorporate_owner' }">
+              <div
+                :class="{ active: showMobileMenu3 }"
+                @click="myFilter3"
+                id="navigation3"
+              >
+                <div class="menu-item-content">
+                  <span class="detailed">
+                    <span class="title">{{ $t("brform.coporatepage3") }}</span>
                     <span class="description"></span>
                   </span>
                 </div>
@@ -51,13 +69,28 @@ export default {
   components: { BaseButton },
   data() {
     return {
-      showMobileMenu1: false,
-      showMobileMenu2: false,
       yes_flag: false,
       no_flag: false,
     };
   },
   computed: {},
+  methods: {
+    myFilter1() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation1").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+    },
+    myFilter2() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#32c620";
+    },
+    myFilter3() {
+      document.querySelector("#navigation3").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+    },
+  },
 };
 </script>
 

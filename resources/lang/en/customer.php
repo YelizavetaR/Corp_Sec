@@ -50,4 +50,10 @@ return array(
     'entity_status' => 'Entity Status',
     'office_address' => 'REGISTERED OFFICE ADDRESS',
     'principal_activites' => 'PRINCIPAL ACTIVITIES',
+    'primary_activity' => 'Primary Activity',
+    'secondary_activity' => 'Secondary Activity',
+    'capital' => 'CAPITAL',
+    'share' => 'Share',
+    'uen' => 'UEN',
+    'status' => 'Status',
 );

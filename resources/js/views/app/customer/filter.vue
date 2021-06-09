@@ -5,20 +5,12 @@
     :is-loading="isLoading"
   >
     <div class="row">
-      <div class="col-12 col-md-6 mb-6">
+      <div class="col-12 col-md-12 mb-12">
         <base-input
           auto-focus
-          :label="$t('user.props.name')"
+          :label="$t('customer.entity_name')"
           type="text"
-          v-model="filters.name"
-          :disabled="isLoading"
-        />
-      </div>
-      <div class="col-12 col-md-6 mb-6">
-        <base-input
-          :label="$t('user.props.email')"
-          type="text"
-          v-model="filters.email"
+          v-model="filters.entityName"
           :disabled="isLoading"
         />
       </div>

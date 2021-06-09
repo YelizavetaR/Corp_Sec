@@ -83,15 +83,14 @@ export default [
                     component: () =>
                         import('@views/app/brform/faform/corporate2' /* webpackChunkName: "js/app/config/assets/index" */),
                 }, {
-                    path: 'system',
-                    name: 'appConfigSystem',
+                    path: 'fa_corporate_owner',
+                    name: 'appfacorporate_owner',
                     meta: {
-                        title: 'config.system.system',
-                        icon: 'fas fa-sliders-h',
-                        key: 'system'
+                        title: 'brform.coporatepage3',
+                        key: 'coporatepage3'
                     },
                     component: () =>
-                        import('@views/app/config/system/index' /* webpackChunkName: "js/app/config/system/index" */),
+                        import('@views/app/brform/faform/corporate3' /* webpackChunkName: "js/app/config/system/index" */),
                 }, {
                     path: 'mail',
                     name: 'appConfigMail',

@@ -90,6 +90,10 @@ Route::group(['middleware' => ['auth:sanctum', '2fa', 'under_maintenance']], fun
     Route::get('/enquiry/show/{uuid}', 'EnquiryController@show');
     Route::post('/files', 'FileController@store');
 
+    // Customers Routes
+    Route::get('/customers', 'EntityController@index');
+    Route::get('/entity/show/{uuid}', 'EntityController@show');
+
     // BR Form Routes
     Route::get('/bform', 'BformsController@index');
     Route::get('/bform/show/{uuid}', 'BformsController@show');
