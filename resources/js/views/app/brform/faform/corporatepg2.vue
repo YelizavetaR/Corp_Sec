@@ -6,17 +6,11 @@
     :loader-color="vars.loaderColor"
   >
     <div class="header_spans">
-      <span class="header_owner">{{ $t("brform.header_owner") }}</span>
-      <span class="content_1">{{ $t("brform.content_1") }}</span>
-      <span class="content_1">{{ $t("brform.content_2") }}</span>
-      <span class="content_1">{{ $t("brform.content_3") }}</span>
-      <span class="content_2">{{ $t("brform.tocomplete") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove1") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove2") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove3") }}</span>
+      <span class="header_owner">{{ $t("brform.header_pg2") }}</span>
     </div>
+
     <div class="input_field">
-      <span class="beneficial_owner">{{ $t("brform.beneficial_owner") }}</span>
+      <span class="beneficial_owner">{{ $t("brform.Domestic") }}</span>
       <div class="row" id="blow_input">
         <div class="col-12 col-md-6 mb-4">
           <base-input
@@ -28,21 +22,12 @@
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
-          <base-input
-            auto-focus
-            :label="$t('brform.aliasany')"
-            type="text"
-            v-model="formData.aliasany"
-            :error.sync="formErrors.aliasany"
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
           <base-select
-            :options="preRequisite.currencies"
+            :options="preRequisite.coutryofresidence"
             track-by="name"
             show-by="name"
-            v-model="formData.identification"
-            :label="$t('brform.identification')"
+            v-model="formData.identitype"
+            :label="$t('brform.identitype')"
             :allow-empty="false"
             :disabled="isLoading"
             required
@@ -51,36 +36,69 @@
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
-            :label="$t('brform.usualresidential')"
+            :label="$t('brform.background')"
             type="text"
-            v-model="formData.usualresidential"
-            :error.sync="formErrors.usualresidential"
+            v-model="formData.background"
+            :error.sync="formErrors.background"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-input
-            :label="$t('brform.date_birth')"
-            addon-right-icon="far fa-calendar-alt"
+            auto-focus
+            :label="$t('brform.describenature')"
             type="text"
-            v-model="formData.date_birth"
-            :error.sync="formErrors.date_birth"
-            :is-wrapper="true"
-          >
-            <date-picker
-              v-model="formData.date_birth"
-              :config="vars.datepickerConfig"
-              class="form-control datepicker"
-            >
-            </date-picker>
-          </base-input>
+            v-model="formData.describenature"
+            :error.sync="formErrors.describenature"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.period_of_time')"
+            type="text"
+            v-model="formData.period_of_time"
+            :error.sync="formErrors.period_of_time"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_information')"
+            type="text"
+            v-model="formData.provide_information"
+            :error.sync="formErrors.provide_information"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_relationship')"
+            type="text"
+            v-model="formData.provide_relationship"
+            :error.sync="formErrors.provide_relationship"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="input_field">
+      <span class="beneficial_owner">{{ $t("brform.Foreign") }}</span>
+      <div class="row" id="blow_input">
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.fullname')"
+            type="text"
+            v-model="formData.fullname"
+            :error.sync="formErrors.fullname"
+          />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-select
             :options="preRequisite.coutryofresidence"
             track-by="name"
             show-by="name"
-            v-model="formData.coutry_of_residence"
-            :label="$t('brform.coutry_of_residence')"
+            v-model="formData.identitype"
+            :label="$t('brform.identitype')"
             :allow-empty="false"
             :disabled="isLoading"
             required
@@ -89,124 +107,271 @@
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
-            :label="$t('brform.contactnumber')"
+            :label="$t('brform.background')"
             type="text"
-            v-model="formData.contactnumber"
-            :error.sync="formErrors.contactnumber"
+            v-model="formData.background"
+            :error.sync="formErrors.background"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.describenature')"
+            type="text"
+            v-model="formData.describenature"
+            :error.sync="formErrors.describenature"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.period_of_time')"
+            type="text"
+            v-model="formData.period_of_time"
+            :error.sync="formErrors.period_of_time"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_information')"
+            type="text"
+            v-model="formData.provide_information"
+            :error.sync="formErrors.provide_information"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_relationship')"
+            type="text"
+            v-model="formData.provide_relationship"
+            :error.sync="formErrors.provide_relationship"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="input_field">
+      <span class="beneficial_owner">{{ $t("brform.International") }}</span>
+      <div class="row" id="blow_input">
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.fullname')"
+            type="text"
+            v-model="formData.fullname"
+            :error.sync="formErrors.fullname"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-select
-            :options="preRequisite.nationlity"
+            :options="preRequisite.coutryofresidence"
             track-by="name"
             show-by="name"
-            v-model="formData.nationlity"
-            :label="$t('brform.nationlity')"
+            v-model="formData.identitype"
+            :label="$t('brform.identitype')"
             :allow-empty="false"
             :disabled="isLoading"
             required
           />
         </div>
-      </div>
-    </div>
-    <div class="intented_field">
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.provide") }}
-        </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
-      </div>
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.information_owner") }}
-        </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
-      </div>
-    </div>
-
-    <div class="card-body table-responsive p-0" id="table_field">
-      <table class="table table-hover" :is-loading="isLoading">
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <th>KYC Type</th>
-            <th>Action</th>
-          </tr>
-
-          <tr v-for="item in tabledata" :key="item.id">
-            <td>{{ item.name }}</td>
-            <td>
-              <select
-                v-model="item.kyc_type"
-                class="loads"
-                label="select"
-                v-on:change="getLoadStock(item.id)"
-              >
-                <option
-                  v-for="load in preRequisite.select"
-                  :key="load.name"
-                  :value="load.name"
-                  :id="load.name"
-                  v-bind:selected="selected4"
-                >
-                  {{ load.name }}
-                </option>
-              </select>
-            </td>
-            <td>
-              <a href="#" @click="deletePhoto(item.id)">
-                <b-icon
-                  icon="trash"
-                  class="delete_icon"
-                  aria-hidden="true"
-                ></b-icon>
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <pagination :data="tabledata"></pagination>
-    </div>
-    <div id="file-drag-drop">
-      <vue-dropzone
-        ref="myVueDropzone"
-        id="dropzone"
-        :options="dropzoneOptions"
-        :useCustomSlot="true"
-        :is-loading="isLoading"
-        v-on:vdropzone-success="uploadSuccess"
-        v-on:vdropzone-error="uploadError"
-        v-on:vdropzone-removed-file="fileRemoved"
-      >
-        <div class="dropzone-custom-content">
-          <span class="drop-files">
-            {{ $t("brform.uploadspan") }}
-          </span>
-          <b-icon icon="plus-circle-fill" aria-hidden="true"></b-icon>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.background')"
+            type="text"
+            v-model="formData.background"
+            :error.sync="formErrors.background"
+          />
         </div>
-      </vue-dropzone>
-    </div>
-    <div class="director_field">
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.kycdocment") }}
-        </span>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.describenature')"
+            type="text"
+            v-model="formData.describenature"
+            :error.sync="formErrors.describenature"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.period_of_time')"
+            type="text"
+            v-model="formData.period_of_time"
+            :error.sync="formErrors.period_of_time"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_information')"
+            type="text"
+            v-model="formData.provide_information"
+            :error.sync="formErrors.provide_information"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_relationship')"
+            type="text"
+            v-model="formData.provide_relationship"
+            :error.sync="formErrors.provide_relationship"
+          />
+        </div>
       </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="6"></b-form-textarea>
+    </div>
+    <div class="input_field">
+      <span class="beneficial_owner">{{ $t("brform.PEP_immediate") }}</span>
+      <div class="row" id="blow_input">
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.fullname')"
+            type="text"
+            v-model="formData.fullname"
+            :error.sync="formErrors.fullname"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-select
+            :options="preRequisite.coutryofresidence"
+            track-by="name"
+            show-by="name"
+            v-model="formData.identitype"
+            :label="$t('brform.identitype')"
+            :allow-empty="false"
+            :disabled="isLoading"
+            required
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.background')"
+            type="text"
+            v-model="formData.background"
+            :error.sync="formErrors.background"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.describenature')"
+            type="text"
+            v-model="formData.describenature"
+            :error.sync="formErrors.describenature"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.period_of_time')"
+            type="text"
+            v-model="formData.period_of_time"
+            :error.sync="formErrors.period_of_time"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_information')"
+            type="text"
+            v-model="formData.provide_information"
+            :error.sync="formErrors.provide_information"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_relationship')"
+            type="text"
+            v-model="formData.provide_relationship"
+            :error.sync="formErrors.provide_relationship"
+          />
+        </div>
       </div>
     </div>
+    <div class="input_field">
+      <span class="beneficial_owner">{{ $t("brform.PEP_close") }}</span>
+      <div class="row" id="blow_input">
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.fullname')"
+            type="text"
+            v-model="formData.fullname"
+            :error.sync="formErrors.fullname"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-select
+            :options="preRequisite.coutryofresidence"
+            track-by="name"
+            show-by="name"
+            v-model="formData.identitype"
+            :label="$t('brform.identitype')"
+            :allow-empty="false"
+            :disabled="isLoading"
+            required
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.background')"
+            type="text"
+            v-model="formData.background"
+            :error.sync="formErrors.background"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.describenature')"
+            type="text"
+            v-model="formData.describenature"
+            :error.sync="formErrors.describenature"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.period_of_time')"
+            type="text"
+            v-model="formData.period_of_time"
+            :error.sync="formErrors.period_of_time"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_information')"
+            type="text"
+            v-model="formData.provide_information"
+            :error.sync="formErrors.provide_information"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.provide_relationship')"
+            type="text"
+            v-model="formData.provide_relationship"
+            :error.sync="formErrors.provide_relationship"
+          />
+        </div>
+      </div>
+    </div>
+
     <div class="button_grup">
       <button class="btn btn-info">{{ $t("brform.save") }}</button>
       <button
         @click="myFilter"
         @click.stop="
           $router.push({
-            name: 'appfacorporate_agent',
+            name: 'appfacorporate_declartion',
           })
         "
         class="btn btn-info"
@@ -315,14 +480,19 @@ export default {
       ],
       showNewModel: false,
       formData: {
-        date_birth: "",
+        orgFoundationDate: "",
         usualresidential: "",
         fullname: "William lea",
         aliasany: "William lea",
         identification: "",
         entity_type: "",
+        identitype: "",
         registration: "",
-        officeadress: "",
+        background: "",
+        describenature: "",
+        period_of_time: "",
+        provide_information: "",
+        provide_relationship: "",
         contactnumber: "",
         nationlity: "",
         principle: "",
@@ -408,10 +578,10 @@ export default {
       document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation4").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#32c620";
     },
     getLoadStock(id) {
       let valuea = document.querySelector(".loads").value;
@@ -532,7 +702,16 @@ export default {
   margin-top: 10px;
 }
 .button_field {
-  margin-left: 20px;
+  display: grid;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+}
+.button_span {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+  color: black;
 }
 #textarea-default {
   font-size: 15px;
@@ -723,12 +902,26 @@ progress {
   padding-left: 35px;
 }
 .header_spans {
-  display: grid;
+  border-style: solid;
+  border-width: 1px;
+  padding: 20px;
 }
 .header_owner {
   font-size: 20px;
   color: #464242;
   font-weight: 600;
+}
+.button_field2 {
+  display: grid;
+  justify-content: center;
+}
+#select_button {
+  background-color: #91f7df;
+  border: hidden;
+  width: 200px;
+  margin: 10px;
+  color: black;
+  font-size: 15px;
 }
 .content_1 {
   color: #211e1e;
@@ -742,14 +935,14 @@ progress {
   margin-top: 10px;
 }
 .input_field {
-  margin-top: 20px;
   border-style: solid;
   padding: 20px;
   border-width: 1px;
   color: currentcolor;
+  border-top: hidden;
 }
 .beneficial_owner {
-  font-size: 23px;
+  font-size: 18px;
   color: #212020;
 }
 #blow_input {
@@ -759,5 +952,9 @@ progress {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+.kyc_span {
+  color: black;
+  font-size: 15px;
 }
 </style>

@@ -7,7 +7,7 @@ export default [
             title: 'brform.br_form',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'brform.br_form',
-                    permissions: ['access-admin']
+                    permissions: ['create-user'],
                 },
                 component: () => import('@views/app/brform/index'),
             },
@@ -29,7 +29,7 @@ export default [
                 meta: {
                     trans: 'global.view',
                     title: 'brform.br_form',
-                    permissions: ['access-admin']
+                    permissions: ['create-user'],
                 },
                 component: () => import('@views/app/brform/view'),
             },
@@ -39,7 +39,7 @@ export default [
                 meta: {
                     trans: 'global.edit',
                     title: 'brform.edit',
-                    permissions: ['access-admin']
+                    permissions: ['create-user'],
                 },
                 component: () => import('@views/app/brform/edit' /* webpackChunkName: "js/app/customer/edit" */),
             },
@@ -59,7 +59,7 @@ export default [
                     prefixTitle: 'menu.setup',
                     title: 'brform.corperate',
                     icon: 'fas fa-cogs',
-                    permissions: ['access-admin'],
+                    permissions: ['create-user'],
                     isHiddenNav: true,
                 },
                 component: () => import('@views/app/brform/faindex' /* webpackChunkName: "js/app/config/index" */),
@@ -92,172 +92,117 @@ export default [
                     component: () =>
                         import('@views/app/brform/faform/corporate3' /* webpackChunkName: "js/app/config/system/index" */),
                 }, {
-                    path: 'mail',
-                    name: 'appConfigMail',
+                    path: 'fa_corporate_agent',
+                    name: 'appfacorporate_agent',
                     meta: {
-                        title: 'config.mail.mail',
-                        icon: 'fas fa-envelope',
-                        key: 'mail'
+                        title: 'AGENT',
+                        key: 'agent'
                     },
                     component: () =>
-                        import('@views/app/config/mail/index' /* webpackChunkName: "js/app/config/mail/index" */),
+                        import('@views/app/brform/faform/corporate4' /* webpackChunkName: "js/app/config/mail/index" */),
                 }, {
-                    path: 'roles',
-                    name: 'appConfigRole',
-                    redirect: { name: 'appConfigRoleList' },
+                    path: 'fa_corporate_pg1',
+                    name: 'appfacorporate_pg1',
                     meta: {
-                        title: 'config.role.roles',
-                        icon: 'fas fa-users-cog',
-                        hideChildren: true,
-                    },
-                    component: {
-                        template: '<router-view></router-view>'
-                    },
-                    children: [{
-                        path: '',
-                        name: 'appConfigRoleList',
-                        meta: {
-                            trans: 'global.list',
-                            title: 'config.role.roles',
-                            icon: 'fas fa-list',
-                        },
-                        component: () => import('@views/app/config/role/index' /* webpackChunkName: "js/app/config/role/index" */),
-                    },
-                    {
-                        path: 'add',
-                        name: 'appConfigRoleAdd',
-                        meta: {
-                            trans: 'global.add',
-                            title: 'config.role.role',
-                            icon: 'fas fa-plus',
-                        },
-                        component: () => import('@views/app/config/role/add' /* webpackChunkName: "js/app/config/role/add" */),
-                    },
-                    ]
-                }, {
-                    path: 'permissions',
-                    name: 'appConfigPermission',
-                    meta: {
-                        title: 'config.permission.permissions',
-                        icon: 'fas fa-key',
+                        title: 'brform.coporatepage5',
+                        key: 'pep_pg1'
                     },
                     component: () =>
-                        import('@views/app/config/permission/index' /* webpackChunkName: "js/app/config/permission/index" */),
-                }, {
-                    path: 'authentication',
-                    name: 'appConfigAuthentication',
+                        import('@views/app/brform/faform/corporatepg1' /* webpackChunkName: "js/app/config/mail/index" */),
+                },
+                {
+                    path: 'fa_corporate_pg2',
+                    name: 'appfacorporate_peppg2',
                     meta: {
-                        title: 'config.auth.auth',
-                        icon: 'fas fa-sign-in-alt',
-                        key: 'auth'
+                        title: 'brform.coporatepage6',
+                        key: 'pep_pg2'
                     },
                     component: () =>
-                        import('@views/app/config/authentication/index' /* webpackChunkName: "js/app/config/authentication/index" */),
-                }, {
-                    path: 'chat',
-                    name: 'appConfigChat',
+                        import('@views/app/brform/faform/corporatepg2' /* webpackChunkName: "js/app/config/mail/index" */),
+                },
+                {
+                    path: 'fa_corporate_declartion',
+                    name: 'appfacorporate_declartion',
                     meta: {
-                        title: 'config.chat.chat',
-                        icon: 'fas fa-comments',
-                        key: 'chat'
+                        title: 'brform.coporatepage7',
+                        key: 'declartion'
                     },
                     component: () =>
-                        import('@views/app/config/chat/index' /* webpackChunkName: "js/app/config/chat/index" */),
-                }, {
-                    path: 'pusher',
-                    name: 'appConfigPusher',
+                        import('@views/app/brform/faform/corporatedelection' /* webpackChunkName: "js/app/config/mail/index" */),
+                }
+                ]
+            },
+            {
+                path: 'individual',
+                name: 'appfaapplication',
+                redirect: { name: 'appfaApplicationBasicInfo' },
+                meta: {
+                    prefixTitle: 'menu.setup',
+                    title: 'brform.individual',
+                    icon: 'fas fa-cogs',
+                    // permissions: ['create-user'],
+                    isHiddenNav: true,
+                },
+                component: () => import('@views/app/brform/individual' /* webpackChunkName: "js/app/config/index" */),
+                children: [{
+                    path: 'fa_individual_customer',
+                    name: 'appfaApplicationBasicInfo',
                     meta: {
-                        title: 'config.pusher.credential',
-                        icon: 'fab fa-pushed',
-                        key: 'pusher'
+                        title: 'brform.faform',
+                        icon: '',
+                        key: 'fabasic'
                     },
                     component: () =>
-                        import('@views/app/config/pusher/index' /* webpackChunkName: "js/app/config/pusher/index" */),
+                        import('@views/app/brform/inform/individual_custom' /* webpackChunkName: "js/app/config/basic/index" */),
                 }, {
-                    path: 'sms',
-                    name: 'appConfigSms',
+                    path: 'fa_individual_owner',
+                    name: 'appfaindividual_owner',
                     meta: {
-                        title: 'config.sms.sms',
-                        icon: 'fas fa-comment-alt',
-                        key: 'sms'
+                        title: 'brform.coporatepage3',
+                        key: 'individual_owner'
                     },
                     component: () =>
-                        import('@views/app/config/sms/index' /* webpackChunkName: "js/app/config/sms/index" */),
+                        import('@views/app/brform/inform/individual3' /* webpackChunkName: "js/app/config/system/index" */),
                 }, {
-                    path: 'payment-gateway',
-                    name: 'appConfigPaymentGateway',
+                    path: 'fa_indvidual_agent',
+                    name: 'appfaindvidual_agent',
                     meta: {
-                        title: 'config.payment_gateway.payment_gateway',
-                        icon: 'fas fa-credit-card',
-                        key: 'paymentGateway'
+                        title: 'AGENT',
+                        key: 'agent'
                     },
                     component: () =>
-                        import('@views/app/config/payment-gateway/index' /* webpackChunkName: "js/app/config/payment-gateway/index" */),
+                        import('@views/app/brform/inform/individual4' /* webpackChunkName: "js/app/config/mail/index" */),
                 }, {
-                    path: 'website',
-                    name: 'appConfigWebsite',
+                    path: 'fa_individual_pg1',
+                    name: 'appfaindividual_pg1',
                     meta: {
-                        title: 'config.website.website',
-                        icon: 'fas fa-globe',
-                        key: 'website'
+                        title: 'brform.coporatepage5',
+                        key: 'pep_pg1'
                     },
                     component: () =>
-                        import('@views/app/config/website/index' /* webpackChunkName: "js/app/config/website/index" */),
-                }, {
-                    path: 'social',
-                    name: 'appConfigSocial',
+                        import('@views/app/brform/inform/individualpg1' /* webpackChunkName: "js/app/config/mail/index" */),
+                },
+                {
+                    path: 'fa_individual_pg2',
+                    name: 'appfaindividual_peppg2',
                     meta: {
-                        title: 'config.social.network',
-                        icon: 'fas fa-share-alt',
-                        key: 'social'
+                        title: 'brform.coporatepage6',
+                        key: 'pep_pg2'
                     },
                     component: () =>
-                        import('@views/app/config/social/index' /* webpackChunkName: "js/app/config/social/index" */),
-                }, {
-                    path: 'locales',
-                    name: 'appConfigLocale',
-                    redirect: { name: 'appConfigLocaleList' },
+                        import('@views/app/brform/inform/individualpg2' /* webpackChunkName: "js/app/config/mail/index" */),
+                },
+                {
+                    path: 'fa_individual_declartion',
+                    name: 'appfaindividual_declartion',
                     meta: {
-                        title: 'config.locale.locales',
-                        icon: 'fas fa-language',
-                        hideChildren: true,
+                        title: 'brform.coporatepage7',
+                        key: 'declartion'
                     },
-                    component: {
-                        template: '<router-view></router-view>'
-                    },
-                    children: [{
-                        path: '',
-                        name: 'appConfigLocaleList',
-                        meta: {
-                            trans: 'global.list',
-                            title: 'config.locale.locales',
-                            icon: 'fas fa-list',
-                        },
-                        component: () => import('@views/app/config/locale/index' /* webpackChunkName: "js/app/config/locale/index" */),
-                    },
-                    {
-                        path: 'translation',
-                        name: 'appConfigLocaleTranslation',
-                        meta: {
-                            trans: 'global.list',
-                            title: 'config.locale.translation',
-                            icon: 'fas fa-language',
-                        },
-                        component: () => import('@views/app/config/locale/translation' /* webpackChunkName: "js/app/config/locale/translation" */),
-                    },
-                    {
-                        path: 'add',
-                        name: 'appConfigLocaleAdd',
-                        meta: {
-                            trans: 'global.add',
-                            title: 'config.locale.locale',
-                            icon: 'fas fa-plus',
-                        },
-                        component: () => import('@views/app/config/locale/add' /* webpackChunkName: "js/app/config/locale/add" */),
-                    },
-                    ]
-                }]
+                    component: () =>
+                        import('@views/app/brform/inform/individualdelection' /* webpackChunkName: "js/app/config/mail/index" */),
+                }
+                ]
             }
         ]
-    }
-]
+    }]

@@ -206,7 +206,7 @@
         @click="myFilter"
         @click.stop="
           $router.push({
-            name: 'appfacorporate_agent',
+            name: 'appfaindvidual_agent',
           })
         "
         class="btn btn-info"
@@ -405,13 +405,18 @@ export default {
   },
   methods: {
     myFilter() {
-      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation4").style.backgroundColor = "#32c620";
-      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#in_navigation1").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation3").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation4").style.backgroundColor =
+        "#32c620";
+      document.querySelector("#in_navigation6").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation7").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation5").style.backgroundColor =
+        "#dee2e9";
     },
     getLoadStock(id) {
       let valuea = document.querySelector(".loads").value;

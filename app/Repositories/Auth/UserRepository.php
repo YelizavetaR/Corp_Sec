@@ -33,11 +33,11 @@ class UserRepository
      * Find user with given id or throw an error
      * @param integer $id
      */
-    public function findOrFail($id, $field = 'message'): User
+    public function findOrFail($id, $field = 'message') : User
     {
         $user = $this->user->find($id);
 
-        if (!$user) {
+        if (! $user) {
             throw ValidationException::withMessages([$field => __('global.could_not_find', ['attribute' => __('user.user')])]);
         }
 
@@ -48,11 +48,11 @@ class UserRepository
      * Find user with given uuid or throw an error
      * @param string $uuid
      */
-    public function findByUuidOrFail($uuid, $field = 'message'): User
+    public function findByUuidOrFail($uuid, $field = 'message') : User
     {
         $user = $this->user->filterByUuid($uuid)->first();
 
-        if (!$user) {
+        if (! $user) {
             throw ValidationException::withMessages([$field => __('global.could_not_find', ['attribute' => __('user.user')])]);
         }
 
@@ -64,7 +64,7 @@ class UserRepository
      *
      * @param email $email
      */
-    public function findByEmail($email): ?User
+    public function findByEmail($email) : ?User
     {
         return $this->user->whereEmail($email)->first();
     }
@@ -72,7 +72,7 @@ class UserRepository
     /**
      * Paginate all users
      */
-    public function paginate(): UserCollection
+    public function paginate() : UserCollection
     {
         $sort_by    = request()->query('sort_by', 'created_at');
         $order      = request()->query('order', 'desc');
@@ -83,9 +83,9 @@ class UserRepository
         $end_date   = request()->query('end_$end_date');
 
         $query = $this->user->filterByName($name)->filterByUsername($username)->filterByEmail($email)->dateBetween([
-            'start_date' => $start_date,
-            'end_date'   => $end_date
-        ]);
+                'start_date' => $start_date,
+                'end_date'   => $end_date
+            ]);
 
         $per_page     = request('per_page', config('config.system.per_page'));
         $current_page = request('current_page');
@@ -109,7 +109,7 @@ class UserRepository
     /**
      * Create a new user
      */
-    public function create(): User
+    public function create() : User
     {
         $user = $this->user->forceCreate($this->formatParams());
 
@@ -124,11 +124,11 @@ class UserRepository
      * Prepare given params for inserting into database
      * @param uuid $uuid
      */
-    private function formatParams($uuid = null): array
+    private function formatParams($uuid = null) : array
     {
         $gender = Arr::get(request('profile.gender', []), 'uuid');
 
-        if (!in_array($gender, ArrHelper::getList('genders'))) {
+        if (! in_array($gender, ArrHelper::getList('genders'))) {
             throw ValidationException::withMessages(['profile.gender' => trans('global.could_not_find', ['attribute' => trans('user.props.gender')])]);
         }
 
@@ -138,7 +138,7 @@ class UserRepository
             'exclude_admin' => true
         ])->pluck('uuid')->all();
 
-        if (!in_array($role, $roles)) {
+        if (! in_array($role, $roles)) {
             throw ValidationException::withMessages(['role' => trans('global.could_not_find', ['attribute' => trans('config.role.role')])]);
         }
 
@@ -148,12 +148,9 @@ class UserRepository
             'gender'     => $gender,
             'username'   => request('username'),
             'email'      => request('email'),
-            'contact_number'    => request('contact_number'),
-            'department'        => request('department'),
-            'designation'       => request('designation'),
         ];
 
-        if (!$uuid) {
+        if (! $uuid) {
             $formatted['password'] = bcrypt(request('password'));
             $formatted['uuid']     = Str::uuid();
             $formatted['status']   = UserStatus::ACTIVATED;
@@ -166,7 +163,7 @@ class UserRepository
      * Update given user
      * @param User $user
      */
-    public function update(User $user): User
+    public function update(User $user) : User
     {
         if (request()->boolean('force_password')) {
             $user->password = bcrypt(request('password'));
@@ -178,11 +175,11 @@ class UserRepository
 
         $role = Role::whereUuid(Arr::get(request('role'), 'uuid'))->first();
 
-        if (!$user->hasRole($role->name)) {
+        if (! $user->hasRole($role->name)) {
             $user->removeRole($user->getRoleNames()->first());
             $user->assignRole($role->name);
         }
-
+        
         return $user;
     }
 
@@ -190,17 +187,17 @@ class UserRepository
      * Update given user status
      * @param User $user
      */
-    public function updateStatus(User $user): User
+    public function updateStatus(User $user) : User
     {
-        if ($user->status === UserStatus::PENDING_APPROVAL && !in_array(request('status'), [UserStatus::ACTIVATED, UserStatus::DISAPPROVED])) {
+        if ($user->status === UserStatus::PENDING_APPROVAL && ! in_array(request('status'), [UserStatus::ACTIVATED, UserStatus::DISAPPROVED])) {
             throw ValidationException::withMessages(['message' => trans('general.invalid_action')]);
         }
 
-        if ($user->status === UserStatus::ACTIVATED && !in_array(request('status'), [UserStatus::BANNED])) {
+        if ($user->status === UserStatus::ACTIVATED && ! in_array(request('status'), [UserStatus::BANNED])) {
             throw ValidationException::withMessages(['message' => trans('general.invalid_action')]);
         }
 
-        if ($user->status === UserStatus::BANNED && !in_array(request('status'), [UserStatus::ACTIVATED])) {
+        if ($user->status === UserStatus::BANNED && ! in_array(request('status'), [UserStatus::ACTIVATED])) {
             throw ValidationException::withMessages(['message' => trans('general.invalid_action')]);
         }
 
@@ -214,7 +211,7 @@ class UserRepository
      * Delete user
      * @param User $user
      */
-    public function delete(User $user): void
+    public function delete(User $user) : void
     {
         if ($user->hasRole('admin')) {
             throw ValidationException::withMessages(['message' => trans('user.permission_denied')]);
@@ -226,7 +223,7 @@ class UserRepository
     /**
      * Store user preference
      */
-    public function preference(): void
+    public function preference() : void
     {
         $user = \Auth::user();
 
@@ -252,7 +249,7 @@ class UserRepository
 
         $user->preference = $preference;
         $user->save();
-
+        
         cache()->forget('query_list_all_config');
     }
 

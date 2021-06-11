@@ -4,14 +4,14 @@ export default [{
     name: 'appConfig',
     redirect: { name: 'appConfigBasicInfo' },
     meta: {
-        prefixTitle: 'menu.setup',
+        prefixTitle: 'menu.setup', 
         title: 'config.config',
         icon: 'fas fa-cogs',
         permissions: ['access-config'],
         isHiddenNav: true,
     },
     component: () =>
-        import('@views/app/config/index' /* webpackChunkName: "js/app/config/index" */),
+        import('@views/app/config/index' /* webpackChunkName: "js/app/config/index" */ ),
     children: [{
         path: 'basic',
         name: 'appConfigBasicInfo',
@@ -21,7 +21,7 @@ export default [{
             key: 'basic'
         },
         component: () =>
-            import('@views/app/config/basic/index' /* webpackChunkName: "js/app/config/basic/index" */),
+            import('@views/app/config/basic/index' /* webpackChunkName: "js/app/config/basic/index" */ ),
     }, {
         path: 'assets',
         name: 'appConfigAssets',
@@ -31,7 +31,7 @@ export default [{
             key: 'assets'
         },
         component: () =>
-            import('@views/app/config/assets/index' /* webpackChunkName: "js/app/config/assets/index" */),
+            import('@views/app/config/assets/index' /* webpackChunkName: "js/app/config/assets/index" */ ),
     }, {
         path: 'system',
         name: 'appConfigSystem',
@@ -41,7 +41,7 @@ export default [{
             key: 'system'
         },
         component: () =>
-            import('@views/app/config/system/index' /* webpackChunkName: "js/app/config/system/index" */),
+            import('@views/app/config/system/index' /* webpackChunkName: "js/app/config/system/index" */ ),
     }, {
         path: 'mail',
         name: 'appConfigMail',
@@ -51,7 +51,7 @@ export default [{
             key: 'mail'
         },
         component: () =>
-            import('@views/app/config/mail/index' /* webpackChunkName: "js/app/config/mail/index" */),
+            import('@views/app/config/mail/index' /* webpackChunkName: "js/app/config/mail/index" */ ),
     }, {
         path: 'roles',
         name: 'appConfigRole',
@@ -65,25 +65,25 @@ export default [{
             template: '<router-view></router-view>'
         },
         children: [{
-            path: '',
-            name: 'appConfigRoleList',
-            meta: {
-                trans: 'global.list',
-                title: 'config.role.roles',
-                icon: 'fas fa-list',
+                path: '',
+                name: 'appConfigRoleList',
+                meta: {
+                    trans: 'global.list',
+                    title: 'config.role.roles',
+                    icon: 'fas fa-list',
+                },
+                component: () => import('@views/app/config/role/index' /* webpackChunkName: "js/app/config/role/index" */ ),
             },
-            component: () => import('@views/app/config/role/index' /* webpackChunkName: "js/app/config/role/index" */),
-        },
-        {
-            path: 'add',
-            name: 'appConfigRoleAdd',
-            meta: {
-                trans: 'global.add',
-                title: 'config.role.role',
-                icon: 'fas fa-plus',
+            {
+                path: 'add',
+                name: 'appConfigRoleAdd',
+                meta: {
+                    trans: 'global.add',
+                    title: 'config.role.role',
+                    icon: 'fas fa-plus',
+                },
+                component: () => import('@views/app/config/role/add' /* webpackChunkName: "js/app/config/role/add" */ ),
             },
-            component: () => import('@views/app/config/role/add' /* webpackChunkName: "js/app/config/role/add" */),
-        },
         ]
     }, {
         path: 'permissions',
@@ -93,7 +93,7 @@ export default [{
             icon: 'fas fa-key',
         },
         component: () =>
-            import('@views/app/config/permission/index' /* webpackChunkName: "js/app/config/permission/index" */),
+            import('@views/app/config/permission/index' /* webpackChunkName: "js/app/config/permission/index" */ ),
     }, {
         path: 'authentication',
         name: 'appConfigAuthentication',
@@ -103,7 +103,7 @@ export default [{
             key: 'auth'
         },
         component: () =>
-            import('@views/app/config/authentication/index' /* webpackChunkName: "js/app/config/authentication/index" */),
+            import('@views/app/config/authentication/index' /* webpackChunkName: "js/app/config/authentication/index" */ ),
     }, {
         path: 'chat',
         name: 'appConfigChat',
@@ -113,7 +113,7 @@ export default [{
             key: 'chat'
         },
         component: () =>
-            import('@views/app/config/chat/index' /* webpackChunkName: "js/app/config/chat/index" */),
+            import('@views/app/config/chat/index' /* webpackChunkName: "js/app/config/chat/index" */ ),
     }, {
         path: 'pusher',
         name: 'appConfigPusher',
@@ -123,7 +123,7 @@ export default [{
             key: 'pusher'
         },
         component: () =>
-            import('@views/app/config/pusher/index' /* webpackChunkName: "js/app/config/pusher/index" */),
+            import('@views/app/config/pusher/index' /* webpackChunkName: "js/app/config/pusher/index" */ ),
     }, {
         path: 'sms',
         name: 'appConfigSms',
@@ -133,7 +133,7 @@ export default [{
             key: 'sms'
         },
         component: () =>
-            import('@views/app/config/sms/index' /* webpackChunkName: "js/app/config/sms/index" */),
+            import('@views/app/config/sms/index' /* webpackChunkName: "js/app/config/sms/index" */ ),
     }, {
         path: 'payment-gateway',
         name: 'appConfigPaymentGateway',
@@ -143,7 +143,7 @@ export default [{
             key: 'paymentGateway'
         },
         component: () =>
-            import('@views/app/config/payment-gateway/index' /* webpackChunkName: "js/app/config/payment-gateway/index" */),
+            import('@views/app/config/payment-gateway/index' /* webpackChunkName: "js/app/config/payment-gateway/index" */ ),
     }, {
         path: 'website',
         name: 'appConfigWebsite',
@@ -153,7 +153,7 @@ export default [{
             key: 'website'
         },
         component: () =>
-            import('@views/app/config/website/index' /* webpackChunkName: "js/app/config/website/index" */),
+            import('@views/app/config/website/index' /* webpackChunkName: "js/app/config/website/index" */ ),
     }, {
         path: 'social',
         name: 'appConfigSocial',
@@ -163,7 +163,7 @@ export default [{
             key: 'social'
         },
         component: () =>
-            import('@views/app/config/social/index' /* webpackChunkName: "js/app/config/social/index" */),
+            import('@views/app/config/social/index' /* webpackChunkName: "js/app/config/social/index" */ ),
     }, {
         path: 'locales',
         name: 'appConfigLocale',
@@ -177,35 +177,35 @@ export default [{
             template: '<router-view></router-view>'
         },
         children: [{
-            path: '',
-            name: 'appConfigLocaleList',
-            meta: {
-                trans: 'global.list',
-                title: 'config.locale.locales',
-                icon: 'fas fa-list',
+                path: '',
+                name: 'appConfigLocaleList',
+                meta: {
+                    trans: 'global.list',
+                    title: 'config.locale.locales',
+                    icon: 'fas fa-list',
+                },
+                component: () => import('@views/app/config/locale/index' /* webpackChunkName: "js/app/config/locale/index" */ ),
             },
-            component: () => import('@views/app/config/locale/index' /* webpackChunkName: "js/app/config/locale/index" */),
-        },
-        {
-            path: 'translation',
-            name: 'appConfigLocaleTranslation',
-            meta: {
-                trans: 'global.list',
-                title: 'config.locale.translation',
-                icon: 'fas fa-language',
+            {
+                path: 'translation',
+                name: 'appConfigLocaleTranslation',
+                meta: {
+                    trans: 'global.list',
+                    title: 'config.locale.translation',
+                    icon: 'fas fa-language',
+                },
+                component: () => import('@views/app/config/locale/translation' /* webpackChunkName: "js/app/config/locale/translation" */ ),
             },
-            component: () => import('@views/app/config/locale/translation' /* webpackChunkName: "js/app/config/locale/translation" */),
-        },
-        {
-            path: 'add',
-            name: 'appConfigLocaleAdd',
-            meta: {
-                trans: 'global.add',
-                title: 'config.locale.locale',
-                icon: 'fas fa-plus',
+            {
+                path: 'add',
+                name: 'appConfigLocaleAdd',
+                meta: {
+                    trans: 'global.add',
+                    title: 'config.locale.locale',
+                    icon: 'fas fa-plus',
+                },
+                component: () => import('@views/app/config/locale/add' /* webpackChunkName: "js/app/config/locale/add" */ ),
             },
-            component: () => import('@views/app/config/locale/add' /* webpackChunkName: "js/app/config/locale/add" */),
-        },
         ]
     }]
 }]

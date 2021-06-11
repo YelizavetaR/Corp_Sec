@@ -41,7 +41,7 @@ class UserController extends Controller
     public function preference()
     {
         $this->repo->preference();
-
+        
         return $this->success(['message' => __('global.updated', ['attribute' => __('user.user_preference')])]);
     }
 

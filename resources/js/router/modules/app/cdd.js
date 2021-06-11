@@ -7,7 +7,7 @@ export default [
             title: 'cdd.cdd',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'cdd.cdd',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/cdd/index' /* webpackChunkName: "js/app/cdd/index" */),
             },

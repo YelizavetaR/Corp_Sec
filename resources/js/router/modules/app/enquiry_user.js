@@ -7,7 +7,7 @@ export default [
             title: 'enquiry.enquiry',
             icon: '',
             hideChildren: true,
-            permissions: ['access-user'],
+            permissions: ['list-query'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'enquiry.enquiry',
-                    permissions: ['access-user']
+                    permissions: ['list-query']
                 },
                 component: () => import('@views/app/enquiry_user/index' /* webpackChunkName: "js/app/enquiry_user/index" */),
             },

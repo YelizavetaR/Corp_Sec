@@ -7,7 +7,7 @@ export default [
             title: 'customer.customers',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'customer.entity',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/customer/index' /* webpackChunkName: "js/app/customer/index" */),
             },
@@ -29,7 +29,7 @@ export default [
                 meta: {
                     trans: 'global.add',
                     title: 'customer.entity',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/customer/add' /* webpackChunkName: "js/app/customer/add" */),
             },
@@ -39,7 +39,7 @@ export default [
                 meta: {
                     trans: 'global.view',
                     title: 'customer.entity',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/customer/view' /* webpackChunkName: "js/app/customer/view" */),
             },
@@ -49,7 +49,7 @@ export default [
                 meta: {
                     trans: 'global.edit',
                     title: 'customer.entity',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/customer/edit' /* webpackChunkName: "js/app/customer/edit" */),
             },

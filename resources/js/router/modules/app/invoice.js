@@ -7,7 +7,7 @@ export default [
             title: 'invoice.invoice',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'invoice.invoice',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/invoice/index' /* webpackChunkName: "js/app/invoice/index" */),
             },

@@ -7,7 +7,7 @@ export default [
             title: 'requests.requests',
             icon: '',
             hideChildren: true,
-            permissions: ['access-user'],
+            permissions: ['list-query'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'requests.requests',
-                    permissions: ['access-user']
+                    permissions: ['list-query']
                 },
                 component: () => import('@views/app/requests/index' /* webpackChunkName: "js/app/requests/index" */),
             },

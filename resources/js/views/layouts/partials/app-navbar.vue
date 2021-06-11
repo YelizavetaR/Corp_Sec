@@ -1,6 +1,12 @@
 <template>
   <nav
-    class="navbar navbar-design-basic navbar-expand-sm d-flex justify-content-around align-items-center flex-nowrap"
+    class="
+      navbar navbar-design-basic navbar-expand-sm
+      d-flex
+      justify-content-around
+      align-items-center
+      flex-nowrap
+    "
   >
     <!-- Left Sidebar Toggle Button for Mobile Screen -->
     <a
@@ -63,7 +69,7 @@
       </li>
     </ul>
 
-    <!-- <div
+    <div
       class="navbar-search-form search-button-wrapper d-none d-lg-block"
       @click="toggleSearchScreen"
     >
@@ -71,7 +77,9 @@
         <i class="fas fa-search"></i>
         Type anywhere to <span class="font-weight-700">search</span>...
       </div>
-    </div> -->
+      <!-- <base-input alternative class="search-input" :placeholder="$t('auth.form_password_placeholder')" type="text" name="search" addon-left-icon="fas fa-search">
+            </base-input> -->
+    </div>
 
     <div class="separator" />
 

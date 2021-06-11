@@ -29,6 +29,40 @@ export default {
                 maxNoOfFiles: 5,
                 uuid: uuid(),
             },
+            setup_entity_selected: 0,
+            setup_entity_options: [
+                { item: 0, name: $t("customer.new") },
+                { item: 1, name: $t("customer.transfer_corporate") },
+            ],
+            ssic_selected: 0,
+            ssic_options: [
+                { value: 0, text: "Please select an option" },
+                { value: 1, text: "This is First option" },
+            ],
+            question1_selected: [4], // Must be an array reference!
+            question1_options: [
+                { text: $t("customer.expansion_business"), value: 0 },
+                { text: $t("customer.entering_asia"), value: 1 },
+                { text: $t("customer.requested_parties"), value: 2 },
+                { text: $t("customer.recognized_hub"), value: 3 },
+                { text: $t("customer.others_specify"), value: 4 },
+            ],
+            question2_selected: [0], // Must be an array reference!
+            question2_options: [
+                { text: $t("customer.savings_employment"), value: 0 },
+                { text: $t("customer.profit_business"), value: 1 },
+                { text: $t("customer.investment_gain"), value: 2 },
+                { text: $t("customer.loans_institutions"), value: 3 },
+                { text: $t("customer.personal_savings"), value: 4 },
+                { text: $t("customer.inheritance"), value: 5 },
+                { text: $t("customer.investors"), value: 6 },
+                { text: $t("customer.others_specify"), value: 7 },
+            ],
+            country_id: 0,
+            options_country: [
+                { value: 0, text: "Singapore" },
+                { value: 1, text: "Russia" },
+            ],
         }
     },
     watch: {

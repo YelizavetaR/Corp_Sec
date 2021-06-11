@@ -7,7 +7,7 @@ export default [
             title: 'settings.settings',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'settings.settings',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/settings/index' /* webpackChunkName: "js/app/settings/index" */),
             },

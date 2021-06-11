@@ -53,6 +53,11 @@
     <div style="margin: 20px">
       <base-button
         class="pointer"
+        @click.stop="
+          $router.push({
+            name: 'appfaapplication',
+          })
+        "
         style="
           width: 400px;
           height: 150px;
@@ -68,7 +73,7 @@
           class="icon"
           @click.stop="
             $router.push({
-              name: 'appConfig',
+              name: 'appfaapplication',
             })
           "
           style="margin-top: calc(13%); margin-left: 10px"

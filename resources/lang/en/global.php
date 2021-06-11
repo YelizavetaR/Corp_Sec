@@ -1,4 +1,4 @@
-<?php return array (
+<?php return array(
   'add' => 'Add New :attribute',
   'add_to' => 'Add to :attribute',
   'added' => ':attribute added.',
@@ -111,4 +111,5 @@
   'upload' => 'Upload :attribute',
   'uploaded' => ':attribute uploaded.',
   'view' => 'View :attribute',
+  'success' => 'SUCCESS',
 );

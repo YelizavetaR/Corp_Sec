@@ -6,7 +6,6 @@
         @close="toggleFilter"
         key="filters"
         :boxed="true"
-        :pre-requisite="preRequisite"
         :is-loading="isLoading"
       />
 
@@ -20,7 +19,7 @@
       >
         <div class="row">
           <div class="col-1"></div>
-          <div class="col-11">
+          <div class="col-4">
             <b-form-radio-group
               v-model="selected"
               :options="options"
@@ -29,13 +28,14 @@
               class="p-5"
             />
           </div>
+          <div class="col-7"></div>
         </div>
         <table-wrapper
           v-if="isInitialized"
           :meta="entities.meta"
           :filtered="isFiltered"
           add-button-route="appCustomerAdd"
-          :add-button-permissions="['access-admin']"
+          :add-button-permissions="['create-user']"
           entity-title="customer.entity"
           entities-title="customer.entity"
         >
@@ -82,7 +82,7 @@
                 >
 
                 <router-link
-                  v-if="hasPermission('access-admin')"
+                  v-if="hasPermission('create-user')"
                   class="dropdown-item"
                   :to="{
                     name: 'appCustomerEdit',
@@ -95,7 +95,7 @@
                 >
 
                 <a
-                  v-if="hasPermission('delete-user')"
+                  v-if="hasPermission('create-user')"
                   class="dropdown-item"
                   @click.stop="deleteEntity(row.item)"
                   ><i class="fas fa-trash"></i>
@@ -189,7 +189,7 @@ export default {
       columnsOptions: {
         hasScroll: true,
       },
-      permissionsRequired: "access-admin",
+      permissionsRequired: "create-user",
       routesRequired: {
         add: "appCustomerAdd",
       },
@@ -201,6 +201,27 @@ export default {
     getStatusText(str) {
       return str.replace("_", " ");
     },
+    deleteEntity(row) {
+      this.isLoading = true;
+      this.Custom({
+        url: `entity/delete/${row.uuid}`,
+        method: "delete",
+      })
+        .then((response) => {
+          this.$toasted.success($t("global.success"));
+          setTimeout(() => {
+            this.$toasted.clear();
+          }, 1000);
+          this.isLoading = false;
+          this.$nextTick(() => {
+            this.refreshTable();
+          });
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          formUtil.handleErrors(error);
+        });
+    },
   },
   mounted() {
     this.updatePageMeta();
@@ -211,5 +232,14 @@ export default {
 <style lang="scss" scoped>
 .cursor {
   cursor: pointer;
+}
+
+.custom-control.custom-control-inline.custom-radio {
+  margin-left: 10px;
+}
+
+.p-5.bv-no-focus-ring {
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>

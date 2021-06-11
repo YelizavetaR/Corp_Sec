@@ -51,6 +51,70 @@
               </div>
             </router-link>
           </li>
+          <li>
+            <router-link :to="{ name: 'appfacorporate_agent' }">
+              <div
+                :class="{ active: showMobileMenu3 }"
+                @click="myFilter4"
+                id="navigation4"
+              >
+                <div class="menu-item-content">
+                  <span class="detailed">
+                    <span class="title">{{ $t("brform.coporatepage4") }}</span>
+                    <span class="description"></span>
+                  </span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'appfacorporate_pg1' }">
+              <div
+                :class="{ active: showMobileMenu3 }"
+                @click="myFilter5"
+                id="navigation5"
+              >
+                <div class="menu-item-content">
+                  <span class="detailed">
+                    <span class="title">{{ $t("brform.coporatepage5") }}</span>
+                    <span class="description"></span>
+                  </span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'appfacorporate_peppg2' }">
+              <div
+                :class="{ active: showMobileMenu3 }"
+                @click="myFilter6"
+                id="navigation6"
+              >
+                <div class="menu-item-content">
+                  <span class="detailed">
+                    <span class="title">{{ $t("brform.coporatepage6") }}</span>
+                    <span class="description"></span>
+                  </span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'appfacorporate_declartion' }">
+              <div
+                :class="{ active: showMobileMenu3 }"
+                @click="myFilter7"
+                id="navigation7"
+              >
+                <div class="menu-item-content">
+                  <span class="detailed">
+                    <span class="title">{{ $t("brform.coporatepage7") }}</span>
+                    <span class="description"></span>
+                  </span>
+                </div>
+              </div>
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -79,16 +143,68 @@ export default {
       document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation1").style.backgroundColor = "#32c620";
       document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
+
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
     },
     myFilter2() {
       document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation2").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
+
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
     },
     myFilter3() {
       document.querySelector("#navigation3").style.backgroundColor = "#32c620";
       document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
+
       document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
+    },
+    myFilter4() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
+
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
+    },
+    myFilter5() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
+
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
+    },
+    myFilter6() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation6").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
+    },
+    myFilter7() {
+      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
     },
   },
 };

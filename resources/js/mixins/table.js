@@ -47,7 +47,7 @@ export default {
             'others',
         ]),
         ...mapGetters('config', [
-            'configs',
+            '',
             'configs',
             'uiConfigs',
             'vars',

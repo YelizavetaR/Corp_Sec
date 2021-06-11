@@ -9,6 +9,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {},
+  },
 };
 </script>

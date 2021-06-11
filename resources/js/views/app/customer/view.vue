@@ -6,38 +6,20 @@
     :loader-color="vars.loaderColor"
     id="printable"
   >
-    <div>
+    <div v-if="entity">
       <b-tabs v-model="tabIndex" content-class="mt-3" fill>
-        <b-tab
-          :title="$t('customer.entity_info')"
-          :title-link-class="linkClass(0)"
-          ><entity-information-content
+        <b-tab :title="$t('customer.entity_info')"
+          ><entity-information-content :uuid="entity.uuid"
         /></b-tab>
-        <b-tab
-          :title="$t('customer.directors_users')"
-          :title-link-class="linkClass(1)"
+        <b-tab :title="$t('customer.directors_users')"
           ><directors-users-content
         /></b-tab>
-        <b-tab
-          :title="$t('documents.documents')"
-          :title-link-class="linkClass(2)"
-          ><documents-content
-        /></b-tab>
-        <b-tab :title="$t('enquiry.enquiry')" :title-link-class="linkClass(3)"
-          ><enquiry-content
-        /></b-tab>
-        <b-tab :title="$t('customer.payments')" :title-link-class="linkClass(4)"
-          ><payments-content
-        /></b-tab>
-        <b-tab :title="$t('customer.pep')" :title-link-class="linkClass(5)"
-          ><pep-content
-        /></b-tab>
-        <b-tab :title="$t('cdd.cdd')" :title-link-class="linkClass(6)"
-          ><cdd-content
-        /></b-tab>
-        <b-tab :title="$t('customer.logs')" :title-link-class="linkClass(7)"
-          ><logs-content
-        /></b-tab>
+        <b-tab :title="$t('documents.documents')"><documents-content /></b-tab>
+        <b-tab :title="$t('enquiry.enquiry')"><enquiry-content /></b-tab>
+        <b-tab :title="$t('customer.payments')"><payments-content /></b-tab>
+        <b-tab :title="$t('customer.pep')"><pep-content /></b-tab>
+        <b-tab :title="$t('cdd.cdd')"><cdd-content /></b-tab>
+        <b-tab :title="$t('customer.logs')"><logs-content /></b-tab>
       </b-tabs>
     </div>
 
@@ -92,22 +74,6 @@ export default {
     };
   },
   computed: {},
-  watch: {
-    $route(value) {
-      if (value.name === "appCustomerView") {
-        this.uuid = value.params.uuid;
-        this.getInitialData();
-      }
-    },
-  },
-  methods: {
-    linkClass(idx) {
-      if (this.tabIndex === idx) {
-        // return ["bg-primary", "text-light"];
-      } else {
-        // return ["bg-light", "text-info"];
-      }
-    },
-  },
+  methods: {},
 };
 </script>

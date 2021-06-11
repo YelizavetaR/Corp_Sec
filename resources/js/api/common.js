@@ -16,13 +16,14 @@ export function getUrl() {
 
 export function getList(query) {
     let tempApiUrl = apiUrl + apiSubUrl
-    if (query.hasOwnProperty('apiWithAbsUrl')) {
+    if(query.hasOwnProperty('apiWithAbsUrl')) {
         tempApiUrl = query.apiWithAbsUrl
         delete query.apiWithAbsUrl
-    } else if (query.hasOwnProperty('apiWithUrl')) {
+    } else if(query.hasOwnProperty('apiWithUrl')) {
         tempApiUrl = apiUrl + apiSubUrl + '/' + query.apiWithAbsUrl
         delete query.apiWithUrl
     }
+
     return request({
         url: tempApiUrl,
         method: 'get',

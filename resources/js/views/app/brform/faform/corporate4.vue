@@ -6,17 +6,44 @@
     :loader-color="vars.loaderColor"
   >
     <div class="header_spans">
-      <span class="header_owner">{{ $t("brform.header_owner") }}</span>
-      <span class="content_1">{{ $t("brform.content_1") }}</span>
-      <span class="content_1">{{ $t("brform.content_2") }}</span>
-      <span class="content_1">{{ $t("brform.content_3") }}</span>
-      <span class="content_2">{{ $t("brform.tocomplete") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove1") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove2") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove3") }}</span>
+      <span class="header_owner">{{ $t("brform.header_agent") }}</span>
     </div>
-    <div class="input_field">
-      <span class="beneficial_owner">{{ $t("brform.beneficial_owner") }}</span>
+    <div class="button_field">
+      <span class="button_span">{{ $t("brform.agentheader") }}</span>
+      <span class="button_span">{{ $t("brform.agentspan") }}</span>
+      <span class="button_span">{{ $t("brform.selectbuttonspan") }}</span>
+      <div class="button_field2">
+        <button
+          class="btn"
+          id="select_button"
+          @click="
+            (non_iniflag = true), (iniflag = false), (not_application = false)
+          "
+        >
+          {{ $t("brform.non_indivial") }}
+        </button>
+        <button
+          class="btn"
+          id="select_button"
+          @click="
+            (non_iniflag = false), (iniflag = true), (not_application = false)
+          "
+        >
+          {{ $t("brform.indivial") }}
+        </button>
+        <button
+          class="btn"
+          id="select_button"
+          @click="
+            (non_iniflag = false), (iniflag = false), (not_application = true)
+          "
+        >
+          {{ $t("brform.not_application") }}
+        </button>
+      </div>
+    </div>
+    <div class="input_field" v-if="iniflag || non_iniflag">
+      <span class="beneficial_owner">{{ $t("brform.individual_agent") }}</span>
       <div class="row" id="blow_input">
         <div class="col-12 col-md-6 mb-4">
           <base-input
@@ -30,44 +57,32 @@
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
-            :label="$t('brform.aliasany')"
+            :label="$t('brform.registration')"
             type="text"
-            v-model="formData.aliasany"
-            :error.sync="formErrors.aliasany"
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-select
-            :options="preRequisite.currencies"
-            track-by="name"
-            show-by="name"
-            v-model="formData.identification"
-            :label="$t('brform.identification')"
-            :allow-empty="false"
-            :disabled="isLoading"
-            required
+            v-model="formData.registration"
+            :error.sync="formErrors.registration"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
-            :label="$t('brform.usualresidential')"
+            :label="$t('brform.officebusiness')"
             type="text"
-            v-model="formData.usualresidential"
-            :error.sync="formErrors.usualresidential"
+            v-model="formData.officebusiness"
+            :error.sync="formErrors.officebusiness"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-input
-            :label="$t('brform.date_birth')"
+            :label="$t('brform.org_foundation_date')"
             addon-right-icon="far fa-calendar-alt"
             type="text"
-            v-model="formData.date_birth"
-            :error.sync="formErrors.date_birth"
+            v-model="formData.orgFoundationDate"
+            :error.sync="formErrors.orgFoundationDate"
             :is-wrapper="true"
           >
             <date-picker
-              v-model="formData.date_birth"
+              v-model="formData.orgFoundationDate"
               :config="vars.datepickerConfig"
               class="form-control datepicker"
             >
@@ -79,8 +94,8 @@
             :options="preRequisite.coutryofresidence"
             track-by="name"
             show-by="name"
-            v-model="formData.coutry_of_residence"
-            :label="$t('brform.coutry_of_residence')"
+            v-model="formData.entity_type"
+            :label="$t('brform.incorportatio')"
             :allow-empty="false"
             :disabled="isLoading"
             required
@@ -95,40 +110,14 @@
             :error.sync="formErrors.contactnumber"
           />
         </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-select
-            :options="preRequisite.nationlity"
-            track-by="name"
-            show-by="name"
-            v-model="formData.nationlity"
-            :label="$t('brform.nationlity')"
-            :allow-empty="false"
-            :disabled="isLoading"
-            required
-          />
-        </div>
-      </div>
-    </div>
-    <div class="intented_field">
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.provide") }}
-        </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
-      </div>
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.information_owner") }}
-        </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
       </div>
     </div>
 
-    <div class="card-body table-responsive p-0" id="table_field">
+    <div
+      class="card-body table-responsive p-0"
+      id="table_field"
+      v-if="iniflag || non_iniflag"
+    >
       <table class="table table-hover" :is-loading="isLoading">
         <tbody>
           <tr>
@@ -171,7 +160,7 @@
       </table>
       <pagination :data="tabledata"></pagination>
     </div>
-    <div id="file-drag-drop">
+    <div id="file-drag-drop" v-if="iniflag || non_iniflag">
       <vue-dropzone
         ref="myVueDropzone"
         id="dropzone"
@@ -190,14 +179,15 @@
         </div>
       </vue-dropzone>
     </div>
-    <div class="director_field">
+    <div class="director_field" v-if="iniflag || non_iniflag">
       <div class="span_field">
         <span class="intented_span">
-          {{ $t("brform.kycdocment") }}
+          {{ $t("brform.attachheader") }}
         </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="6"></b-form-textarea>
+        <span class="kyc_span">{{ $t("brform.span1_kyc") }}</span>
+        <span class="kyc_span">{{ $t("brform.span2_kyc") }}</span>
+        <span class="kyc_span">{{ $t("brform.span3_kyc") }}</span>
+        <span class="kyc_span">{{ $t("brform.span4_kyc") }}</span>
       </div>
     </div>
     <div class="button_grup">
@@ -206,7 +196,7 @@
         @click="myFilter"
         @click.stop="
           $router.push({
-            name: 'appfacorporate_agent',
+            name: 'appfacorporate_pg1',
           })
         "
         class="btn btn-info"
@@ -253,6 +243,9 @@ export default {
   },
   data() {
     return {
+      non_iniflag: false,
+      iniflag: false,
+      not_application: false,
       coutry_of_residence: "",
       selected4: "select",
       selected1: "",
@@ -315,14 +308,14 @@ export default {
       ],
       showNewModel: false,
       formData: {
-        date_birth: "",
+        orgFoundationDate: "",
         usualresidential: "",
         fullname: "William lea",
         aliasany: "William lea",
         identification: "",
         entity_type: "",
         registration: "",
-        officeadress: "",
+        officebusiness: "",
         contactnumber: "",
         nationlity: "",
         principle: "",
@@ -408,10 +401,10 @@ export default {
       document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation4").style.backgroundColor = "#32c620";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#32c620";
     },
     getLoadStock(id) {
       let valuea = document.querySelector(".loads").value;
@@ -532,7 +525,17 @@ export default {
   margin-top: 10px;
 }
 .button_field {
-  margin-left: 20px;
+  display: grid;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-top: hidden;
+}
+.button_span {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+  color: black;
 }
 #textarea-default {
   font-size: 15px;
@@ -723,12 +726,26 @@ progress {
   padding-left: 35px;
 }
 .header_spans {
-  display: grid;
+  border-style: solid;
+  border-width: 1px;
+  padding: 20px;
 }
 .header_owner {
   font-size: 20px;
   color: #464242;
   font-weight: 600;
+}
+.button_field2 {
+  display: grid;
+  justify-content: center;
+}
+#select_button {
+  background-color: #91f7df;
+  border: hidden;
+  width: 200px;
+  margin: 10px;
+  color: black;
+  font-size: 15px;
 }
 .content_1 {
   color: #211e1e;
@@ -742,11 +759,11 @@ progress {
   margin-top: 10px;
 }
 .input_field {
-  margin-top: 20px;
   border-style: solid;
   padding: 20px;
   border-width: 1px;
   color: currentcolor;
+  border-top: hidden;
 }
 .beneficial_owner {
   font-size: 23px;
@@ -759,5 +776,9 @@ progress {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+.kyc_span {
+  color: black;
+  font-size: 15px;
 }
 </style>

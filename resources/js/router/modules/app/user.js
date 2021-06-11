@@ -3,8 +3,8 @@ export default [
         path: 'users',
         name: 'appUser',
         redirect: { name: 'appUserList' },
-        meta: {
-            title: 'user.users',
+        meta: { 
+            title: 'user.users', 
             icon: 'fas fa-users',
             hideChildren: true,
             permissions: ['list-user', 'create-user', 'edit-user'],
@@ -16,7 +16,7 @@ export default [
             {
                 path: '',
                 name: 'appUserList',
-                meta: {
+                meta: { 
                     trans: 'global.list',
                     title: 'user.users',
                     permissions: ['list-user']
@@ -26,7 +26,7 @@ export default [
             {
                 path: 'add',
                 name: 'appUserAdd',
-                meta: {
+                meta: { 
                     trans: 'global.add',
                     title: 'user.user',
                     permissions: ['create-user']
@@ -36,7 +36,7 @@ export default [
             {
                 path: ':uuid/edit',
                 name: 'appUserEdit',
-                meta: {
+                meta: { 
                     trans: 'global.edit',
                     title: 'user.user',
                     permissions: ['edit-user']
@@ -46,15 +46,15 @@ export default [
             {
                 path: 'change-password',
                 name: 'appUserChangePassword',
-                meta: {
-                    title: 'user.change_password',
+                meta: { 
+                    title: 'user.change_password', 
                 },
                 component: () => import('@views/app/user/change-password' /* webpackChunkName: "js/app/user/change-password" */),
             },
             {
                 path: ':uuid',
                 name: 'appUserView',
-                meta: {
+                meta: { 
                     trans: 'global.view',
                     title: 'user.user',
                     permissions: ['list-user']
@@ -67,8 +67,8 @@ export default [
         path: 'profile',
         name: 'appProfile',
         redirect: { name: 'appProfileView' },
-        meta: {
-            title: 'user.users',
+        meta: { 
+            title: 'user.users', 
             isNotNav: true,
             hideChildren: true,
         },
@@ -79,7 +79,7 @@ export default [
             {
                 path: '',
                 name: 'appProfileView',
-                meta: {
+                meta: { 
                     title: 'user.your_profile',
                 },
                 component: () => import('@views/app/user/profile/view' /* webpackChunkName: "js/app/user/profile/view" */),
@@ -87,7 +87,7 @@ export default [
             {
                 path: 'edit',
                 name: 'appProfileEdit',
-                meta: {
+                meta: { 
                     trans: 'global.edit',
                     title: 'user.your_profile',
                 },
@@ -96,7 +96,7 @@ export default [
             {
                 path: 'image',
                 name: 'appProfileViewImage',
-                meta: {
+                meta: { 
                     trans: 'global.view',
                     title: 'user.props.image',
                 },

@@ -1,47 +1,28 @@
 {
-	"roles": [
-		"admin",
-		"user"
-	],
+	"roles": ["admin","user"],
 	"permissions": {
 		"config": {
 			"access-config": [],
 			"access-ui-config": [],
-			"enable-login": [
-				"user"
-			]
+			"enable-login": ["user"]
 		},
 		"utility": {
-			"access-todo": [
-				"user"
-			]
+			"access-todo": ["user"]
 		},
 		"site": {
 			"access-page": [],
 			"access-page-config": [],
-			"list-query": [
-				"user"
-			],
+			"list-query": ["user"],
 			"response-query": [],
 			"delete-query": [],
-			"list-subscriber": [
-				"user"
-			],
+			"list-subscriber": ["user"],
 			"delete-subscriber": []
 		},
 		"user": {
-			"list-user": [],
+			"list-user": ["user"],
 			"create-user": [],
 			"edit-user": [],
 			"delete-user": []
-		},
-		"accesss": {
-			"access-admin": [
-				"admin"
-			],
-			"access-user": [
-				"user"
-			]
 		}
 	}
 }

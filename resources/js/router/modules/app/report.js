@@ -7,7 +7,7 @@ export default [
             title: 'report.report',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'report.report',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/report/index' /* webpackChunkName: "js/app/report/index" */),
             },

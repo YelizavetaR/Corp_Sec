@@ -7,7 +7,7 @@ export default [
             title: 'enquiry.enquiry',
             icon: '',
             hideChildren: true,
-            permissions: ['access-admin'],
+            permissions: ['create-user'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'enquiry.enquiry',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/enquiry/index' /* webpackChunkName: "js/app/enquiry/index" */),
             },
@@ -29,7 +29,7 @@ export default [
                 meta: {
                     trans: 'global.view',
                     title: 'enquiry.enquiry',
-                    permissions: ['access-admin']
+                    permissions: ['create-user']
                 },
                 component: () => import('@views/app/enquiry/view' /* webpackChunkName: "js/app/enquiry/view" */),
             },

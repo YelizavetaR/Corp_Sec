@@ -15,6 +15,8 @@ class CreateEnquiriesTable extends Migration
     {
         Schema::create('enquiries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid')->nullable();
+            $table->string('name');
             $table->text('subject');
             $table->text('message');
             $table->string('file_path');

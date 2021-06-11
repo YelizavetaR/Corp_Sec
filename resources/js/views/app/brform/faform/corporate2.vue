@@ -164,17 +164,6 @@
                   {{ load.name }}
                 </option>
               </select>
-              <!-- <base-select
-                :options="preRequisite.select"
-                track-by="name"
-                show-by="name"
-                v-model="item.id"
-                v-on:click="getLoadStock(item.id)"
-                :label="$t('brform.select')"
-                :allow-empty="false"
-                :disabled="isLoading"
-                required
-              /> -->
             </td>
             <td>
               <a href="#" @click="deletePhoto(item.id)">
@@ -600,6 +589,10 @@ export default {
   methods: {
     myFilter() {
       document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation3").style.backgroundColor = "#32c620";
     },

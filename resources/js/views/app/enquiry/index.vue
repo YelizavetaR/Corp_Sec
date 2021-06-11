@@ -6,7 +6,6 @@
         @close="toggleFilter"
         key="filters"
         :boxed="true"
-        :pre-requisite="preRequisite"
         :is-loading="isLoading"
       />
 

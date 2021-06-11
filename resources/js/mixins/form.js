@@ -47,7 +47,7 @@ export default {
             initSubUrl: null,
             dateTimeFields: null,
             dataType: null,
-            uploaderConfig: { 
+            uploaderConfig: {
                 module: '',
                 token: '',
                 allowedExtensions: '',
@@ -55,6 +55,40 @@ export default {
                 uuid: uuid(),
             },
             headerButtons: null,
+            setup_entity_selected: 0,
+            setup_entity_options: [
+                { item: 0, name: $t("customer.new") },
+                { item: 1, name: $t("customer.transfer_corporate") },
+            ],
+            ssic_selected: 0,
+            ssic_options: [
+                { value: 0, text: "Please select an option" },
+                { value: 1, text: "This is First option" },
+            ],
+            question1_selected: [4], // Must be an array reference!
+            question1_options: [
+                { text: $t("customer.expansion_business"), value: 0 },
+                { text: $t("customer.entering_asia"), value: 1 },
+                { text: $t("customer.requested_parties"), value: 2 },
+                { text: $t("customer.recognized_hub"), value: 3 },
+                { text: $t("customer.others_specify"), value: 4 },
+            ],
+            question2_selected: [0], // Must be an array reference!
+            question2_options: [
+                { text: $t("customer.savings_employment"), value: 0 },
+                { text: $t("customer.profit_business"), value: 1 },
+                { text: $t("customer.investment_gain"), value: 2 },
+                { text: $t("customer.loans_institutions"), value: 3 },
+                { text: $t("customer.personal_savings"), value: 4 },
+                { text: $t("customer.inheritance"), value: 5 },
+                { text: $t("customer.investors"), value: 6 },
+                { text: $t("customer.others_specify"), value: 7 },
+            ],
+            country_id: 0,
+            options_country: [
+                { value: 0, text: "Singapore" },
+                { value: 1, text: "Russia" },
+            ],
         }
     },
     computed: {
@@ -77,24 +111,24 @@ export default {
     },
     watch: {
         editData(value) {
-            if(value) {
+            if (value) {
                 let editDataValue = value
-                if(this.dateTimeFields && Array.isArray(this.dateTimeFields)) {
+                if (this.dateTimeFields && Array.isArray(this.dateTimeFields)) {
                     this.dateTimeFields.forEach((key) => {
-                        if(editDataValue[key]) {
+                        if (editDataValue[key]) {
                             editDataValue[key] = MomentTz.momentDateTimeTz(editDataValue[key], this.vars.serverDateTimeFormat)
                         }
                     })
                 }
 
-                if(this.timeFields && Array.isArray(this.timeFields)) {
+                if (this.timeFields && Array.isArray(this.timeFields)) {
                     this.timeFields.forEach((key) => {
-                        if(Array.isArray(key)) {
-                            if(editDataValue[key[0]]) {
-                                editDataValue[key[0]] = MomentTz.momentTimeTz([ editDataValue[key[0]], editDataValue[key[1]] ], this.vars.serverTimeFormat, null)
+                        if (Array.isArray(key)) {
+                            if (editDataValue[key[0]]) {
+                                editDataValue[key[0]] = MomentTz.momentTimeTz([editDataValue[key[0]], editDataValue[key[1]]], this.vars.serverTimeFormat, null)
                             }
                         } else {
-                            if(editDataValue[key]) {
+                            if (editDataValue[key]) {
                                 editDataValue[key] = MomentTz.momentTimeTz(editDataValue[key], this.vars.serverTimeFormat, null)
                             }
                         }
@@ -104,19 +138,19 @@ export default {
                 this.formData = Object.assign({}, this.formData, _.cloneDeep(editDataValue))
                 this.uuid = this.formData.uuid
                 this.uploaderConfig.token = this.formData.token
-                if (typeof this.addNewRow === "function" && typeof this.addNewRowIfNone === "function") { 
+                if (typeof this.addNewRow === "function" && typeof this.addNewRowIfNone === "function") {
                     this.addNewRowIfNone()
                 }
                 this.initialFormData = _.cloneDeep(this.formData)
-                if (typeof this.afterEditData === "function") { 
+                if (typeof this.afterEditData === "function") {
                     this.afterEditData()
                 }
-                if(this.duplicate) {
+                if (this.duplicate) {
                     this.computeCodeNumber(this.formData.codePrefix)
                 }
             }
         },
-        codePrefix: function() {
+        codePrefix: function () {
             this.computeCodeNumber()
         },
     },
@@ -136,7 +170,7 @@ export default {
             'SetConfig',
         ]),
         computeCodeNumber() {
-            if(this.preRequisite.codes && this.showKeepAdding) {
+            if (this.preRequisite.codes && this.showKeepAdding) {
                 const codeObj = this.lastCodeObj
                 const codeDigit = this.configs[this.dataType].codeDigit
 
@@ -154,7 +188,7 @@ export default {
 
         },
         submit() {
-            if(formUtil.isUnchanged(this.initialFormData, this.formData)) {
+            if (formUtil.isUnchanged(this.initialFormData, this.formData)) {
                 this.$toasted.info(this.$t('general.nothing_changed'), this.$toastConfig.info)
                 return false
             }
@@ -162,8 +196,8 @@ export default {
             this.doInitSub()
 
             this.isLoading = true
-            
-            if(this.duplicate) {
+
+            if (this.duplicate) {
                 this.formData.uuid = null
             }
 
@@ -173,13 +207,13 @@ export default {
                 .then(response => {
                     this.$toasted.success(response.message, this.$toastConfig)
 
-                    if (typeof this.afterSubmit === "function") { 
+                    if (typeof this.afterSubmit === "function") {
                         this.afterSubmit(response)
                     } else {
                         if (this.keepAdding) {
                             this.uploaderConfig.uuid = uuid()
                             this.formData = formUtil.clearFormConditionally(this.formData, this.initialFormData, this.keepAddingOption, this.keepAddingSelectedFields)
-                            if(this.getInitialDataCalled) {
+                            if (this.getInitialDataCalled) {
                                 this.getInitialData()
                             }
                         } else {
@@ -220,39 +254,39 @@ export default {
             this.isLoading = true
             this.getInitialDataCalled = true
             try {
-                if(this.doInitBeforeGetInitialData) {
+                if (this.doInitBeforeGetInitialData) {
                     this.doInit()
                 }
 
                 const response = await this.GetPreRequisite(this.customFilters)
 
-                if(this.doInitBeforeGetInitialData) {
+                if (this.doInitBeforeGetInitialData) {
                     this.doInitSub()
                 }
-                
+
                 this.fillPreRequisite(response)
-                
-                if(response['uploadConfig']) {
+
+                if (response['uploadConfig']) {
                     this.setUploaderConfig(response['uploadConfig'])
                 }
 
-                if (typeof this.addNewRow === "function" && typeof this.addNewRowIfNone === "function") { 
+                if (typeof this.addNewRow === "function" && typeof this.addNewRowIfNone === "function") {
                     this.$nextTick(() => {
                         this.addNewRowIfNone()
                     })
                 }
-                
-                if(this.configs[this.dataType]) {
+
+                if (this.configs[this.dataType]) {
                     this.$nextTick(() => {
                         this.formData.codePrefix = templater.build(this.configs[this.dataType].codePrefix)
                     })
                 }
-                
-                if (this.afterGetInitialData && typeof this.afterGetInitialData === "function") { 
+
+                if (this.afterGetInitialData && typeof this.afterGetInitialData === "function") {
                     this.afterGetInitialData(response)
                 }
-                
-                if(callbackFn) {
+
+                if (callbackFn) {
                     this.$nextTick(() => {
                         callbackFn(response)
                     })
@@ -292,10 +326,10 @@ export default {
             this.doInit()
             this.doInitSub()
 
-            if(storedData) {
+            if (storedData) {
                 const processStoredData = () => {
                     const putFormData = (val) => {
-                        if(storedData.push) {
+                        if (storedData.push) {
                             this.formData[storedData.dataTypeArr].push(val)
                         } else {
                             this.formData[storedData.dataType] = val
@@ -303,18 +337,18 @@ export default {
                     }
 
                     this.isLoading = true
-                    if(storedData.dataType) {
+                    if (storedData.dataType) {
 
-                        if(storedData.dontMatch) {
+                        if (storedData.dontMatch) {
                             putFormData(storedData)
-                        } else if(storedData.dataTypeArr && storedData.propertyToMatch) {
+                        } else if (storedData.dataTypeArr && storedData.propertyToMatch) {
                             putFormData(this.preRequisite[storedData.dataTypeArr].find(v => v[storedData.propertyToMatch] === storedData[storedData.propertyToMatch]) || null)
                         }
                     }
                     this.isLoading = false
                 }
 
-                if(this.getInitialDataCalled) {
+                if (this.getInitialDataCalled) {
                     this.getInitialData(processStoredData)
                 } else {
                     processStoredData()
@@ -356,13 +390,13 @@ export default {
                 keyBindings: keyBindings,
             })
         },
-        async export (options) {
+        async export(options) {
             this.isLoading = true
             this.$printComponent('printable', { title: `Printing ${this.dataTitle || ''}` })
             this.isLoading = false
         },
         doInitSub() {
-            if(this.initSubUrl) {
+            if (this.initSubUrl) {
                 this.InitSub({ url: (this.subUuid ? this.subUuid + '/' : '') + this.initSubUrl })
             }
         },
@@ -379,12 +413,12 @@ export default {
 
         this.doInit()
         this.doInitSub()
-        
+
         this.uploaderConfig.token = this.formData.token
         this.initialFormData = _.cloneDeep(this.formData)
     },
     created() {
-        if(this.formLabels) {
+        if (this.formLabels) {
             this.formLabels.objForEach((value, key) => {
                 this.keepAddingFields.push({
                     uuid: key,
@@ -393,7 +427,7 @@ export default {
             })
         }
     },
-    beforeDestroy () {
+    beforeDestroy() {
         delete this.formData
         delete this.formErrors
         delete this.formLabels

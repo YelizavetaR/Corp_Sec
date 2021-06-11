@@ -184,6 +184,10 @@ export default {
     myFilter() {
       document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation4").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
+      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
       document.querySelector("#navigation2").style.backgroundColor = "#32c620";
     },
     send() {

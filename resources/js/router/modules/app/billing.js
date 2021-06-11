@@ -7,7 +7,7 @@ export default [
             title: 'billing.billing',
             icon: '',
             hideChildren: true,
-            permissions: ['access-user'],
+            permissions: ['list-query'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'billing.billing',
-                    permissions: ['access-user']
+                    permissions: ['list-query']
                 },
                 component: () => import('@views/app/billing/index' /* webpackChunkName: "js/app/billing/index" */),
             },

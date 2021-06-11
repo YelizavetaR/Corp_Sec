@@ -7,7 +7,7 @@ export default [
             title: 'entity_secretary.entity_secretary',
             icon: '',
             hideChildren: true,
-            permissions: ['access-user'],
+            permissions: ['list-query'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'entity_secretary.entity_secretary',
-                    permissions: ['access-user']
+                    permissions: ['list-query']
                 },
                 component: () => import('@views/app/entity_secretary/index' /* webpackChunkName: "js/app/entity_secretary/index" */),
             },

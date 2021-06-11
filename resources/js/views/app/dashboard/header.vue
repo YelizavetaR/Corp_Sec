@@ -19,7 +19,6 @@
           >
             <div class="alert-content">
               <h4 v-if="alert.title">{{ alert.title }}</h4>
-
               <p class="mb-0" v-if="alert.description">
                 {{ alert.description }}
               </p>

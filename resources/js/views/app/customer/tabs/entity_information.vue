@@ -15,31 +15,31 @@
         <div class="font-weight-bold">
           {{ $t("customer.entity_name") }}
         </div>
-        <div>{{ formData.entityName }}</div>
+        <div>{{ entityInformationData.entity_name }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.registration_number") }}
         </div>
-        <div>{{ formData.registrationNumber }}</div>
+        <div>{{ entityInformationData.uen }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.incorporation_date") }}
         </div>
-        <div>{{ formData.incorporationDate }}</div>
+        <div>{{ entityInformationData.incorporation_date }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.financial_year") }}
         </div>
-        <div>{{ formData.financialYear }}</div>
+        <div>{{ entityInformationData.financial_end }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.entity_status") }}
         </div>
-        <div>{{ formData.entityStatus }}</div>
+        <div>{{ entityInformationData.status.toUpperCase() }}</div>
       </div>
     </div>
     <b-modal
@@ -131,37 +131,37 @@
         <div class="font-weight-bold">
           {{ $t("customer.address_line_1") }}
         </div>
-        <div>{{ formData.addressLine1 }}</div>
+        <div>{{ entityInformationData.address_line_1 }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.address_line_2") }}
         </div>
-        <div>{{ formData.addressLine2 }}</div>
+        <div>{{ entityInformationData.address_line_2 }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.city") }}
         </div>
-        <div>{{ formData.city }}</div>
+        <div>{{ entityInformationData.city }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.state_province") }}
         </div>
-        <div>{{ formData.stateProvince }}</div>
+        <div>{{ entityInformationData.state_province }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.zip_postcode") }}
         </div>
-        <div>{{ formData.zipPostcode }}</div>
+        <div>{{ entityInformationData.zip_postcode }}</div>
       </div>
       <div class="col-12 col-md-6 mb-3">
         <div class="font-weight-bold">
           {{ $t("customer.select_country") }}
         </div>
-        <div>{{ formData.selectCountry }}</div>
+        <div>{{ this.options_country[this.modalData.country_id].text }}</div>
       </div>
     </div>
     <b-modal
@@ -221,7 +221,7 @@
               $t("customer.select_country")
             }}</span>
             <b-form-select
-              v-model="modalData.selectCountryId"
+              v-model="modalData.country_id"
               :options="options_country"
             ></b-form-select>
           </div>
@@ -247,13 +247,13 @@
         <div class="font-weight-bold">
           {{ $t("customer.primary_activity") }}
         </div>
-        <div>{{ formData.primaryActivity }}</div>
+        <div>{{ entityInformationData.primaryActivity }}</div>
       </div>
       <div class="col-12 col-lg-12">
         <div class="font-weight-bold">
           {{ $t("customer.secondary_activity") }}
         </div>
-        <div>{{ formData.secondaryActivity }}</div>
+        <div>{{ entityInformationData.secondaryActivity }}</div>
       </div>
     </div>
     <b-modal
@@ -328,6 +328,7 @@
 
 <script>
 import form from "@mixins/form";
+import axios from "axios";
 import { BButton, BFormCheckbox, BFormSelect, BTable } from "bootstrap-vue";
 Vue.component("b-button", BButton);
 Vue.component("b-form-checkbox", BFormCheckbox);
@@ -364,6 +365,7 @@ export default {
           "Share Number": 200,
         },
       ],
+      entityInformationData: [],
       modalData: {
         entityName: "",
         registrationNumber: "",
@@ -377,25 +379,7 @@ export default {
         stateProvince: "",
         zipPostcode: "",
         selectCountry: "",
-        selectCountryId: 0,
-
-        primaryActivity: "",
-        secondaryActivity: "",
-      },
-      formData: {
-        entityName: "",
-        registrationNumber: "",
-        incorporationDate: "",
-        financialYear: "",
-        entityStatus: "Activated",
-
-        addressLine1: "",
-        addressLine2: "",
-        city: "",
-        stateProvince: "",
-        zipPostcode: "",
-        selectCountry: "Singapore",
-        selectCountryId: 0,
+        country_id: 0,
 
         primaryActivity: "",
         secondaryActivity: "",
@@ -420,13 +404,41 @@ export default {
     };
   },
   computed: {},
+  mounted() {
+    this.getData();
+  },
+  props: {
+    uuid: String,
+  },
   methods: {
+    getData() {
+      axios({
+        method: "get",
+        url: `/entity/show/${this.uuid}`,
+        headers: {
+          "X-CSRF-TOKEN":
+            document.head.querySelector("[name=csrf-token]").content,
+        },
+      })
+        .then((response) => {
+          this.isLoading = false;
+          if (response.data != []) {
+            this.entityInformationData = response.data;
+          } else {
+            this.entityInformationData = [];
+          }
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    },
     resetModal_entity_profile() {
-      this.modalData.entityName = this.formData.entityName;
-      this.modalData.registrationNumber = this.formData.registrationNumber;
-      this.modalData.incorporationDate = this.formData.incorporationDate;
-      this.modalData.financialYear = this.formData.financialYear;
-      this.formData.entityStatus == "Activated"
+      this.modalData.entityName = this.entityInformationData.entity_name;
+      this.modalData.registrationNumber = this.entityInformationData.uen;
+      this.modalData.incorporationDate =
+        this.entityInformationData.incorporation_date;
+      this.modalData.financialYear = this.entityInformationData.financial_end;
+      this.entityInformationData.status == "activated"
         ? (this.modalData.entityStatus = true)
         : (this.modalData.entityStatus = false);
     },
@@ -434,13 +446,14 @@ export default {
       // Prevent modal from closing
       bvModalEvt.preventDefault();
       // Trigger submit handler
-      this.formData.entityName = this.modalData.entityName;
-      this.formData.registrationNumber = this.modalData.registrationNumber;
-      this.formData.incorporationDate = this.modalData.incorporationDate;
-      this.formData.financialYear = this.modalData.financialYear;
+      this.entityInformationData.entity_name = this.modalData.entityName;
+      this.entityInformationData.uen = this.modalData.registrationNumber;
+      this.entityInformationData.incorporation_date =
+        this.modalData.incorporationDate;
+      this.entityInformationData.financial_end = this.modalData.financialYear;
       this.modalData.entityStatus == true
-        ? (this.formData.entityStatus = "Activated")
-        : (this.formData.entityStatus = "Inactivated");
+        ? (this.entityInformationData.status = "activated")
+        : (this.entityInformationData.status = "inactivated");
 
       this.$nextTick(() => {
         this.$bvModal.hide("modal-entity-profile");
@@ -448,26 +461,26 @@ export default {
     },
 
     resetModal_office_address() {
-      this.modalData.addressLine1 = this.formData.addressLine1;
-      this.modalData.addressLine2 = this.formData.addressLine2;
-      this.modalData.city = this.formData.city;
-      this.modalData.stateProvince = this.formData.stateProvince;
-      this.modalData.zipPostcode = this.formData.zipPostcode;
-      this.modalData.selectCountry = this.formData.selectCountry;
-      this.modalData.selectCountryId = this.formData.selectCountryId;
+      this.modalData.addressLine1 = this.entityInformationData.address_line_1;
+      this.modalData.addressLine2 = this.entityInformationData.address_line_2;
+      this.modalData.city = this.entityInformationData.city;
+      this.modalData.stateProvince = this.entityInformationData.state_province;
+      this.modalData.zipPostcode = this.entityInformationData.zip_postcode;
+      this.modalData.selectCountry = this.entityInformationData.select_country;
+      this.modalData.country_id = this.entityInformationData.country_id;
     },
     handleOk_office_address(bvModalEvt) {
       // Prevent modal from closing
       bvModalEvt.preventDefault();
       // Trigger submit handler
-      this.formData.addressLine1 = this.modalData.addressLine1;
-      this.formData.addressLine2 = this.modalData.addressLine2;
-      this.formData.city = this.modalData.city;
-      this.formData.stateProvince = this.modalData.stateProvince;
-      this.formData.zipPostcode = this.modalData.zipPostcode;
-      this.formData.selectCountryId = this.modalData.selectCountryId;
-      this.formData.selectCountry =
-        this.options_country[this.modalData.selectCountryId].text;
+      this.entityInformationData.address_line_1 = this.modalData.addressLine1;
+      this.entityInformationData.address_line_2 = this.modalData.addressLine2;
+      this.entityInformationData.city = this.modalData.city;
+      this.entityInformationData.state_province = this.modalData.stateProvince;
+      this.entityInformationData.zip_postcode = this.modalData.zipPostcode;
+      this.entityInformationData.country_id = this.modalData.country_id;
+      this.entityInformationData.select_country =
+        this.options_country[this.modalData.country_id].text;
 
       this.$nextTick(() => {
         this.$bvModal.hide("modal-office-address");
@@ -475,15 +488,19 @@ export default {
     },
 
     resetModal_principal_activites() {
-      this.modalData.primaryActivity = this.formData.primaryActivity;
-      this.modalData.secondaryActivity = this.formData.secondaryActivity;
+      this.modalData.primaryActivity =
+        this.entityInformationData.primaryActivity;
+      this.modalData.secondaryActivity =
+        this.entityInformationData.secondaryActivity;
     },
     handleOk_principal_activites(bvModalEvt) {
       // Prevent modal from closing
       bvModalEvt.preventDefault();
       // Trigger submit handler
-      this.formData.primaryActivity = this.modalData.primaryActivity;
-      this.formData.secondaryActivity = this.modalData.secondaryActivity;
+      this.entityInformationData.primaryActivity =
+        this.modalData.primaryActivity;
+      this.entityInformationData.secondaryActivity =
+        this.modalData.secondaryActivity;
 
       this.$nextTick(() => {
         this.$bvModal.hide("modal-principal-activites");

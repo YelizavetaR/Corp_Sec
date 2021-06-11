@@ -7,7 +7,7 @@ export default [
             title: 'documents.documents',
             icon: '',
             hideChildren: true,
-            permissions: ['access-user'],
+            permissions: ['list-query'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'documents.documents',
-                    permissions: ['access-user']
+                    permissions: ['list-query']
                 },
                 component: () => import('@views/app/documents/index' /* webpackChunkName: "js/app/documents/index" */),
             },

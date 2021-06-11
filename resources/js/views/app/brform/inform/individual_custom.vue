@@ -5,19 +5,11 @@
     :is-loading="isLoading"
     :loader-color="vars.loaderColor"
   >
-    <div class="header_spans">
-      <span class="header_owner">{{ $t("brform.header_owner") }}</span>
-      <span class="content_1">{{ $t("brform.content_1") }}</span>
-      <span class="content_1">{{ $t("brform.content_2") }}</span>
-      <span class="content_1">{{ $t("brform.content_3") }}</span>
-      <span class="content_2">{{ $t("brform.tocomplete") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove1") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove2") }}</span>
-      <span class="content_2">{{ $t("brform.contentabove3") }}</span>
-    </div>
-    <div class="input_field">
-      <span class="beneficial_owner">{{ $t("brform.beneficial_owner") }}</span>
-      <div class="row" id="blow_input">
+    <div>
+      <div class="row" id="header_spans">
+        <span class="header_owner">{{ $t("brform.header_individual") }}</span>
+      </div>
+      <div class="row" id="input_fieldaares">
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
@@ -25,6 +17,15 @@
             type="text"
             v-model="formData.fullname"
             :error.sync="formErrors.fullname"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.formername')"
+            type="text"
+            v-model="formData.formername"
+            :error.sync="formErrors.formername"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
@@ -40,9 +41,9 @@
           <base-select
             :options="preRequisite.currencies"
             track-by="name"
-            show-by="name"
-            v-model="formData.identification"
-            :label="$t('brform.identification')"
+            show-by="description"
+            v-model="formData.aliasanyselect"
+            :label="$t('brform.aliasany')"
             :allow-empty="false"
             :disabled="isLoading"
             required
@@ -51,10 +52,31 @@
         <div class="col-12 col-md-6 mb-4">
           <base-input
             auto-focus
-            :label="$t('brform.usualresidential')"
+            :label="$t('brform.residential')"
             type="text"
-            v-model="formData.usualresidential"
-            :error.sync="formErrors.usualresidential"
+            v-model="formData.residential"
+            :error.sync="formErrors.residential"
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-select
+            :options="preRequisite.currencies"
+            track-by="name"
+            show-by="description"
+            v-model="formData.countryresidence"
+            :label="$t('brform.countryresidence')"
+            :allow-empty="false"
+            :disabled="isLoading"
+            required
+          />
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <base-input
+            auto-focus
+            :label="$t('brform.contactnumber')"
+            type="text"
+            v-model="formData.contactnumber"
+            :error.sync="formErrors.contactnumber"
           />
         </div>
         <div class="col-12 col-md-6 mb-4">
@@ -76,30 +98,9 @@
         </div>
         <div class="col-12 col-md-6 mb-4">
           <base-select
-            :options="preRequisite.coutryofresidence"
+            :options="preRequisite.currencies"
             track-by="name"
-            show-by="name"
-            v-model="formData.coutry_of_residence"
-            :label="$t('brform.coutry_of_residence')"
-            :allow-empty="false"
-            :disabled="isLoading"
-            required
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-input
-            auto-focus
-            :label="$t('brform.contactnumber')"
-            type="text"
-            v-model="formData.contactnumber"
-            :error.sync="formErrors.contactnumber"
-          />
-        </div>
-        <div class="col-12 col-md-6 mb-4">
-          <base-select
-            :options="preRequisite.nationlity"
-            track-by="name"
-            show-by="name"
+            show-by="description"
             v-model="formData.nationlity"
             :label="$t('brform.nationlity')"
             :allow-empty="false"
@@ -108,27 +109,49 @@
           />
         </div>
       </div>
-    </div>
-    <div class="intented_field">
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.provide") }}
-        </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
-      </div>
-      <div class="span_field">
-        <span class="intented_span">
-          {{ $t("brform.information_owner") }}
-        </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="4"></b-form-textarea>
-      </div>
-    </div>
 
-    <div class="card-body table-responsive p-0" id="table_field">
+      <div class="model_field">
+        <div class="row">
+          <div class="col-md-4">
+            <button class="btn btn-info" id="toggle-btn" @click="toggleModal">
+              {{ $t("brform.select") }}
+            </button>
+          </div>
+          <div class="col-md-8">
+            <b-form-textarea
+              id="textarea-default"
+              rows="3"
+              placeholder="New entity formation | Nominee director | Company Secretary | Nominee partner"
+              disabled
+            ></b-form-textarea>
+          </div>
+        </div>
+      </div>
+      <div class="intented_field">
+        <div class="span_field">
+          <span class="intented_span">
+            {{ $t("brform.intented_span") }}
+          </span>
+          <span class="detail">
+            {{ $t("brform.detailspans") }}
+          </span>
+          <span class="nature">
+            {{ $t("brform.naturespan") }}
+          </span>
+          <span class="relationship">
+            {{ $t("brform.anticicated") }}
+          </span>
+        </div>
+        <div class="textarea_field">
+          <b-form-textarea
+            id="submit_content"
+            rows="5"
+            max-rows="8"
+          ></b-form-textarea>
+        </div>
+      </div>
+    </div>
+    <div class="card-body table-responsive p-0">
       <table class="table table-hover" :is-loading="isLoading">
         <tbody>
           <tr>
@@ -141,16 +164,17 @@
             <td>{{ item.name }}</td>
             <td>
               <select
-                v-model="item.kyc_type"
+                v-model="item.id"
                 class="loads"
                 label="select"
                 v-on:change="getLoadStock(item.id)"
               >
+                <option value="" selected disabled>Choose</option>
                 <option
                   v-for="load in preRequisite.select"
-                  :key="load.name"
+                  :key="load.id"
                   :value="load.name"
-                  :id="load.name"
+                  :id="load.id"
                   v-bind:selected="selected4"
                 >
                   {{ load.name }}
@@ -171,6 +195,40 @@
       </table>
       <pagination :data="tabledata"></pagination>
     </div>
+    <b-modal
+      ref="my-modal"
+      hide-footer
+      title="PLEASE SELECT THE TYPE OF SERVICE REQUIRED"
+    >
+      <div class="d-block">
+        <b-form-group v-slot="{ ariaDescribedby }">
+          <b-form-checkbox
+            v-for="option in options"
+            v-model="selected"
+            :key="option.value"
+            :value="option.value"
+            :aria-describedby="ariaDescribedby"
+            name="flavour-3a"
+          >
+            {{ option.text }}
+          </b-form-checkbox>
+        </b-form-group>
+      </div>
+      <b-button
+        class="mt-3"
+        variant="outline-danger"
+        block
+        @click="hideModal"
+        >{{ $t("brform.close") }}</b-button
+      >
+      <b-button
+        class="mt-2"
+        variant="outline-warning"
+        block
+        @click="toggleModal"
+        >{{ $t("brform.save") }}</b-button
+      >
+    </b-modal>
     <div id="file-drag-drop">
       <vue-dropzone
         ref="myVueDropzone"
@@ -193,11 +251,10 @@
     <div class="director_field">
       <div class="span_field">
         <span class="intented_span">
-          {{ $t("brform.kycdocment") }}
+          {{ $t("brform.attachheader") }}
         </span>
-      </div>
-      <div class="textarea_field">
-        <b-form-textarea id="textarea-default" rows="6"></b-form-textarea>
+        <span class="kyc_span">{{ $t("brform.span1_kyca") }}</span>
+        <span class="kyc_span">{{ $t("brform.span2_kycb") }}</span>
       </div>
     </div>
     <div class="button_grup">
@@ -206,7 +263,7 @@
         @click="myFilter"
         @click.stop="
           $router.push({
-            name: 'appfacorporate_agent',
+            name: 'appfaindividual_owner',
           })
         "
         class="btn btn-info"
@@ -253,7 +310,6 @@ export default {
   },
   data() {
     return {
-      coutry_of_residence: "",
       selected4: "select",
       selected1: "",
       selected2: null,
@@ -286,8 +342,6 @@ export default {
         parallelUploads: 3,
       },
       tabledata: [],
-      idarray: [],
-      selectvalue: [],
       fileName: "",
       select: "select",
       messages: [],
@@ -315,16 +369,16 @@ export default {
       ],
       showNewModel: false,
       formData: {
-        date_birth: "",
-        usualresidential: "",
-        fullname: "William lea",
-        aliasany: "William lea",
-        identification: "",
+        fullname: "Popular Pte Ltd",
+        formername: "Cho chap",
+        aliasany: "Cho chap",
         entity_type: "",
-        registration: "",
+        aliasanyselect: "",
+        countryresidence: "",
+        nationlity: "",
+        residential: "",
         officeadress: "",
         contactnumber: "",
-        nationlity: "",
         principle: "",
         orgRecognitionNumber: "",
         orgRecognitionBody: "",
@@ -332,7 +386,7 @@ export default {
         orgAddressLine2: "",
         orgCity: "",
         orgState: "",
-        orgZipcode: "",
+        date_birth: "",
         orgCountry: "",
         orgPhone: "",
         orgFax: "",
@@ -348,13 +402,22 @@ export default {
       preRequisite: {
         currencies: [
           {
-            name: "NFIC",
+            description: "Afghanistan Afghani",
+            name: "AFN",
+            symbol: "؋",
+            position: "prefix",
           },
           {
+            description: "af sdf",
             name: "AFN",
+            symbol: "؋",
+            position: "prefix",
           },
           {
+            description: "gfg fgfg",
             name: "AFN",
+            symbol: "؋",
+            position: "prefix",
           },
         ],
         select: [
@@ -375,26 +438,24 @@ export default {
             name: "others",
           },
         ],
-        coutryofresidence: [
+        registrationca: [
           {
+            description: "gfg fgfg",
             name: "AFN",
+            symbol: "؋",
+            position: "prefix",
           },
           {
+            description: "gfg fgfg",
             name: "AFN",
+            symbol: "؋",
+            position: "prefix",
           },
           {
+            description: "gfg fgfg",
             name: "AFN",
-          },
-        ],
-        nationlity: [
-          {
-            name: "AFN",
-          },
-          {
-            name: "AFN",
-          },
-          {
-            name: "AFN",
+            symbol: "؋",
+            position: "prefix",
           },
         ],
       },
@@ -405,25 +466,21 @@ export default {
   },
   methods: {
     myFilter() {
-      document.querySelector("#navigation1").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation2").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation3").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation4").style.backgroundColor = "#32c620";
-      document.querySelector("#navigation6").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation7").style.backgroundColor = "#dee2e9";
-      document.querySelector("#navigation5").style.backgroundColor = "#dee2e9";
+      document.querySelector("#in_navigation1").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation4").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation5").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation6").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation7").style.backgroundColor =
+        "#dee2e9";
+      document.querySelector("#in_navigation3").style.backgroundColor =
+        "#32c620";
     },
     getLoadStock(id) {
-      let valuea = document.querySelector(".loads").value;
-      let data = { id: id, value: valuea };
-      // if (this.idarray.indexOf(data.id) == -1) {
-      //   this.idarray.push(data);
-      // } else {
-      //   this.idarray.forEach((element) => {
-      //     this.idarray = element.filter((item) => item.id !== id);
-      //   });
-      // }
-      console.log(this.idarray);
+      console.log(id);
     },
     deletePhoto(id) {
       axios({
@@ -435,12 +492,12 @@ export default {
         },
       })
         .then((response) => {
+          console.log(response.data);
           this.$toasted.success(response.data.success);
           setTimeout(() => {
             this.$toasted.clear();
             this.fetchINitData();
           }, 1500);
-          console.log(response);
         })
         .catch((error) => {
           console.error(error.message);
@@ -459,7 +516,6 @@ export default {
           this.isLoading = false;
           if (response.data.data != []) {
             this.tabledata = response.data.data;
-            console.log(this.tabledata);
           } else {
             this.tabledata = [];
           }
@@ -502,12 +558,13 @@ export default {
   margin-top: 10px;
   display: grid;
 }
+
 .intented_field {
-  margin-top: 10px;
   padding: 10px;
   border-style: solid;
   border-width: 1px;
-  border-color: aliceblue;
+  border-top: hidden;
+  border-color: #babdc0;
 }
 .detail {
   color: black;
@@ -535,7 +592,7 @@ export default {
   margin-left: 20px;
 }
 #textarea-default {
-  font-size: 15px;
+  font-size: 25px;
 }
 .modal-title {
   font-size: 20px;
@@ -590,6 +647,10 @@ div.remove-container {
 div.remove-container a {
   color: red;
   cursor: pointer;
+}
+.kyc_span {
+  color: black;
+  font-size: 15px;
 }
 a.submit-button {
   display: block;
@@ -646,6 +707,12 @@ progress {
   line-height: 100px;
   border-radius: 4px;
 }
+#input_fieldaares {
+  border-style: solid;
+  border-width: 1px;
+  padding: 15px;
+  border-top: hidden;
+}
 .director_field {
   padding: 10px;
   border-style: solid;
@@ -696,6 +763,13 @@ progress {
   margin-left: 10px !important;
   margin-top: 10px;
 }
+.director_field {
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 10px;
+  border-color: darkgray;
+}
 .plus_icon1 {
   font-size: 20px !important;
   color: #f4f4f7 !important;
@@ -722,38 +796,15 @@ progress {
   display: flex;
   padding-left: 35px;
 }
-.header_spans {
-  display: grid;
+#header_spans {
+  border-style: solid;
+  border-width: 1px;
+  padding: 20px;
 }
 .header_owner {
   font-size: 20px;
   color: #464242;
   font-weight: 600;
-}
-.content_1 {
-  color: #211e1e;
-  font-weight: 600;
-}
-.content_2 {
-  color: #211e1e;
-  font-weight: 600;
-}
-#table_field {
-  margin-top: 10px;
-}
-.input_field {
-  margin-top: 20px;
-  border-style: solid;
-  padding: 20px;
-  border-width: 1px;
-  color: currentcolor;
-}
-.beneficial_owner {
-  font-size: 23px;
-  color: #212020;
-}
-#blow_input {
-  margin-top: 10px;
 }
 .button_grup {
   display: flex;

@@ -7,7 +7,7 @@ export default [
             title: 'mailroom.mailroom',
             icon: '',
             hideChildren: true,
-            permissions: ['access-user'],
+            permissions: ['list-query'],
         },
         component: {
             template: '<router-view></router-view>'
@@ -19,7 +19,7 @@ export default [
                 meta: {
                     trans: 'global.list',
                     title: 'mailroom.mailroom',
-                    permissions: ['access-user']
+                    permissions: ['list-query']
                 },
                 component: () => import('@views/app/mailroom/index' /* webpackChunkName: "js/app/mailroom/index" */),
             },

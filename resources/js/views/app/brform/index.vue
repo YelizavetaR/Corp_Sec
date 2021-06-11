@@ -54,9 +54,8 @@
           v-if="isInitialized"
           :meta="entities.meta"
           :filtered="isFiltered"
-          entity-title="br_form.brfom"
-          entities-title="br_form.brfoms"
-          entity-description="br_form.description"
+          entity-title="brform.brfom"
+          entities-title="brform.brfoms"
         >
           <b-table
             v-show="entities.meta.total"
@@ -70,9 +69,6 @@
             :per-page.number="entities.meta.perPage"
             :current-page="entities.meta.currentPage"
             :filters="null"
-            @row-dblclicked="
-              rowClickHandler({ route: 'appBR_FormView' }, $event)
-            "
           >
             <template #cell(Date)="row">
               <view-date
