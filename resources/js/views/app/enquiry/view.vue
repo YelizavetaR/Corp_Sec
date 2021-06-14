@@ -10,7 +10,6 @@
       <div class="col-1"></div>
       <div class="col-10 text-area">
         <div class="bold">{{ entity.subject }}</div>
-        <!-- <div class="bold">{{ loggedInUser.name }}</div> -->
         <br />
         <div>{{ entity.message }}</div>
         <br />

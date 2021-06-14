@@ -4,6 +4,8 @@ return array(
     'users' => 'Users',
     'props' => array(
         'email' => 'Email',
+        'contactnumber' => 'Contact Number',
+        'usergroup' => 'User Group',
         'username' => 'Username',
         'name' => 'Name',
         'password' => 'Password',

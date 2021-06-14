@@ -135,16 +135,28 @@ class EntityController extends Controller
     {
         $this->validateData($request);
 
+        if ($request->address_line_1) {
+            $address_line_1 = $request->address_line_1;
+        } else {
+            $address_line_1 = $request->address_line1;
+        }
+
+        if ($request->address_line_2) {
+            $address_line_2 = $request->address_line_2;
+        } else {
+            $address_line_2 = $request->address_line2;
+        }
+
         $entity_type        =  $request->entity_type;
         $entity_name        =  $request->entity_name;
+        $status             =  $request->status;
+        $uen                =  $request->uen;
         $incorporation_date =  $request->incorporation_date;
         $financial_end      =  $request->financial_end;
         $ssic_id            =  $request->ssic_id;
         $describe_business  =  $request->describe_business;
         $question1_id       =  $request->question1_id;
         $question2_id       =  $request->question2_id;
-        $address_line_1     =  $request->address_line1;
-        $address_line_2     =  $request->address_line2;
         $city               =  $request->city;
         $state_province     =  $request->state_province;
         $zip_postcode       =  $request->zip_postcode;
@@ -153,9 +165,8 @@ class EntityController extends Controller
         $data = array(
             'entity_type'           => $entity_type,
             'entity_name'           => $entity_name,
-            'email'                 => '',
-            'status'                => 'inactivated',
-            'uen'                   => '',
+            'status'                => $status,
+            'uen'                   => $uen,
             'incorporation_date'    => $incorporation_date,
             'financial_end'         => $financial_end,
             'ssic_id'               => $ssic_id,

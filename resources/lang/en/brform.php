@@ -124,6 +124,7 @@ return array(
     'residential' => 'Usual residential address',
     'countryresidence' => 'Country of residence',
     'coporatepage5' => 'PEP PG1',
+    'status' => 'Status',
     'header_pg2' => 'TO COMPLETE, IF APPLICABLE',
     'Domestic' => 'Domestic PEP - 1',
     'coporatepage6' => 'PEP PG2',

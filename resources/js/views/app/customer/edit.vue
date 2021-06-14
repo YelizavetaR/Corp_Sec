@@ -298,7 +298,6 @@ export default {
   watch: {
     question1(newQuestion) {
       this.question1_selected = newQuestion;
-      console.log(this.question1_selected);
     },
     question2(newQuestion) {
       this.question2_selected = newQuestion;

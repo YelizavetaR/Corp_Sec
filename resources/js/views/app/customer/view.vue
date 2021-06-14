@@ -12,7 +12,7 @@
           ><entity-information-content :uuid="entity.uuid"
         /></b-tab>
         <b-tab :title="$t('customer.directors_users')"
-          ><directors-users-content
+          ><directors-users-content :id="entity.id"
         /></b-tab>
         <b-tab :title="$t('documents.documents')"><documents-content /></b-tab>
         <b-tab :title="$t('enquiry.enquiry')"><enquiry-content /></b-tab>

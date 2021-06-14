@@ -8,6 +8,10 @@ use App\Http\Requests\Auth\UserRequest;
 use App\Models\User;
 use App\Repositories\Auth\UserRepository;
 use App\Http\Resources\User as UserResource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+use PhpParser\Node\Expr\FuncCall;
 
 class UserController extends Controller
 {
@@ -41,7 +45,7 @@ class UserController extends Controller
     public function preference()
     {
         $this->repo->preference();
-        
+
         return $this->success(['message' => __('global.updated', ['attribute' => __('user.user_preference')])]);
     }
 
@@ -66,7 +70,52 @@ class UserController extends Controller
 
         return $this->repo->paginate();
     }
+    public function insert(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+            'gender' => 'required',
+            'contactnumber' => 'required',
+            'selected' => 'required',
+            'selected1' => 'required',
+            'selected2' => 'required',
+            'image' => 'required',
+            'status' => 'required',
+        ]);
 
+        $name = $request->name;
+        $username = $request->username;
+        $email = $request->email;
+        $gender = $request->gender;
+        $contactnumber = $request->contactnumber;
+        $selected = $request->selected;
+        $selected1 = $request->selected1;
+        $selected2 = $request->selected2;
+        $image = $request->image;
+        $status = $request->status;
+        if ($request->image) {
+            $avatarname = time() . '.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
+            \Image::make($request->image)->save(public_path('uploads/avatar/') . $avatarname);
+            $request->merge(['image' => $avatarname]);
+            $file_path = public_path('uploads/avatar/') . $avatarname;
+            return response()->json($file_path);
+        }
+        $data = array(
+            'uuid'                  => Str::uuid(),
+            'name'                  => $name,
+            'username'              => $username,
+            'email'                 => $email,
+            'gender'                => $gender,
+            'contactnumber'         => $contactnumber,
+            'selected'              => $selected,
+            'selected1'             => $selected1,
+            'selected2'             => $selected2,
+            'image'                 => $image,
+            'status'                => $status,
+        );
+    }
     /**
      * Create user
      * @post ("/api/users")
@@ -89,6 +138,7 @@ class UserController extends Controller
 
         return $this->success(['message' => __('global.added', ['attribute' => __('user.user')]), 'user' => $user]);
     }
+
 
     /**
      * Get user detail

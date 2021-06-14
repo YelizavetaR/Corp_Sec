@@ -61,7 +61,7 @@ class UserSeeder extends Seeder
             $user->preference        = [];
             $user->remember_token    = Str::random(10);
             $user->save();
-            
+
             $user->assignRole(Arr::get($data, 'role'));
         }
     }

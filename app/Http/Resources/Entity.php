@@ -15,6 +15,7 @@ class Entity extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'uuid'               => $this->uuid,
             'entity_type'        => $this->entity_type,
             'entity_name'        => $this->entity_name,

@@ -39,7 +39,7 @@
         <div class="font-weight-bold">
           {{ $t("customer.entity_status") }}
         </div>
-        <div>{{ entityInformationData.status.toUpperCase() }}</div>
+        <div>{{ entityInformationData.status }}</div>
       </div>
     </div>
     <b-modal
@@ -58,7 +58,6 @@
               :label="formLabels.entityName"
               type="text"
               v-model="modalData.entityName"
-              :error.sync="formErrors.entityName"
             />
           </div>
           <div class="col-12 col-md-6 mb-3">
@@ -66,7 +65,6 @@
               :label="formLabels.registrationNumber"
               type="text"
               v-model="modalData.registrationNumber"
-              :error.sync="formErrors.registrationNumber"
             />
           </div>
           <div class="col-12 col-md-6 mb-3">
@@ -75,7 +73,6 @@
               addon-right-icon="far fa-calendar-alt"
               type="text"
               v-model="modalData.incorporationDate"
-              :error.sync="formErrors.incorporationDate"
               :is-wrapper="true"
             >
               <date-picker
@@ -92,7 +89,6 @@
               addon-right-icon="far fa-calendar-alt"
               type="text"
               v-model="modalData.financialYear"
-              :error.sync="formErrors.financialYear"
               :is-wrapper="true"
             >
               <date-picker
@@ -180,7 +176,6 @@
               :label="formLabels.addressLine1"
               type="text"
               v-model="modalData.addressLine1"
-              :error.sync="formErrors.addressLine1"
             />
           </div>
           <div class="col-12 col-md-6 mb-3">
@@ -188,7 +183,6 @@
               :label="formLabels.addressLine2"
               type="text"
               v-model="modalData.addressLine2"
-              :error.sync="formErrors.addressLine2"
             />
           </div>
           <div class="col-12 col-md-6 mb-3">
@@ -196,7 +190,6 @@
               :label="formLabels.city"
               type="text"
               v-model="modalData.city"
-              :error.sync="formErrors.city"
             />
           </div>
           <div class="col-12 col-md-6 mb-3">
@@ -204,7 +197,6 @@
               :label="formLabels.stateProvince"
               type="text"
               v-model="modalData.stateProvince"
-              :error.sync="formErrors.stateProvince"
             />
           </div>
           <div class="col-12 col-md-5 mb-3">
@@ -212,7 +204,6 @@
               :label="formLabels.zipPostcode"
               type="text"
               v-model="modalData.zipPostcode"
-              :error.sync="formErrors.zipPostcode"
               class="select-padding"
             />
           </div>
@@ -272,7 +263,6 @@
               :label="formLabels.primaryActivity"
               type="text"
               v-model="modalData.primaryActivity"
-              :error.sync="formErrors.primaryActivity"
             />
           </div>
           <div class="col-12 col-lg-12">
@@ -280,7 +270,6 @@
               :label="formLabels.secondaryActivity"
               type="text"
               v-model="modalData.secondaryActivity"
-              :error.sync="formErrors.secondaryActivity"
             />
           </div>
         </div>
@@ -412,6 +401,7 @@ export default {
   },
   methods: {
     getData() {
+      this.isLoading = true;
       axios({
         method: "get",
         url: `/entity/show/${this.uuid}`,
@@ -429,9 +419,31 @@ export default {
           }
         })
         .catch((error) => {
+          this.isLoading = false;
           console.error(error.message);
         });
     },
+    updateEntity() {
+      this.isLoading = true;
+      this.Custom({
+        url: `entity/update/${this.uuid}`,
+        method: "post",
+        data: this.entityInformationData,
+      })
+        .then((response) => {
+          console.log(response);
+          this.$toasted.success($t("global.success"));
+          setTimeout(() => {
+            this.$toasted.clear();
+          }, 1500);
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          formUtil.handleErrors(error);
+        });
+    },
+
     resetModal_entity_profile() {
       this.modalData.entityName = this.entityInformationData.entity_name;
       this.modalData.registrationNumber = this.entityInformationData.uen;
@@ -454,6 +466,7 @@ export default {
       this.modalData.entityStatus == true
         ? (this.entityInformationData.status = "activated")
         : (this.entityInformationData.status = "inactivated");
+      this.updateEntity();
 
       this.$nextTick(() => {
         this.$bvModal.hide("modal-entity-profile");
@@ -481,6 +494,7 @@ export default {
       this.entityInformationData.country_id = this.modalData.country_id;
       this.entityInformationData.select_country =
         this.options_country[this.modalData.country_id].text;
+      this.updateEntity();
 
       this.$nextTick(() => {
         this.$bvModal.hide("modal-office-address");

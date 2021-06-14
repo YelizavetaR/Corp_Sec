@@ -56,4 +56,12 @@ return array(
     'share' => 'Share',
     'uen' => 'UEN',
     'status' => 'Status',
+    'members' => 'Members',
+    'add_member' => 'Add Member',
+    'member_type' => 'Member Type',
+    'shareholder_type' => 'Share Holder Type',
+    'share_type' => 'Share Type',
+    'share_capital' => 'Share Capital',
+    'share_number' => 'Share Number',
+    'action' => 'Action',
 );
